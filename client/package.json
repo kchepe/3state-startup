@@ -12,8 +12,7 @@
     "ts-lint": "tsc --noEmit --incremental --watch",
     "ts-lint-commit-hook": "tsc --noEmit --incremental",
     "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore .",
-    "prepare": "husky install"
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@apollo/client": "^3.8.0-rc.1",
@@ -52,7 +51,6 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.8.0",
-    "husky": "^8.0.3",
     "prettier": "^2.8.8"
   }
 }
