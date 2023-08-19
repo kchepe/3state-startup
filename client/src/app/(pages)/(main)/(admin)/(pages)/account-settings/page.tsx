@@ -3,7 +3,7 @@ import getAuthClient from '@/lib/authClient';
 
 const AccountSettings = async () => {
   const { data } = await getAuthClient().query({ query: GET_CURRENT_USER });
-  return <div>{data.currentUser.firstName} </div>;
+  return <div>{data.currentUser.firstName}</div>;
 };
 
 export default AccountSettings;
