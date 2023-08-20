@@ -8,11 +8,6 @@ const nextConfig = {
     GRAPHQL_ENDPOINT: 'http://server:3000/graphql',
     ENVIRONMENT: 'development',
   },
-  modularizeImports: {
-    'react-icons': {
-      transform: 'react-icons/{{member}}',
-    },
-  },
 };
 
 module.exports = nextConfig;
