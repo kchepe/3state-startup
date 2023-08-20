@@ -1,34 +1,43 @@
-import { TbCurrencyPeso } from 'react-icons/tb';
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
-import { BiPhone } from 'react-icons/bi';
-import InputPrice from '@/app/common/FormBuilder/InputPrice';
+import FormWrapper from '@/app/common/FormWrapper';
 import Button from '@/app/common/Button';
-import InputPhone from '@/app/common/FormBuilder/InputPhone';
+import PropertyDetailsForm from './components/PropertyDetailsForm';
 
-const AddPropertyForm = () => {
+const propertyForms = [
+  {
+    title: 'Property Details',
+    form: <PropertyDetailsForm />,
+  },
+  {
+    title: 'Address',
+    form: <PropertyDetailsForm />,
+  },
+  {
+    title: 'Description',
+    form: <PropertyDetailsForm />,
+  },
+  {
+    title: 'Ameneties',
+    form: <PropertyDetailsForm />,
+  },
+  {
+    title: 'Upload Photos',
+    form: <PropertyDetailsForm />,
+  },
+];
+
+const PropertyForm = () => {
   const { handleSubmit } = useFormContext();
 
   const handleAddProperty: SubmitHandler<FieldValues> = (property) => property;
-
   return (
-    <div className="grid grid-cols-12 gap-4">
-      <div className="col-span-full">
-        <InputPhone
-          name="phone"
-          startIcon={<BiPhone className="text-primary text-lg" />}
-          label="Phone"
-          placeholder="Enter Phone"
-        />
-      </div>
-      <div className="col-span-full">
-        <InputPrice
-          name="price"
-          startIcon={<TbCurrencyPeso className="text-primary text-lg" />}
-          label="Price"
-          placeholder="Enter Price"
-        />
-      </div>
-      <div className="col-span-full">
+    <div>
+      {propertyForms.map((form) => (
+        <FormWrapper title={form.title} key={`${form.title}`}>
+          {form.form}
+        </FormWrapper>
+      ))}
+      <div className="text-right mt-6">
         <Button color="primary" onClick={handleSubmit(handleAddProperty)}>
           Submit
         </Button>
@@ -37,4 +46,4 @@ const AddPropertyForm = () => {
   );
 };
 
-export default AddPropertyForm;
+export default PropertyForm;

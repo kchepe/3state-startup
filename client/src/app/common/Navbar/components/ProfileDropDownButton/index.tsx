@@ -16,8 +16,8 @@ const ProfileDropDownButton = () => {
   const { data } = useSession();
 
   const menu = [
-    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <BsHouseAdd /> },
-    { label: 'Add Property', fn: () => push('/my-properties/add-property'), icon: <BiUser /> },
+    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <BiUser /> },
+    { label: 'Add Property', fn: () => push('/my-properties/add-property'), icon: <BsHouseAdd /> },
     { label: 'Sign Out', fn: () => signOut({ callbackUrl: '/' }), icon: <IoExitOutline /> },
   ];
 

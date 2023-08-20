@@ -34,15 +34,15 @@ const PriceField: FC<PriceFieldProps> = ({
         autoComplete="off"
         className={clsx(
           className,
-          'w-full p-4 rounded focus:outline-none text-gray-800',
+          'w-full p-4 rounded text-gray-800',
           ' placeholder:text-gray-400 placeholder:text-xs',
           {
             'pl-9': startIcon,
             'pl-[17px]': !startIcon,
             'pr-9': endIcon,
             'pr-[17px]': !endIcon,
-            border: outlined,
-            'border-none': !outlined,
+            'border focus:ring-1 focus:ring-inset focus:ring-primary': outlined,
+            'border-none focus:outline-none': !outlined,
           },
         )}
         {...inputProps}
