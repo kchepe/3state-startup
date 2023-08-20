@@ -1,16 +1,17 @@
 import { TbCurrencyPeso } from 'react-icons/tb';
-import { BiPhone } from 'react-icons/bi';
 import InputPrice from '@/app/common/FormBuilder/InputPrice';
-import InputPhone from '@/app/common/FormBuilder/InputPhone';
+import SelectForm from '@/app/common/FormBuilder/SelectForm';
 
 const PropertyDetailsForm = () => (
   <div className="grid grid-cols-12 gap-4">
     <div className="col-span-full">
-      <InputPhone
-        name="phone"
-        startIcon={<BiPhone className="text-primary text-lg" />}
-        label="Phone"
-        placeholder="Enter Phone"
+      <SelectForm
+        name="housingMethod"
+        options={[
+          { label: 'Sale', value: 'sale' },
+          { label: 'Rent', value: 'rent' },
+        ]}
+        label="Offer"
       />
     </div>
     <div className="col-span-full">

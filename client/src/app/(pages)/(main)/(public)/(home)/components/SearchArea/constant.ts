@@ -1,5 +1,4 @@
-export const housingMethods = ['Rent', 'Buy'];
-
+// eslint-disable-next-line import/prefer-default-export
 export const propertyOptions = [
   { label: 'Any', value: 'any' },
   { label: 'Commercial', value: 'commercial' },

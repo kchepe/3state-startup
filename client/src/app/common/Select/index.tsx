@@ -1,6 +1,7 @@
 import { FC, Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { BiCheck, BiSolidChevronDown } from 'react-icons/bi';
+import clsx from 'clsx';
 
 export interface IOption {
   label: string;
@@ -35,7 +36,13 @@ const Select: FC<SelectProps> = ({ options, value, onChange, className, label = 
           rounded-md py-3 pl-3 pr-10 text-left text-gray-900 
           shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6`}
           >
-            <span className="block truncate">{value.label}</span>
+            <span
+              className={clsx('block truncate', {
+                'text-gray-500': !value.label,
+              })}
+            >
+              {value.label ? value.label : 'Select here...'}
+            </span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <BiSolidChevronDown className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </span>
