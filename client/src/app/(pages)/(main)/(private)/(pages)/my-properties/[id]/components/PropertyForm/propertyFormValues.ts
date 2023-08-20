@@ -4,6 +4,7 @@ export const addPropertyInitialValues = {
   price: '',
   phone: '',
   housingMethod: { label: '', value: '' },
+  type: '',
 };
 
 export const addPropertySchema = yup.object().shape({
@@ -13,4 +14,5 @@ export const addPropertySchema = yup.object().shape({
     label: yup.string(),
     value: yup.string(),
   }),
+  type: yup.string(),
 });

@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import PriceField, { PriceFieldProps } from '../PriceField';
+import NumberField, { NumberFieldProps } from '../NumberField';
 
-interface InputPriceProps extends PriceFieldProps {
+interface InputNumberProps extends NumberFieldProps {
   name: string;
 }
 
-const InputPrice: FC<InputPriceProps> = ({ name, ...inputProps }) => {
+const InputNumber: FC<InputNumberProps> = ({ name, ...inputProps }) => {
   const {
     control,
     formState: { errors },
@@ -17,7 +17,7 @@ const InputPrice: FC<InputPriceProps> = ({ name, ...inputProps }) => {
         name={name}
         control={control}
         render={({ field: { name: inputName, onBlur, onChange, value } }) => (
-          <PriceField
+          <NumberField
             outlined
             name={inputName}
             onBlur={onBlur}
@@ -35,4 +35,4 @@ const InputPrice: FC<InputPriceProps> = ({ name, ...inputProps }) => {
   );
 };
 
-export default InputPrice;
+export default InputNumber;

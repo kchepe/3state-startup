@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import React, { FC, ReactElement } from 'react';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
-export interface PriceFieldProps extends NumericFormatProps {
+export interface NumberFieldProps extends NumericFormatProps {
   label?: string;
   className?: string;
   outlined?: boolean;
@@ -10,7 +10,7 @@ export interface PriceFieldProps extends NumericFormatProps {
   endIcon?: ReactElement;
 }
 
-const PriceField: FC<PriceFieldProps> = ({
+const NumberField: FC<NumberFieldProps> = ({
   label,
   className,
   outlined = false,
@@ -54,4 +54,4 @@ const PriceField: FC<PriceFieldProps> = ({
   </div>
 );
 
-export default PriceField;
+export default NumberField;

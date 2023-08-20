@@ -2,11 +2,16 @@ import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
 import FormWrapper from '@/app/common/FormWrapper';
 import Button from '@/app/common/Button';
 import PropertyDetailsForm from './components/PropertyDetailsForm';
+import UnitDetailsForm from './components/UnitDetailsForm';
 
 const propertyForms = [
   {
     title: 'Property Details',
     form: <PropertyDetailsForm />,
+  },
+  {
+    title: 'Unit Details',
+    form: <UnitDetailsForm />,
   },
   {
     title: 'Address',

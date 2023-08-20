@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { IOption } from '@/app/common/Select';
 import { IOfferType } from '@/app/types/types';
 import Button from '@/app/common/Button';
+import { propertyTypeOptions } from '@/app/constant';
 import RentBuy from './components/RentBuy';
 import Property from './components/Property';
-import { propertyOptions } from './constant';
 
 const SearchArea = () => {
   const [rentBuyValue, setRentBuyValue] = useState<IOfferType>('buy');
-  const [selectedProperty, setSelectedProperty] = useState<IOption>(propertyOptions[0]);
+  const [selectedProperty, setSelectedProperty] = useState<IOption>(propertyTypeOptions[0]);
 
   const handleChangeMethod = (housingMethod: IOfferType) => {
     setRentBuyValue(housingMethod);

@@ -38,10 +38,10 @@ const Select: FC<SelectProps> = ({ options, value, onChange, className, label = 
           >
             <span
               className={clsx('block truncate', {
-                'text-gray-500': !value.label,
+                'text-gray-500': !value,
               })}
             >
-              {value.label ? value.label : 'Select here...'}
+              {value && value.label ? value.label : 'Select here...'}
             </span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <BiSolidChevronDown className="h-5 w-5 text-gray-400" aria-hidden="true" />

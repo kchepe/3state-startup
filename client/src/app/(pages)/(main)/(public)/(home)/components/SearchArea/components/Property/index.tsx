@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Select, { IOption } from '@/app/common/Select';
 import TextField from '@/app/common/TextField';
-import { propertyOptions } from '../../constant';
+import { propertyTypeOptions } from '@/app/constant';
 
 interface PropertyProps {
   selectedProperty: IOption;
@@ -12,7 +12,7 @@ const Property: FC<PropertyProps> = ({ selectedProperty, handleChangeSelectPrope
   <div className="flex items-center gap-3">
     <div className="w-44">
       <Select
-        options={propertyOptions}
+        options={propertyTypeOptions}
         value={selectedProperty}
         onChange={handleChangeSelectProperty}
         className="bg-gray-100"
