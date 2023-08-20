@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Button from '@/app/common/Button';
 import DashboardWrapper from '@/app/common/DashboardWrapper';
-import ProfileInformation from './add-property/components/ProfileInformation.tsx';
+import ProfileInformation from './add-property/components/ProfileInformation';
 
 const MyProperties = () => (
   <div className="flex flex-col gap-4">

@@ -4,6 +4,7 @@ import { FieldValues, SubmitHandler } from 'react-hook-form';
 import Form from '@/app/common/FormBuilder/Form';
 import Button from '@/app/common/Button';
 import InputForm from '@/app/common/FormBuilder/InputForm';
+import InputPhone from '@/app/common/FormBuilder/InputPhone';
 
 const schema = yup.object().shape({
   firstname: yup.string().required('Firstname is required'),
@@ -29,7 +30,7 @@ const ContactForm = () => {
           <InputForm name="lastname" placeholder="Enter your Lastname" />
         </div>
         <div>
-          <InputForm name="phoneNumber" placeholder="Enter your Phone number" />
+          <InputPhone name="phoneNumber" placeholder="Enter your Phone number" />
         </div>
         <div className="w-full">
           <Button color="primary" fullWidth type="submit" size="large">
