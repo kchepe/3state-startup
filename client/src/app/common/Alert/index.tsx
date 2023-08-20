@@ -3,9 +3,9 @@
 import { IoClose, IoCloseCircleSharp } from 'react-icons/io5';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { PiWarningCircleFill } from 'react-icons/pi';
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import clsx from 'clsx';
-import { NotificationContext } from '@/app/context/NotificationContext';
+import useNotificationManager from '@/app/hooks/useNotificationManager';
 
 export type ISeverity = 'error' | 'info' | 'success';
 
@@ -16,17 +16,16 @@ interface AlertProps {
 
 const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
   const {
-    state: { show, severity, message },
-    dispatch,
-  } = useContext(NotificationContext);
-
+    notificationState: { show, severity, message },
+    hideNotification,
+  } = useNotificationManager();
   useEffect(() => {
     if (show && !alwaysShow) {
-      const time = setTimeout(() => dispatch({ type: 'HIDE_NOTIFICATION' }), timeout);
+      const time = setTimeout(() => hideNotification(), timeout);
       return () => clearTimeout(time);
     }
     return undefined;
-  }, [show, alwaysShow, timeout, dispatch]);
+  }, [show, alwaysShow, timeout, hideNotification]);
 
   const severityIcon = {
     success: <BsCheckCircleFill className="h-5 w-5 text-green-400" aria-hidden="true" />,
@@ -61,7 +60,7 @@ const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
           <div className="-mx-1.5 -my-1.5">
             <button
               type="button"
-              onClick={() => dispatch({ type: 'HIDE_NOTIFICATION' })}
+              onClick={hideNotification}
               className={clsx('inline-flex rounded-md p-1.5', {
                 'text-blue-500 hover:bg-blue-100 bg-blue-50': isMatchSeverity('info'),
                 'text-red-500 hover:bg-red-100 bg-red-50': isMatchSeverity('error'),

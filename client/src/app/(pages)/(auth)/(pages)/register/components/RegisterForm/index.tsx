@@ -3,7 +3,6 @@ import { BsPerson } from 'react-icons/bs';
 import { MdOutlineMail } from 'react-icons/md';
 import { useMutation } from '@apollo/client';
 import Link from 'next/link';
-import { useContext } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { BiPhone } from 'react-icons/bi';
@@ -13,19 +12,18 @@ import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
 import SelectForm from '@/app/common/FormBuilder/SelectForm';
 import { ADD_USER } from '@/app/gql/mutations/user';
 import Alert from '@/app/common/Alert';
-import { NotificationContext } from '@/app/context/NotificationContext';
 import InputPhone from '@/app/common/FormBuilder/InputPhone';
+import useNotificationManager from '@/app/hooks/useNotificationManager';
 import { userType } from './registerFormValues';
 
 const RegisterForm = () => {
   const { handleSubmit } = useFormContext();
   const { push } = useRouter();
-  const { dispatch } = useContext(NotificationContext);
+  const { showError, showNotification } = useNotificationManager();
+
   const [createUser, { loading }] = useMutation(ADD_USER, {
     onError: () => {
-      dispatch({
-        type: 'SHOW_SERVER_ERROR',
-      });
+      showError();
     },
   });
 
@@ -51,10 +49,7 @@ const RegisterForm = () => {
       if (data.signup.success) {
         handleSign({ email: data.signup.data.email, password: submitValues.password });
       } else {
-        dispatch({
-          type: 'SHOW_NOTIFICATION',
-          payload: { message: data.signup.message, severity: 'error' },
-        });
+        showNotification(data.signup.message, 'error');
       }
     }
   };

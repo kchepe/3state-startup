@@ -3,20 +3,20 @@
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
 import { MdOutlineEmail } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
-import { FC, useContext, useState } from 'react';
+import { FC, useState } from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import Button from '@/app/common/Button';
 import InputForm from '@/app/common/FormBuilder/InputForm';
 import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
 import Alert from '@/app/common/Alert';
-import { NotificationContext } from '@/app/context/NotificationContext';
+import useNotificationManager from '@/app/hooks/useNotificationManager';
 
 const SignInForm: FC = () => {
   const { handleSubmit } = useFormContext();
   const { push } = useRouter();
-  const { dispatch } = useContext(NotificationContext);
   const [isLoading, setIsLoading] = useState(false);
+  const { showError, showNotification } = useNotificationManager();
 
   const handleLogin: SubmitHandler<FieldValues> = async (submitValues) => {
     // TODO: improve error handling
@@ -28,13 +28,10 @@ const SignInForm: FC = () => {
     if (response?.error) {
       switch (response.error) {
         case 'fetch failed':
-          dispatch({ type: 'SHOW_SERVER_ERROR' });
+          showError();
           break;
         default:
-          dispatch({
-            type: 'SHOW_NOTIFICATION',
-            payload: { message: 'Invalid username or password.', severity: 'error' },
-          });
+          showNotification('Invalid username or password.', 'error');
       }
     } else {
       push('/my-properties');
