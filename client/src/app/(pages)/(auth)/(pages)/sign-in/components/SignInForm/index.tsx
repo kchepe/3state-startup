@@ -1,7 +1,7 @@
 'use client';
 
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
-import { MdEmail } from 'react-icons/md';
+import { MdOutlineEmail } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
 import { FC, useContext, useState } from 'react';
 import Link from 'next/link';
@@ -56,7 +56,7 @@ const SignInForm: FC = () => {
           name="email"
           label="Email Address"
           placeholder="Enter your email"
-          startIcon={<MdEmail className="text-primary text-lg" />}
+          startIcon={<MdOutlineEmail className="text-primary text-lg" />}
         />
       </div>
       <div>
