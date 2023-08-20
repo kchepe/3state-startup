@@ -1,9 +1,9 @@
 import React from 'react';
 import { Montserrat } from 'next/font/google';
-import ApolloWrapper from '@/lib/apollo-wrapper';
 import './globals.css';
 import AuthProvider from './AuthProvider';
 import { NotificationProvider, initialNotificationState } from './context/NotificationContext';
+import ApolloWrapper from './lib/apollo-wrapper';
 
 const inter = Montserrat({ subsets: ['latin'], fallback: [] });
 
