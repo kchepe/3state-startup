@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useContext } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { propertyTypes } from '@/app/constant';
 import { IPropertyType } from '@/app/types/types';
-import { PropertyContext } from '@/app/context/PropertyContext';
+import usePropertyManager from '@/app/hooks/usePropertyManager';
 import FilterContainer from '../FilterContainer';
 
 const PropertyType = () => {
-  const { state, dispatch } = useContext(PropertyContext);
+  const { propertiesState, searchProperty } = usePropertyManager();
 
   const handleSelectProperty = (value: IPropertyType) => {
-    dispatch({ type: 'SEARCH_PROPERTY', payload: { field: 'propertyType', value } });
+    searchProperty('propertyType', value);
   };
 
   return (
@@ -24,7 +24,7 @@ const PropertyType = () => {
               onClick={() => handleSelectProperty(type.label.toLowerCase() as IPropertyType)}
               className={clsx(
                 'flex flex-col gap-1 px-2 py-4 rounded-lg items-center justify-center w-full',
-                state.filter.propertyType === type.label.toLocaleLowerCase()
+                propertiesState.filter.propertyType === type.label.toLocaleLowerCase()
                   ? 'border-primary border'
                   : 'border',
               )}

@@ -1,8 +1,8 @@
 'use client';
 
-import React, { FC, useContext, useLayoutEffect, useRef, useState } from 'react';
+import React, { FC, useLayoutEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import { PropertyContext } from '@/app/context/PropertyContext';
+import usePropertyManager from '@/app/hooks/usePropertyManager';
 import PropertyCard from './Components/PropertyCard';
 import { properties } from './mockData';
 import SearchField from './Components/SearchField';
@@ -10,7 +10,7 @@ import SearchField from './Components/SearchField';
 interface PropertyListProps {}
 
 const PropertyList: FC<PropertyListProps> = () => {
-  const { state } = useContext(PropertyContext);
+  const { propertiesState } = usePropertyManager();
   const divRef = useRef<HTMLDivElement>(null);
   const [currentWidth, setCurrentWidth] = useState(0);
   const [windowWidth, setWindowWidth] = useState(
@@ -30,7 +30,7 @@ const PropertyList: FC<PropertyListProps> = () => {
     return () => {
       window.removeEventListener('resize', handleWindowResize);
     };
-  }, [currentWidth, windowWidth, state.filter.showMap]);
+  }, [currentWidth, windowWidth, propertiesState.filter.showMap]);
 
   return (
     <div className="grid grid-cols-12 gap-3 relative" ref={divRef}>

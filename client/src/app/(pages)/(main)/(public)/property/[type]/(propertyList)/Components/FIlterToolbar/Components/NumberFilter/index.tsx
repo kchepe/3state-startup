@@ -1,7 +1,7 @@
 'use client';
 
-import { FC, useContext } from 'react';
-import { PropertyContext } from '@/app/context/PropertyContext';
+import { FC } from 'react';
+import usePropertyManager from '@/app/hooks/usePropertyManager';
 import FilterContainer from '../FilterContainer';
 
 interface NumberFilterProps {
@@ -10,10 +10,10 @@ interface NumberFilterProps {
 }
 
 const NumberFilter: FC<NumberFilterProps> = ({ type, title }) => {
-  const { state, dispatch } = useContext(PropertyContext);
+  const { searchProperty, propertiesState } = usePropertyManager();
 
   const handleSelectRoom = (value: number) => {
-    dispatch({ type: 'SEARCH_PROPERTY', payload: { field: type, value } });
+    searchProperty(type, value);
   };
 
   return (
@@ -24,7 +24,7 @@ const NumberFilter: FC<NumberFilterProps> = ({ type, title }) => {
             <button
               type="button"
               className={`${
-                state.filter[type] === room ? 'bg-primary text-white' : 'bg-transparent'
+                propertiesState.filter[type] === room ? 'bg-primary text-white' : 'bg-transparent'
               } border p-2 w-full rounded-lg`}
               onClick={() => handleSelectRoom(room)}
             >

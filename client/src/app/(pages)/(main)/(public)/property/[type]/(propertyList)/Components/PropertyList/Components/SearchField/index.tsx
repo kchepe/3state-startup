@@ -1,10 +1,10 @@
 'use client';
 
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import TextField from '@/app/common/TextField';
 import Toggle from '@/app/common/Toggle';
-import { PropertyContext } from '@/app/context/PropertyContext';
+import usePropertyManager from '@/app/hooks/usePropertyManager';
 import { properties } from '../../mockData';
 
 interface SearchFieldProps {
@@ -12,14 +12,11 @@ interface SearchFieldProps {
 }
 
 const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
-  const { state, dispatch } = useContext(PropertyContext);
+  const { propertiesState, searchProperty } = usePropertyManager();
 
-  const handleShowMap = () => [
-    dispatch({
-      type: 'SEARCH_PROPERTY',
-      payload: { field: 'showMap', value: !state.filter.showMap },
-    }),
-  ];
+  const handleShowMap = () => {
+    searchProperty('showMap', !propertiesState.filter.showMap);
+  };
 
   return (
     <div
@@ -39,7 +36,11 @@ const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
       </div>
       <div className="flex items-center justify-between mt-2">
         <span className="font-bold">{properties.length} Properties Available</span>
-        <Toggle label="Show Map" onChange={handleShowMap} checked={state.filter.showMap} />
+        <Toggle
+          label="Show Map"
+          onChange={handleShowMap}
+          checked={propertiesState.filter.showMap}
+        />
       </div>
     </div>
   );

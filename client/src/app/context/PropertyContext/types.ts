@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import { IPropertyType } from '@/app/types/types';
 
-interface IFilterState {
+export interface IFilterState {
   searchString: string;
   showMap: boolean;
   propertyType: IPropertyType;

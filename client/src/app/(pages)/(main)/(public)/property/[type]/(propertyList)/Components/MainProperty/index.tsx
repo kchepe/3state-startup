@@ -1,10 +1,10 @@
 'use client';
 
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import clsx from 'clsx';
-import { PropertyContext } from '@/app/context/PropertyContext';
 import { IOfferType } from '@/app/types/types';
+import usePropertyManager from '@/app/hooks/usePropertyManager';
 import FilterToolBar from '../FIlterToolbar';
 import PropertyList from '../PropertyList';
 
@@ -17,7 +17,7 @@ interface MainPropertyProps {
 }
 
 const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
-  const { state } = useContext(PropertyContext);
+  const { propertiesState } = usePropertyManager();
 
   return (
     <div className="flex gap-3 h-full">
@@ -31,15 +31,15 @@ const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
         className={clsx(
           'xl:overflow-x-hidden xl:scrollbar scroll-smooth flex-1 xl:h-full xl:overflow-y-auto',
           {
-            'xl:pr-4': state.filter.showMap,
-            'xl:pr-0': !state.filter.showMap,
+            'xl:pr-4': propertiesState.filter.showMap,
+            'xl:pr-0': !propertiesState.filter.showMap,
           },
         )}
       >
         <PropertyList />
       </div>
 
-      {state.filter.showMap && (
+      {propertiesState.filter.showMap && (
         <div className="hidden xl:block -mr-8 -my-4 flex-1">
           <LeafletMap />
         </div>
