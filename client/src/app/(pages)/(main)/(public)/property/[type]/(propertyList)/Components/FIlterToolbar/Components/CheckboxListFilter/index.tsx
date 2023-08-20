@@ -22,10 +22,7 @@ const CheckboxListFilter: FC<CheckboxListFilterProps> = ({ header, options }) =>
         <div className="flex flex-col gap-4">
           {options.map((menu) => (
             <div key={menu}>
-              <label className="flex gap-2 items-center" htmlFor="checkbox">
-                <Checkbox checked={selectedPropery} handleChange={handleChange} />
-                <span>{menu}</span>
-              </label>
+              <Checkbox checked={selectedPropery} handleChange={handleChange} label={menu} />
             </div>
           ))}
         </div>

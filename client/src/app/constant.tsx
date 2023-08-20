@@ -29,7 +29,7 @@ export const propertyCategory = [
   { label: 'For Rent', value: 'for rent' },
 ];
 
-export const ammenities = [
+export const amenities = [
   'Alarm System',
   'Broadband Internet',
   'Air Conditioning',

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Button from '@/app/common/Button';
 import { IOfferType } from '@/app/types/types';
-import { ammenities } from '@/app/constant';
+import { amenities } from '@/app/constant';
 import OfferType from './Components/OfferType';
 import PriceSlider from './Components/PriceSlider';
 import CheckboxListFilter from './Components/CheckboxListFilter';
@@ -36,7 +36,7 @@ const FilterToolBar: FC<FilterToolbarProps> = ({ offerType }) => (
       <NumberFilter title="Bathrooms" type="bathrooms" />
     </div>
     <div className="flex gap-4 flex-col">
-      <CheckboxListFilter header="Amenities" options={ammenities} />
+      <CheckboxListFilter header="Amenities" options={amenities} />
     </div>
   </div>
 );

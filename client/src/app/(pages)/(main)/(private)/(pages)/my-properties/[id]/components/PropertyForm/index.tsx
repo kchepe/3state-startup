@@ -3,6 +3,7 @@ import FormWrapper from '@/app/common/FormWrapper';
 import Button from '@/app/common/Button';
 import PropertyDetailsForm from './components/PropertyDetailsForm';
 import UnitDetailsForm from './components/UnitDetailsForm';
+import AmenitiesForm from './components/AmenitiesForm';
 
 const propertyForms = [
   {
@@ -22,8 +23,8 @@ const propertyForms = [
     form: <PropertyDetailsForm />,
   },
   {
-    title: 'Ameneties',
-    form: <PropertyDetailsForm />,
+    title: 'Amenities',
+    form: <AmenitiesForm />,
   },
   {
     title: 'Upload Photos',
