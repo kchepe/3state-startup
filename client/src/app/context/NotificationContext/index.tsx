@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, ReactNode, createContext, useMemo, useReducer } from 'react';
-import { ISeverity } from '@/app/Common/Alert';
+import { ISeverity } from '@/app/common/Alert';
 import { INotificationContextProps, INotificationState } from './types';
 import NotificationReducer from './reducer';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import Button from '@/app/Common/Button';
-import DashboardWrapper from '@/app/Common/DashboardWrapper';
+import Button from '@/app/common/Button';
+import DashboardWrapper from '@/app/common/DashboardWrapper';
 import ProfileInformation from './add-property/components/ProfileInformation.tsx';
 
 const MyProperties = () => (

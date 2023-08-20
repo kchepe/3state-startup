@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import Navbar from '@/app/Common/Navbar';
+import Navbar from '@/app/common/Navbar';
 
 interface MainLayoutProps {
   children: ReactNode;

@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, useState } from 'react';
-import Tabs from '@/app/Common/Tabs';
+import Tabs from '@/app/common/Tabs';
 import { IProperty } from '@/app/types/types';
 import tabMenu from './tabMenu';
 

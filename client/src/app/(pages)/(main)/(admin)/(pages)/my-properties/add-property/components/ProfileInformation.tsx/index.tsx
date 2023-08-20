@@ -1,4 +1,4 @@
-import Avatar from '@/app/Common/Avatar';
+import Avatar from '@/app/common/Avatar';
 import getSessionUtil from '@/app/utils/getSession.util';
 import { capitalizeFirstString, getFirstLetter } from '@/app/utils/string.util';
 

@@ -7,14 +7,14 @@ import { useContext } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { BiPhone } from 'react-icons/bi';
-import Button from '@/app/Common/Button';
-import InputForm from '@/app/Common/FormBuilder/InputForm';
-import PasswordInput from '@/app/Common/FormBuilder/PasswordInput';
-import SelectForm from '@/app/Common/FormBuilder/SelectForm';
+import Button from '@/app/common/Button';
+import InputForm from '@/app/common/FormBuilder/InputForm';
+import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
+import SelectForm from '@/app/common/FormBuilder/SelectForm';
 import { ADD_USER } from '@/app/gql/mutations/user';
-import Alert from '@/app/Common/Alert';
+import Alert from '@/app/common/Alert';
 import { NotificationContext } from '@/app/context/NotificationContext';
-import InputPhone from '@/app/Common/FormBuilder/InputPhone';
+import InputPhone from '@/app/common/FormBuilder/InputPhone';
 import { userType } from './registerFormValues';
 
 const RegisterForm = () => {

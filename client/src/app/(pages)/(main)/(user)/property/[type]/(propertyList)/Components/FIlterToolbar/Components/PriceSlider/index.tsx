@@ -4,7 +4,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import React, { useState } from 'react';
 import { TbCurrencyPeso } from 'react-icons/tb';
-import TextField from '@/app/Common/TextField';
+import TextField from '@/app/common/TextField';
 
 const sliderStype = {
   backgroundColor: 'black',

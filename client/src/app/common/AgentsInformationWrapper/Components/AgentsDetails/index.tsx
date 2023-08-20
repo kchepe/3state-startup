@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import Tabs from '@/app/Common/Tabs';
-import MortageCalculator from '@/app/Common/MortageCalculator';
+import Tabs from '@/app/common/Tabs';
+import MortageCalculator from '@/app/common/MortageCalculator';
 import ContactForm from './ContactForm';
 
 const AgentsDetails = () => {

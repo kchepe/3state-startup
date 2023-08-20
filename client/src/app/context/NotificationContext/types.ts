@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { ISeverity } from '@/app/Common/Alert';
+import { ISeverity } from '@/app/common/Alert';
 
 export interface INotificationState {
   message: string;

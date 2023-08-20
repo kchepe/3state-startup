@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { redirect } from 'next/navigation';
-import AuthWrapper from '@/app/Common/AuthWrapper';
+import AuthWrapper from '@/app/common/AuthWrapper';
 import getSessionUtil from '@/app/utils/getSession.util';
 
 interface AuthLayoutProps {

@@ -1,6 +1,6 @@
 'use client';
 
-import Form from '@/app/Common/FormBuilder/Form';
+import Form from '@/app/common/FormBuilder/Form';
 import RegisterForm from './components/RegisterForm';
 import {
   registerInitialValues,

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Button from '@/app/Common/Button';
+import Button from '@/app/common/Button';
 import { housingMethods } from '@/app/constant';
 import { IOfferType } from '@/app/types/types';
 

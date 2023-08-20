@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { redirect } from 'next/navigation';
-import Sidebar from '@/app/Common/Sidebar';
+import Sidebar from '@/app/common/Sidebar';
 import getSessionUtil from '@/app/utils/getSession.util';
 import ApolloAuthWrapper from '@/app/lib/apollo-auth-wrapper';
 

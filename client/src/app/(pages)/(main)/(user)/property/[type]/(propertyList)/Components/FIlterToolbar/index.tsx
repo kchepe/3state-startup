@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Button from '@/app/Common/Button';
+import Button from '@/app/common/Button';
 import { IOfferType } from '@/app/types/types';
 import { ammenities } from '@/app/constant';
 import OfferType from './Components/OfferType';

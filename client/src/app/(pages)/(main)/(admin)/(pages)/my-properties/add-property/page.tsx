@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import DashboardWrapper from '@/app/Common/DashboardWrapper';
-import Form from '@/app/Common/FormBuilder/Form';
+import DashboardWrapper from '@/app/common/DashboardWrapper';
+import Form from '@/app/common/FormBuilder/Form';
 import AddPropertyForm from './components/AddPropertyForm';
 import {
   addPropertyInitialValues,

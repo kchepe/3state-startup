@@ -5,7 +5,7 @@ import { Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
-import Avatar from '@/app/Common/Avatar';
+import Avatar from '@/app/common/Avatar';
 import { capitalizeFirstString, getFirstLetter } from '@/app/utils/string.util';
 
 const ProfileDropDownButton = () => {

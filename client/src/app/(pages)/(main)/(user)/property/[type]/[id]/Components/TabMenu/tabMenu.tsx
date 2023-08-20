@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { ITabMenu } from '@/app/Common/Tabs';
+import { ITabMenu } from '@/app/common/Tabs';
 import { IProperty } from '@/app/types/types';
 import Amenities from './Components/Amenities';
 import FloorLayout from './Components/FloorLayout';

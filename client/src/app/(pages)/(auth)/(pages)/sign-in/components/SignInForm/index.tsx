@@ -6,10 +6,10 @@ import { useRouter } from 'next/navigation';
 import { FC, useContext, useState } from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
-import Button from '@/app/Common/Button';
-import InputForm from '@/app/Common/FormBuilder/InputForm';
-import PasswordInput from '@/app/Common/FormBuilder/PasswordInput';
-import Alert from '@/app/Common/Alert';
+import Button from '@/app/common/Button';
+import InputForm from '@/app/common/FormBuilder/InputForm';
+import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
+import Alert from '@/app/common/Alert';
 import { NotificationContext } from '@/app/context/NotificationContext';
 
 const SignInForm: FC = () => {

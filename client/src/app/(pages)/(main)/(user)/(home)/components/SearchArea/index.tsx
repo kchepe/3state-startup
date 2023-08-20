@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { IOption } from '@/app/Common/Select';
+import { IOption } from '@/app/common/Select';
 import { IOfferType } from '@/app/types/types';
-import Button from '@/app/Common/Button';
+import Button from '@/app/common/Button';
 import RentBuy from './components/RentBuy';
 import Property from './components/Property';
 import { propertyOptions } from './constant';

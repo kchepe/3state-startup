@@ -1,9 +1,9 @@
 import { TbCurrencyPeso } from 'react-icons/tb';
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
 import { BiPhone } from 'react-icons/bi';
-import InputPrice from '@/app/Common/FormBuilder/InputPrice';
-import Button from '@/app/Common/Button';
-import InputPhone from '@/app/Common/FormBuilder/InputPhone';
+import InputPrice from '@/app/common/FormBuilder/InputPrice';
+import Button from '@/app/common/Button';
+import InputPhone from '@/app/common/FormBuilder/InputPhone';
 
 const AddPropertyForm = () => {
   const { handleSubmit } = useFormContext();

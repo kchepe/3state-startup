@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import Button from '@/app/Common/Button';
+import Button from '@/app/common/Button';
 import getSessionUtil from '@/app/utils/getSession.util';
 import ProfileDropDownButton from '../ProfileDropDownButton';
 

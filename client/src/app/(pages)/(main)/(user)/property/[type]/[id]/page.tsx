@@ -1,5 +1,5 @@
-import ImageSlider from '@/app/Common/ImageSlider';
-import AgentsInformationWrapper from '@/app/Common/AgentsInformationWrapper';
+import ImageSlider from '@/app/common/ImageSlider';
+import AgentsInformationWrapper from '@/app/common/AgentsInformationWrapper';
 import { properties } from '../(propertyList)/Components/PropertyList/mockData';
 import PropertyDetails from './Components/PropertyDetails';
 import TabMenu from './Components/TabMenu';

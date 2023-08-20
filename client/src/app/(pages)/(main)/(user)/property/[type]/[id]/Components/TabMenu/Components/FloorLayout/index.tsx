@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ImageSlider from '@/app/Common/ImageSlider';
+import ImageSlider from '@/app/common/ImageSlider';
 
 interface FloorLayoutProps {
   layoutUrl: string[];

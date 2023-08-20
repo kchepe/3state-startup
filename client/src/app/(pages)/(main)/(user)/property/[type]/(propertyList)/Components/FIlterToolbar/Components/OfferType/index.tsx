@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { useRouter } from 'next/navigation';
-import Button from '@/app/Common/Button';
+import Button from '@/app/common/Button';
 import { IOfferType } from '@/app/types/types';
 
 interface OfferTypeProps {

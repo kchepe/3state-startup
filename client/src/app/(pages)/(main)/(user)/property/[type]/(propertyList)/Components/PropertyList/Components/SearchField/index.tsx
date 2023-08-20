@@ -2,8 +2,8 @@
 
 import { FC, useContext } from 'react';
 import { BiSearch } from 'react-icons/bi';
-import TextField from '@/app/Common/TextField';
-import Toggle from '@/app/Common/Toggle';
+import TextField from '@/app/common/TextField';
+import Toggle from '@/app/common/Toggle';
 import { PropertyContext } from '@/app/context/PropertyContext';
 import { properties } from '../../mockData';
 

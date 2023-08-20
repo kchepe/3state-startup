@@ -1,7 +1,7 @@
 'use client';
 
 import { ChangeEvent, FC, ReactNode, useState } from 'react';
-import Checkbox from '@/app/Common/Checkbox';
+import Checkbox from '@/app/common/Checkbox';
 import FilterContainer from '../FilterContainer';
 
 interface CheckboxListFilterProps {

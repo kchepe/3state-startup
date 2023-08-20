@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 import React from 'react';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
-import Form from '@/app/Common/FormBuilder/Form';
-import Button from '@/app/Common/Button';
-import InputForm from '@/app/Common/FormBuilder/InputForm';
+import Form from '@/app/common/FormBuilder/Form';
+import Button from '@/app/common/Button';
+import InputForm from '@/app/common/FormBuilder/InputForm';
 
 const schema = yup.object().shape({
   firstname: yup.string().required('Firstname is required'),

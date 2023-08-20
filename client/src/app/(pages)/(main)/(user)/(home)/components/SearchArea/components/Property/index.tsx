@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import Select, { IOption } from '@/app/Common/Select';
-import TextField from '@/app/Common/TextField';
+import Select, { IOption } from '@/app/common/Select';
+import TextField from '@/app/common/TextField';
 import { propertyOptions } from '../../constant';
 
 interface PropertyProps {
