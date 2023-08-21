@@ -30,7 +30,6 @@ const TextField: FC<TextFieldProps> = ({
         {startIcon}
       </div>
       <input
-        id="inputText"
         autoComplete="off"
         className={clsx(
           className,

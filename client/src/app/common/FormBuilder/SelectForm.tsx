@@ -16,7 +16,9 @@ const SelectForm: FC<SelectFormProps> = ({ name, ...selectProps }) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => <Select {...field} {...selectProps} />}
+        render={({ field: { ref, ...selectField } }) => (
+          <Select {...selectField} {...selectProps} />
+        )}
       />
       {errors[name] && (
         <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>

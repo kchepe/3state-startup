@@ -4,7 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { NextAuthOptions } from 'next-auth';
 import { LOG_IN } from '../gql/mutations/user';
 
-const url = process.env.GRAPHQL_ENDPOINT as string;
+const url = process.env.GRAPHQL_ENDPOINT_DOCKER as string;
 
 const authOptions: NextAuthOptions = {
   providers: [

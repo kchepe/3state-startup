@@ -16,7 +16,9 @@ const InputNumber: FC<InputNumberProps> = ({ name, ...inputProps }) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => <NumberField outlined {...field} {...inputProps} />}
+        render={({ field: { ref, ...numberField } }) => (
+          <NumberField outlined {...numberField} {...inputProps} />
+        )}
       />
       {errors[name] && (
         <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>

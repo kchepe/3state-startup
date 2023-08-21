@@ -31,7 +31,6 @@ const NumberField: FC<NumberFieldProps> = ({
         {startIcon}
       </div>
       <NumericFormat
-        id="inputText"
         thousandSeparator=","
         autoComplete="off"
         className={clsx(

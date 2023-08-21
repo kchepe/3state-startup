@@ -16,7 +16,6 @@ const Textarea: FC<TextareaProps> = ({ label, className, contained, rows = 5, ..
       </label>
     )}
     <textarea
-      id="inputText"
       rows={rows}
       autoComplete="off"
       className={clsx(

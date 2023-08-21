@@ -31,7 +31,6 @@ const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
         {startIcon}
       </div>
       <PatternFormat
-        id="inputText"
         format="(####) ### ####"
         allowEmptyFormatting
         autoComplete="off"

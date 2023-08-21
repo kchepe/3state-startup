@@ -16,7 +16,9 @@ const InputForm: FC<InputFormProps> = ({ name, ...inputProps }) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => <TextField outlined {...field} {...inputProps} />}
+        render={({ field: { ref, ...inputField } }) => (
+          <TextField outlined {...inputField} {...inputProps} />
+        )}
       />
       {errors[name] && (
         <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>

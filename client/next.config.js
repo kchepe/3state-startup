@@ -5,8 +5,9 @@ const nextConfig = {
     domains: ['images.pexels.com', 'i.pinimg.com'],
   },
   env: {
-    GRAPHQL_ENDPOINT: 'http://server:3000/graphql',
+    GRAPHQL_ENDPOINT_DOCKER: 'http://server:3000/graphql',
     ENVIRONMENT: 'development',
+    GRAPHQL_ENDPOINT: 'http://localhost:3000/graphql',
   },
 };
 
