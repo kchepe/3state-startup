@@ -15,7 +15,6 @@ const Checkbox: FC<CheckboxProps> = ({ handleChange, checked, label }) => (
       <div className="relative h-[15px] w-[15px] border rounded border-gray-300">
         <input
           type="checkbox"
-          id="checkbox"
           className="opacity-0 focus:ring-transparent cursor-pointer h-[15px] w-[15px]"
           onChange={handleChange}
           checked={checked}
