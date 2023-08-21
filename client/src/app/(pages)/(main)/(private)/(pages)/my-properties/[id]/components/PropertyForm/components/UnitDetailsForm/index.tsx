@@ -10,30 +10,47 @@ const UnitDetailsForm = () => (
         name="price"
         label="Price"
         placeholder="Enter Price"
+        contained
         startIcon={<TbCurrencyPeso />}
       />
     </div>
     <div className="col-span-full">
-      <InputNumber name="lotArea" label="Lot Area" placeholder="Enter Lot Area in square meters" />
+      <InputNumber
+        name="lotArea"
+        label="Lot Area"
+        placeholder="Enter Lot Area in square meters"
+        contained
+      />
     </div>
     <div className="col-span-full">
       <InputNumber
         name="floorArea"
+        contained
         label="Floor Area"
         placeholder="Enter Floor Area in square meters"
       />
     </div>
     <div className="col-span-full">
-      <InputNumber name="bathroom" label="Bathroom" placeholder="Enter Number of Bathroom" />
+      <InputNumber
+        name="bathroom"
+        label="Bathroom"
+        placeholder="Enter Number of Bathroom"
+        contained
+      />
     </div>
     <div className="col-span-full">
-      <InputNumber name="parking" label="Parking" placeholder="Enter Number of Parking Spaces" />
+      <InputNumber
+        name="parking"
+        label="Parking"
+        placeholder="Enter Number of Parking Spaces"
+        contained
+      />
     </div>
     <div className="col-span-full">
-      <SelectForm name="furnishing" options={[]} label="Furnishing" />
+      <SelectForm name="furnishing" options={[]} label="Furnishing" contained />
     </div>
     <div className="col-span-full">
-      <SelectForm name="balcony" options={[]} label="Balcony" />
+      <SelectForm name="balcony" options={[]} label="Balcony" contained />
     </div>
   </div>
 );

@@ -7,6 +7,7 @@ export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   outlined?: boolean;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
+  contained?: boolean;
 }
 
 const TextField: FC<TextFieldProps> = ({
@@ -15,6 +16,7 @@ const TextField: FC<TextFieldProps> = ({
   outlined = false,
   startIcon,
   endIcon,
+  contained,
   ...inputProps
 }) => (
   <div className="w-full">
@@ -41,6 +43,7 @@ const TextField: FC<TextFieldProps> = ({
             'pr-[17px]': !endIcon,
             'border focus:ring-1 focus:ring-inset focus:ring-primary': outlined,
             'border-none focus:outline-none': !outlined,
+            'bg-gray-100': contained,
           },
         )}
         {...inputProps}

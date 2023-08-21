@@ -4,10 +4,12 @@ import Button from '@/app/common/Button';
 import PropertyDetailsForm from './components/PropertyDetailsForm';
 import UnitDetailsForm from './components/UnitDetailsForm';
 import AmenitiesForm from './components/AmenitiesForm';
+import TitleForm from './components/TitleForm';
 
 const propertyForms = [
+  { title: 'Property Details', form: <TitleForm /> },
   {
-    title: 'Property Details',
+    title: 'Category',
     form: <PropertyDetailsForm />,
   },
   {
@@ -16,10 +18,6 @@ const propertyForms = [
   },
   {
     title: 'Address',
-    form: <PropertyDetailsForm />,
-  },
-  {
-    title: 'Description',
     form: <PropertyDetailsForm />,
   },
   {

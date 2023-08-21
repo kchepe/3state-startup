@@ -8,6 +8,7 @@ export interface PhoneNumberFieldProps extends NumericFormatProps {
   outlined?: boolean;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
+  contained?: boolean;
 }
 
 const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
@@ -16,6 +17,7 @@ const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
   outlined = false,
   startIcon,
   endIcon,
+  contained,
   ...inputProps
 }) => (
   <div className="w-full">
@@ -44,6 +46,7 @@ const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
             'pr-[17px]': !endIcon,
             'border focus:ring-1 focus:ring-inset focus:ring-primary': outlined,
             'border-none focus:outline-none': !outlined,
+            'bg-gray-100': contained,
           },
         )}
         {...inputProps}

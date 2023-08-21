@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import PhoneNumberField, { PhoneNumberFieldProps } from '../PhoneNumberField';
+import Textarea, { TextareaProps } from '../Textarea';
 
-interface InputPhoneProps extends PhoneNumberFieldProps {
+interface TextareaFormProps extends TextareaProps {
   name: string;
 }
 
-const InputPhone: FC<InputPhoneProps> = ({ name, ...inputProps }) => {
+const TextareaForm: FC<TextareaFormProps> = ({ name, ...inputProps }) => {
   const {
     control,
     formState: { errors },
@@ -16,7 +16,7 @@ const InputPhone: FC<InputPhoneProps> = ({ name, ...inputProps }) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => <PhoneNumberField outlined {...field} {...inputProps} />}
+        render={({ field }) => <Textarea {...field} {...inputProps} />}
       />
       {errors[name] && (
         <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>
@@ -25,4 +25,4 @@ const InputPhone: FC<InputPhoneProps> = ({ name, ...inputProps }) => {
   );
 };
 
-export default InputPhone;
+export default TextareaForm;

@@ -8,6 +8,7 @@ export interface NumberFieldProps extends NumericFormatProps {
   outlined?: boolean;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
+  contained?: boolean;
 }
 
 const NumberField: FC<NumberFieldProps> = ({
@@ -16,6 +17,7 @@ const NumberField: FC<NumberFieldProps> = ({
   outlined = false,
   startIcon,
   endIcon,
+  contained,
   ...inputProps
 }) => (
   <div className="w-full">
@@ -43,6 +45,7 @@ const NumberField: FC<NumberFieldProps> = ({
             'pr-[17px]': !endIcon,
             'border focus:ring-1 focus:ring-inset focus:ring-primary': outlined,
             'border-none focus:outline-none': !outlined,
+            'bg-gray-100': contained,
           },
         )}
         {...inputProps}

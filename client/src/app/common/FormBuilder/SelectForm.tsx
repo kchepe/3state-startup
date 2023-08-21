@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import Select, { IOption } from '../Select';
+import Select, { SelectProps } from '../Select';
 
-interface SelectFormProps {
+interface SelectFormProps extends Omit<SelectProps, 'value'> {
   name: string;
-  options: IOption[];
-  label?: string;
 }
 
-const SelectForm: FC<SelectFormProps> = ({ name, options, label = '' }) => {
+const SelectForm: FC<SelectFormProps> = ({ name, ...selectProps }) => {
   const {
     control,
     formState: { errors },
@@ -18,15 +16,7 @@ const SelectForm: FC<SelectFormProps> = ({ name, options, label = '' }) => {
       <Controller
         name={name}
         control={control}
-        render={({ field: { name: inputName, onChange, value } }) => (
-          <Select
-            options={options}
-            label={label}
-            name={inputName}
-            value={value}
-            onChange={onChange}
-          />
-        )}
+        render={({ field }) => <Select {...field} {...selectProps} />}
       />
       {errors[name] && (
         <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>

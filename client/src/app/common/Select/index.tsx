@@ -15,13 +15,22 @@ export interface SelectProps {
   className?: string;
   label?: string;
   name?: string;
+  contained?: boolean;
 }
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Select: FC<SelectProps> = ({ options, value, onChange, className, label = '', name }) => (
+const Select: FC<SelectProps> = ({
+  options,
+  value,
+  onChange,
+  className,
+  label = '',
+  name,
+  contained,
+}) => (
   <div className="w-full">
     {label && (
       <label className="block text-sm font-medium leading-6 text-gray-900 mb-1" htmlFor="inputText">
@@ -32,9 +41,14 @@ const Select: FC<SelectProps> = ({ options, value, onChange, className, label = 
       {({ open }) => (
         <div className="relative">
           <Listbox.Button
-            className={`${className} relative w-full cursor-default 
-          rounded-md py-3 pl-3 pr-10 text-left text-gray-900 
-          shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6`}
+            className={clsx(
+              className,
+              'relative w-full cursor-default rounded-md py-3 pl-3 pr-10 text-left text-gray-900',
+              'shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6',
+              {
+                'bg-gray-100': contained,
+              },
+            )}
           >
             <span
               className={clsx('block truncate', {
