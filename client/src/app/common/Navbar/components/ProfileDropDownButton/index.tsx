@@ -13,7 +13,7 @@ import { capitalizeFirstString, getFirstLetter } from '@/app/utils/string.util';
 
 const ProfileDropDownButton = () => {
   const { push } = useRouter();
-  const { data } = useSession();
+  const { data, status } = useSession();
 
   const menu = [
     { label: 'Account Settings', fn: () => push('/account-settings'), icon: <BiUser /> },
@@ -25,8 +25,9 @@ const ProfileDropDownButton = () => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button
-          className="inline-flex w-full justify-center gap-x-1.5
-                  p-3 text-sm font-semibold
+          disabled={status === 'loading'}
+          className="inline-flex items-center justify-center gap-x-1.5
+                  p-3 text-sm font-semibold h-10 w-10
                 text-white bg-primary shadow-sm hover:bg-primary_hover rounded-full"
         >
           {getFirstLetter(data?.user.user.firstName as string)}
