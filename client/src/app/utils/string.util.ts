@@ -2,7 +2,7 @@ const capitalizeFirstString = (str: string) => str.replace(/\b\w/g, (l) => l.toU
 
 const getFirstLetter = (str: string) => {
   if (!str) {
-    return 'X';
+    return '';
   }
   return str[0].toUpperCase();
 };
