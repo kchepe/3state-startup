@@ -26,7 +26,7 @@ const ProfileDropDownButton = () => {
       <div>
         <Menu.Button
           className="inline-flex w-full justify-center gap-x-1.5
-                  px-3 py-2 text-sm font-semibold
+                  p-3 text-sm font-semibold
                 text-white bg-primary shadow-sm hover:bg-primary_hover rounded-full"
         >
           {getFirstLetter(data?.user.user.firstName as string)}
