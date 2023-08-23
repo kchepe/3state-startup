@@ -12,7 +12,9 @@ import authLink from './authLink';
 import errorLink from './errorLink';
 import httpLink from './httpLink';
 
-const authAppLink = from([errorLink, authLink.concat(httpLink('http://server:3000/graphql'))]);
+// TODO: TRANSFER URL to ENV
+
+const authAppLink = from([errorLink, authLink.concat(httpLink('http://localhost:3000/graphql'))]);
 
 const makeClient = () =>
   new NextSSRApolloClient({
