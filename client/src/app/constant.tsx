@@ -4,6 +4,8 @@ import { BsHouseHeartFill, BsBuildingFillCheck } from 'react-icons/bs';
 import { BiSolidBuildingHouse } from 'react-icons/bi';
 import { RiMapPin5Fill } from 'react-icons/ri';
 
+export const SERVER_URL = process.env.GRAPHQL_ENDPOINT_SERVER as string;
+
 export const propertyTypes = [
   { label: 'Any', icon: <BsHouseHeartFill /> },
   { label: 'House', icon: <GiHouse /> },

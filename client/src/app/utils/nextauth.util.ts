@@ -4,8 +4,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { NextAuthOptions } from 'next-auth';
 import { LOG_IN } from '../gql/mutations/user';
 
-const url = process.env.GRAPHQL_ENDPOINT_DOCKER as string;
-
 const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -13,7 +11,7 @@ const authOptions: NextAuthOptions = {
       credentials: { email: {}, password: {} },
       async authorize(credentials) {
         try {
-          const response = await fetch(url, {
+          const response = await fetch('http://server:3000/graphql', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
@@ -33,7 +31,7 @@ const authOptions: NextAuthOptions = {
             return null;
           }
           return data.data.login;
-        } catch {
+        } catch (err) {
           return null;
         }
       },
@@ -49,7 +47,7 @@ const authOptions: NextAuthOptions = {
       return newSession;
     },
   },
-  // debug: process.env.ENVIRONMENT === 'development',
+  debug: process.env.ENVIRONMENT === 'development',
 };
 
 export default authOptions;

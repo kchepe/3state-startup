@@ -1,6 +1,6 @@
 'use client';
 
-import { ApolloLink } from '@apollo/client';
+import { ApolloLink, from } from '@apollo/client';
 import {
   ApolloNextAppProvider,
   NextSSRApolloClient,
@@ -8,7 +8,11 @@ import {
   SSRMultipartLink,
 } from '@apollo/experimental-nextjs-app-support/ssr';
 import { PropsWithChildren } from 'react';
-import { authAppLink } from './appLink';
+import authLink from './authLink';
+import errorLink from './errorLink';
+import httpLink from './httpLink';
+
+const authAppLink = from([errorLink, authLink.concat(httpLink('http://server:3000/graphql'))]);
 
 const makeClient = () =>
   new NextSSRApolloClient({
