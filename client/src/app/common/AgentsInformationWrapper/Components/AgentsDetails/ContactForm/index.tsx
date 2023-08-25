@@ -5,6 +5,7 @@ import Form from '@/app/common/FormBuilder/Form';
 import Button from '@/app/common/Button';
 import InputForm from '@/app/common/FormBuilder/InputForm';
 import InputPhone from '@/app/common/FormBuilder/InputPhone';
+import Box from '@/app/common/Box';
 
 const schema = yup.object().shape({
   firstname: yup.string().required('Firstname is required'),
@@ -22,22 +23,22 @@ const ContactForm = () => {
   const handleSubmit: SubmitHandler<FieldValues> = (data) => data;
   return (
     <Form initialValues={initialValues} schema={schema} onSubmit={handleSubmit} resetFields>
-      <div className="flex flex-col gap-3">
-        <div>
+      <Box className="flex flex-col gap-3">
+        <Box>
           <InputForm name="firstname" placeholder="Enter your firstname" />
-        </div>
-        <div>
+        </Box>
+        <Box>
           <InputForm name="lastname" placeholder="Enter your Lastname" />
-        </div>
-        <div>
+        </Box>
+        <Box>
           <InputPhone name="phoneNumber" placeholder="Enter your Phone number" />
-        </div>
-        <div className="w-full">
+        </Box>
+        <Box className="w-full">
           <Button color="primary" fullWidth type="submit" size="large">
             Contact Agent
           </Button>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Form>
   );
 };

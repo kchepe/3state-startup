@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { ITabMenu } from '@/app/common/Tabs';
 import { IProperty } from '@/app/types/types';
+import Box from '@/app/common/Box';
 import Amenities from './Components/Amenities';
 import FloorLayout from './Components/FloorLayout';
 
@@ -13,9 +14,9 @@ const tabMenu = (property: IProperty): ITabMenu[] => [
   {
     label: 'Location',
     child: (
-      <div className="w-full h-[500px]">
+      <Box className="w-full h-[500px]">
         <Location />
-      </div>
+      </Box>
     ),
   },
   {

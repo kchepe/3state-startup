@@ -2,6 +2,7 @@
 
 import { ChangeEvent, FC, ReactNode, useState } from 'react';
 import Checkbox from '@/app/common/Checkbox';
+import Box from '@/app/common/Box';
 import FilterContainer from '../FilterContainer';
 
 interface CheckboxListFilterProps {
@@ -17,17 +18,17 @@ const CheckboxListFilter: FC<CheckboxListFilterProps> = ({ header, options }) =>
   };
 
   return (
-    <div className="border-b pb-4">
+    <Box className="border-b pb-4">
       <FilterContainer header={header} showToggle>
-        <div className="flex flex-col gap-4">
+        <Box className="flex flex-col gap-4">
           {options.map((menu) => (
-            <div key={menu}>
+            <Box key={menu}>
               <Checkbox checked={selectedPropery} handleChange={handleChange} label={menu} />
-            </div>
+            </Box>
           ))}
-        </div>
+        </Box>
       </FilterContainer>
-    </div>
+    </Box>
   );
 };
 

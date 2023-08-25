@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Button from '@/app/common/Button';
 import { housingMethods } from '@/app/constant';
 import { IOfferType } from '@/app/types/types';
+import Box from '@/app/common/Box';
 
 interface RentBuyProps {
   handleChoose: (value: IOfferType) => void;
@@ -9,7 +10,7 @@ interface RentBuyProps {
 }
 
 const RentBuy: FC<RentBuyProps> = ({ handleChoose, rentBuyValue }) => (
-  <div className="flex">
+  <Box className="flex">
     {housingMethods.map((option) => (
       <Button
         size="small"
@@ -22,7 +23,7 @@ const RentBuy: FC<RentBuyProps> = ({ handleChoose, rentBuyValue }) => (
         {option}
       </Button>
     ))}
-  </div>
+  </Box>
 );
 
 export default RentBuy;

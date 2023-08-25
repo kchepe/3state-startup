@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import Select, { SelectProps } from '../Select';
 import Text from '../Text';
+import Box from '../Box';
 
 interface SelectFormProps extends Omit<SelectProps, 'value'> {
   name: string;
@@ -13,7 +14,7 @@ const SelectForm: FC<SelectFormProps> = ({ name, ...selectProps }) => {
     formState: { errors },
   } = useFormContext();
   return (
-    <div>
+    <Box>
       <Controller
         name={name}
         control={control}
@@ -22,7 +23,7 @@ const SelectForm: FC<SelectFormProps> = ({ name, ...selectProps }) => {
         )}
       />
       {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
-    </div>
+    </Box>
   );
 };
 

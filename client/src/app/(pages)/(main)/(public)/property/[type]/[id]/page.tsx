@@ -1,5 +1,6 @@
 import ImageSlider from '@/app/common/ImageSlider';
 import AgentsInformationWrapper from '@/app/common/AgentsInformationWrapper';
+import Box from '@/app/common/Box';
 import { properties } from '../(propertyList)/Components/PropertyList/mockData';
 import PropertyDetails from './Components/PropertyDetails';
 import TabMenu from './Components/TabMenu';
@@ -15,16 +16,16 @@ const PropertyInformation = ({ params }: PropertyInformationProps) => {
   const property = properties.find((item) => item.id === id);
 
   if (!property) {
-    return <div className="text-center p-4">No Property Available.</div>;
+    return <Box className="text-center p-4">No Property Available.</Box>;
   }
 
   return (
     <AgentsInformationWrapper>
-      <div className="flex flex-col gap-3">
+      <Box className="flex flex-col gap-3">
         <ImageSlider images={property.imageUrl} />
         <PropertyDetails property={property} />
         <TabMenu property={property} />
-      </div>
+      </Box>
     </AgentsInformationWrapper>
   );
 };

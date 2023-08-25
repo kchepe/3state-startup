@@ -30,7 +30,7 @@ const AgentsDetails = () => {
           // eslint-disable-next-line max-len
           src="https://images.pexels.com/photos/7641998/pexels-photo-7641998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         />
-        <Text className="h5">John Doe</Text>
+        <Text variant="h5">John Doe</Text>
         <Text className="text-sm -mt-3" variant="subtitle">
           john_doe@gmail.com
         </Text>

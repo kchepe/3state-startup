@@ -1,23 +1,24 @@
 import LogoImage from './components/LogoImage';
 import NavMenu from './components/NavMenu';
 import CredentialButtons from './components/CredentialButtons';
+import Box from '../Box';
 
 const Navbar = () => (
-  <div
+  <Box
     className="bg-white flex items-center shadow
                     px-2 sm:px-6 lg:px-8 h-[7vh] fixed left-0 w-full top-0 z-50"
   >
-    <div className="grid grid-cols-12 w-full items-center">
-      <div className="col-span-4">
+    <Box className="grid grid-cols-12 w-full items-center">
+      <Box className="col-span-4">
         <LogoImage />
-      </div>
-      <div className="col-span-4 flex justify-center">
+      </Box>
+      <Box className="col-span-4 flex justify-center">
         <NavMenu />
-      </div>
-      <div className="col-span-4 flex justify-end gap-2">
+      </Box>
+      <Box className="col-span-4 flex justify-end gap-2">
         <CredentialButtons />
-      </div>
-    </div>
-  </div>
+      </Box>
+    </Box>
+  </Box>
 );
 export default Navbar;

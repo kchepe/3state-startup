@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
+import Box from '../Box';
 
 interface AvatarProps {
   imageSrc?: string;
@@ -29,7 +30,7 @@ const Avatar: FC<AvatarProps> = ({ imageSrc, children, className, size = 'medium
   }
 
   return (
-    <div
+    <Box
       className={clsx(
         className,
         avatarSize[size],
@@ -37,7 +38,7 @@ const Avatar: FC<AvatarProps> = ({ imageSrc, children, className, size = 'medium
       )}
     >
       {children}
-    </div>
+    </Box>
   );
 };
 

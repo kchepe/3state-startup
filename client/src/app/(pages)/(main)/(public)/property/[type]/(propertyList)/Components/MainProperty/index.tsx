@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 import { IOfferType } from '@/app/types/types';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
+import Box from '@/app/common/Box';
 import FilterToolBar from '../FIlterToolbar';
 import PropertyList from '../PropertyList';
 
@@ -20,14 +21,14 @@ const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
   const { propertiesState } = usePropertyManager();
 
   return (
-    <div className="flex gap-3 h-full">
-      <div
+    <Box className="flex gap-3 h-full">
+      <Box
         className="w-[370px] overflow-x-hidden scrollbar
         pr-4 xl:block h-full overflow-y-auto hidden"
       >
         <FilterToolBar offerType={offerType} />
-      </div>
-      <div
+      </Box>
+      <Box
         className={clsx(
           'xl:overflow-x-hidden xl:scrollbar scroll-smooth flex-1 xl:h-full xl:overflow-y-auto',
           {
@@ -37,14 +38,14 @@ const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
         )}
       >
         <PropertyList />
-      </div>
+      </Box>
 
       {propertiesState.filter.showMap && (
-        <div className="hidden xl:block -mr-8 -my-4 flex-1">
+        <Box className="hidden xl:block -mr-8 -my-4 flex-1">
           <LeafletMap />
-        </div>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 };
 

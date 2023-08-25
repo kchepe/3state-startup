@@ -1,6 +1,7 @@
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
 import FormWrapper from '@/app/common/FormWrapper';
 import Button from '@/app/common/Button';
+import Box from '@/app/common/Box';
 import PropertyDetailsForm from './components/PropertyDetailsForm';
 import UnitDetailsForm from './components/UnitDetailsForm';
 import AmenitiesForm from './components/AmenitiesForm';
@@ -35,18 +36,18 @@ const PropertyForm = () => {
 
   const handleAddProperty: SubmitHandler<FieldValues> = (property) => property;
   return (
-    <div>
+    <Box>
       {propertyForms.map((form) => (
         <FormWrapper title={form.title} key={`${form.title}`}>
           {form.form}
         </FormWrapper>
       ))}
-      <div className="text-right mt-6">
+      <Box className="text-right mt-6">
         <Button color="primary" onClick={handleSubmit(handleAddProperty)}>
           Submit
         </Button>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

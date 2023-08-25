@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import React, { FC, InputHTMLAttributes } from 'react';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface TextareaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
@@ -9,12 +11,8 @@ export interface TextareaProps extends InputHTMLAttributes<HTMLTextAreaElement> 
 }
 
 const Textarea: FC<TextareaProps> = ({ label, className, contained, rows = 5, ...inputProps }) => (
-  <div className="w-full">
-    {label && (
-      <label className="block text-sm font-medium leading-6 text-gray-900 mb-1" htmlFor="inputText">
-        {label}
-      </label>
-    )}
+  <Box className="w-full">
+    {label && <Text className="text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>}
     <textarea
       rows={rows}
       autoComplete="off"
@@ -29,7 +27,7 @@ const Textarea: FC<TextareaProps> = ({ label, className, contained, rows = 5, ..
       )}
       {...inputProps}
     />
-  </div>
+  </Box>
 );
 
 export default Textarea;

@@ -2,6 +2,7 @@
 
 import React, { FC, ReactNode, useState } from 'react';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+import Box from '@/app/common/Box';
 
 interface FilterContainerProps {
   children: ReactNode;
@@ -15,20 +16,20 @@ const FilterContainer: FC<FilterContainerProps> = ({ children, header, showToggl
     setToggleExpand((prevState) => !prevState);
   };
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center justify-between gap-3">
-        <div className="font-semibold flex-1 text-primary">{header}</div>
-        <div className={`${showToggle ? 'block' : 'hidden'}`}>
+    <Box className="flex flex-col gap-3">
+      <Box className="flex items-center justify-between gap-3">
+        <Box className="font-semibold flex-1 text-primary">{header}</Box>
+        <Box className={`${showToggle ? 'block' : 'hidden'}`}>
           {toggleExpand ? (
             <MdKeyboardArrowUp className="text-xl cursor-pointer" onClick={handleToggleExpand} />
           ) : (
             <MdKeyboardArrowDown className="text-xl cursor-pointer" onClick={handleToggleExpand} />
           )}
-        </div>
-      </div>
+        </Box>
+      </Box>
 
       {toggleExpand && children}
-    </div>
+    </Box>
   );
 };
 

@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import React, { FC, ReactElement } from 'react';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface NumberFieldProps extends NumericFormatProps {
   label?: string;
@@ -20,16 +22,14 @@ const NumberField: FC<NumberFieldProps> = ({
   contained,
   ...inputProps
 }) => (
-  <div className="w-full">
+  <Box className="w-full">
     {label && (
-      <label className="block text-sm font-medium leading-6 text-gray-900 mb-1" htmlFor="inputText">
-        {label}
-      </label>
+      <Text className="block text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>
     )}
-    <div className="relative">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+    <Box className="relative">
+      <Box className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         {startIcon}
-      </div>
+      </Box>
       <NumericFormat
         thousandSeparator=","
         autoComplete="off"
@@ -50,10 +50,10 @@ const NumberField: FC<NumberFieldProps> = ({
         {...inputProps}
       />
       {endIcon && (
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3">{endIcon}</div>
+        <Box className="absolute inset-y-0 right-0 flex items-center pr-3">{endIcon}</Box>
       )}
-    </div>
-  </div>
+    </Box>
+  </Box>
 );
 
 export default NumberField;

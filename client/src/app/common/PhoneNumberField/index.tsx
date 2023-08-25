@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import React, { FC, ReactElement } from 'react';
 import { PatternFormat, NumericFormatProps } from 'react-number-format';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface PhoneNumberFieldProps extends NumericFormatProps {
   label?: string;
@@ -20,16 +22,12 @@ const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
   contained,
   ...inputProps
 }) => (
-  <div className="w-full">
-    {label && (
-      <label className="block text-sm font-medium leading-6 text-gray-900 mb-1" htmlFor="inputText">
-        {label}
-      </label>
-    )}
-    <div className="relative">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+  <Box className="w-full">
+    {label && <Text className="text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>}
+    <Box className="relative">
+      <Box className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         {startIcon}
-      </div>
+      </Box>
       <PatternFormat
         format="(####) ### ####"
         allowEmptyFormatting
@@ -51,10 +49,10 @@ const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
         {...inputProps}
       />
       {endIcon && (
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3">{endIcon}</div>
+        <Box className="absolute inset-y-0 right-0 flex items-center pr-3">{endIcon}</Box>
       )}
-    </div>
-  </div>
+    </Box>
+  </Box>
 );
 
 export default PhoneNumberField;

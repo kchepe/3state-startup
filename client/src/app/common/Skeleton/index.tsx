@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import clsx from 'clsx';
+import Box from '../Box';
 
 interface SkeletonProps {
   placeholderCount: number;
@@ -8,15 +9,15 @@ interface SkeletonProps {
 }
 
 const Skeleton: FC<SkeletonProps> = ({ placeholderCount, fullWidth, className }) => (
-  <div
+  <Box
     className={clsx('gap-x-7 gap-y-3', {
       'grid-cols-1': fullWidth,
       'grid-cols-card-list': !fullWidth,
     })}
   >
     {Array.from(Array(placeholderCount).keys()).map((num) => (
-      <div role="gridcell" className="animate-pulse col-span-1" key={num}>
-        <div
+      <Box role="gridcell" className="animate-pulse col-span-1" key={num}>
+        <Box
           className={`
           ${className}
           w-full 
@@ -24,9 +25,9 @@ const Skeleton: FC<SkeletonProps> = ({ placeholderCount, fullWidth, className })
           h-36
           rounded-md`}
         />
-      </div>
+      </Box>
     ))}
-  </div>
+  </Box>
 );
 
 export default Skeleton;

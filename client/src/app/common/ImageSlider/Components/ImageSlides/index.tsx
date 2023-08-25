@@ -6,6 +6,7 @@ import {
   isImageSlide,
   Slide,
 } from 'yet-another-react-lightbox';
+import Box from '@/app/common/Box';
 
 const isNextJsImage = (slide: Slide): slide is StaticImageData =>
   isImageSlide(slide) && typeof slide.width === 'number' && typeof slide.height === 'number';
@@ -25,7 +26,7 @@ const ImageSlides = ({ slide, rect }: RenderSlideProps) => {
     : rect.height;
 
   return (
-    <div style={{ position: 'relative', width, height }}>
+    <Box style={{ position: 'relative', width, height }}>
       <Image
         fill
         alt=""
@@ -36,7 +37,7 @@ const ImageSlides = ({ slide, rect }: RenderSlideProps) => {
         style={{ objectFit: cover ? 'cover' : 'contain' }}
         sizes={`${Math.ceil((width / window.innerWidth) * 100)}vw`}
       />
-    </div>
+    </Box>
   );
 };
 

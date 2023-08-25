@@ -3,6 +3,7 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
+import Box from '@/app/common/Box';
 import PropertyCard from './Components/PropertyCard';
 import { properties } from './mockData';
 import SearchField from './Components/SearchField';
@@ -33,21 +34,21 @@ const PropertyList: FC<PropertyListProps> = () => {
   }, [currentWidth, windowWidth, propertiesState.filter.showMap]);
 
   return (
-    <div className="grid grid-cols-12 gap-3 relative" ref={divRef}>
+    <Box className="grid grid-cols-12 gap-3 relative" ref={divRef}>
       <SearchField currentWidth={currentWidth} />
-      <div
+      <Box
         className={clsx('col-span-full grid grid-cols-card-list gap-8', {
           'mt-auto': currentWidth === 0,
           'mt-28': currentWidth !== 0,
         })}
       >
         {properties.map((property) => (
-          <div key={property.id} className="col-span-1">
+          <Box key={property.id} className="col-span-1">
             <PropertyCard property={property} />
-          </div>
+          </Box>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

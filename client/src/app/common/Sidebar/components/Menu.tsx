@@ -4,23 +4,24 @@ import clsx from 'clsx';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import sidebarMenu from './sidebarMenu';
+import Box from '../../Box';
 
 const Menu = () => {
   const pathname = usePathname();
   const { push } = useRouter();
 
   return (
-    <div
+    <Box
       className="flex grow flex-col gap-y-5
         overflow-y-auto bg-gray-900 pt-4"
     >
-      <nav className="flex flex-1 flex-col">
+      <Box className="flex flex-1 flex-col">
         <ul className="flex flex-1 flex-col gap-y-7">
           <li>
             <ul className="-mx-2 space-y-1">
               {sidebarMenu.map((item) => (
                 <li key={item.name}>
-                  <div
+                  <Box
                     aria-hidden
                     onClick={() => push(item.href)}
                     className={clsx(
@@ -33,14 +34,14 @@ const Menu = () => {
                   >
                     {item.icon}
                     {item.name}
-                  </div>
+                  </Box>
                 </li>
               ))}
             </ul>
           </li>
         </ul>
-      </nav>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

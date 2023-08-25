@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/navigation';
 import Button from '@/app/common/Button';
 import { IOfferType } from '@/app/types/types';
+import Box from '@/app/common/Box';
 
 interface OfferTypeProps {
   offerType: IOfferType;
@@ -18,7 +19,7 @@ const OfferType: FC<OfferTypeProps> = ({ offerType }) => {
   };
 
   return (
-    <div className="inline-flex gap-3 border rounded">
+    <Box className="inline-flex gap-3 border rounded">
       {offerMenu.map((offer) => (
         <Button
           key={offer}
@@ -28,7 +29,7 @@ const OfferType: FC<OfferTypeProps> = ({ offerType }) => {
           {offer}
         </Button>
       ))}
-    </div>
+    </Box>
   );
 };
 

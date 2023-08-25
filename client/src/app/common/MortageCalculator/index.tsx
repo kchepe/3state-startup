@@ -1,30 +1,31 @@
 import React from 'react';
 import TextField from '../TextField';
 import Button from '../Button';
+import Box from '../Box';
 
 const MortageCalculator = () => (
-  <div className="flex flex-col gap-3">
-    <div>
+  <Box className="flex flex-col gap-3">
+    <Box>
       <TextField outlined placeholder="Purchased Price" />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <TextField outlined placeholder="Down Payment" />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <TextField outlined placeholder="Mortage Term" />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <TextField outlined placeholder="Interest Rate" />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <TextField outlined placeholder="First Payment Date" />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <Button color="primary" fullWidth>
         Calculate
       </Button>
-    </div>
-  </div>
+    </Box>
+  </Box>
 );
 
 export default MortageCalculator;
