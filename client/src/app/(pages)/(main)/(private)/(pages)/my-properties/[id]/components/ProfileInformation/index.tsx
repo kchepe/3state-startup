@@ -9,7 +9,7 @@ const ProfileInformation = async () => {
   return (
     <Box className="flex items-center gap-5">
       <Avatar size="large">{getFirstLetter(session?.user.firstName as string)}</Avatar>
-      <Box>
+      <Box className="flex flex-col">
         <Text variant="h3" className="font-black">
           {capitalizeFirstString(`${session?.user.firstName} ${session?.user.lastName}` as string)}
         </Text>
