@@ -2,6 +2,8 @@ import { FC } from 'react';
 import Button from '@/app/common/Button';
 import { IOfferType } from '@/app/types/types';
 import { amenities } from '@/app/constant';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 import OfferType from './Components/OfferType';
 import PriceSlider from './Components/PriceSlider';
 import CheckboxListFilter from './Components/CheckboxListFilter';
@@ -13,32 +15,32 @@ interface FilterToolbarProps {
 }
 
 const FilterToolBar: FC<FilterToolbarProps> = ({ offerType }) => (
-  <div className="flex flex-col gap-8">
-    <div className="flex items-center justify-between">
-      <span className="font-bold">Filter</span>
+  <Box className="flex flex-col gap-8">
+    <Box className="flex items-center justify-between">
+      <Text className="font-bold">Filter</Text>
       <Button size="small" className="hover:text-gray-500">
         Clear Filters
       </Button>
-    </div>
-    <div>
+    </Box>
+    <Box>
       <OfferType offerType={offerType} />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <PropertyType />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <PriceSlider />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <NumberFilter title="Bedrooms" type="bedrooms" />
-    </div>
-    <div>
+    </Box>
+    <Box>
       <NumberFilter title="Bathrooms" type="bathrooms" />
-    </div>
-    <div className="flex gap-4 flex-col">
+    </Box>
+    <Box className="flex gap-4 flex-col">
       <CheckboxListFilter header="Amenities" options={amenities} />
-    </div>
-  </div>
+    </Box>
+  </Box>
 );
 
 export default FilterToolBar;

@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import React from 'react';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 
 const LogoImage = () => (
-  <div className="font-black text-lg">
+  <Box className="font-black text-lg">
     <Link href="/">
-      <span className="text-primary">3State</span>
+      <Text className="text-primary">3State</Text>
     </Link>
-  </div>
+  </Box>
 );
 
 export default LogoImage;

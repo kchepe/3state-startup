@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import PhoneNumberField, { PhoneNumberFieldProps } from '../PhoneNumberField';
+import Text from '../Text';
+import Box from '../Box';
 
 interface InputPhoneProps extends PhoneNumberFieldProps {
   name: string;
@@ -12,7 +14,7 @@ const InputPhone: FC<InputPhoneProps> = ({ name, ...inputProps }) => {
     formState: { errors },
   } = useFormContext();
   return (
-    <div>
+    <Box>
       <Controller
         name={name}
         control={control}
@@ -20,10 +22,8 @@ const InputPhone: FC<InputPhoneProps> = ({ name, ...inputProps }) => {
           <PhoneNumberField outlined {...phoneField} {...inputProps} />
         )}
       />
-      {errors[name] && (
-        <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>
-      )}
-    </div>
+      {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
+    </Box>
   );
 };
 

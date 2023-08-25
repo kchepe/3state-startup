@@ -3,6 +3,7 @@
 import React from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
+import Text from '@/app/common/Text';
 import { menu } from './menu';
 
 const NavMenu = () => {
@@ -27,7 +28,7 @@ const NavMenu = () => {
           )}
           onClick={() => handleRoute(list.link)}
         >
-          <span>{list.label}</span>
+          <Text>{list.label}</Text>
         </li>
       ))}
     </ul>

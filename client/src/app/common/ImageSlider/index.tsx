@@ -6,6 +6,8 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import clsx from 'clsx';
 import ImageSlides from './Components/ImageSlides';
+import Box from '../Box';
+import Text from '../Text';
 
 interface ImageSliderProps {
   images: string[];
@@ -31,9 +33,9 @@ const ImageSlider: FC<ImageSliderProps> = ({ images, size = 'large' }) => {
   };
 
   return (
-    <div className="grid grid-cols-10 gap-3">
+    <Box className="grid grid-cols-10 gap-3">
       {images.map((image, index) => (
-        <div
+        <Box
           aria-hidden
           onClick={() => handleShowImageSlider(index)}
           className={clsx(
@@ -44,12 +46,12 @@ const ImageSlider: FC<ImageSliderProps> = ({ images, size = 'large' }) => {
           key={`${image}${index.toString()}`}
         >
           {index === 5 && (
-            <div
+            <Box
               className="w-full h-full flex justify-center cursor-pointer
                   items-center backdrop-brightness-50 absolute rounded-xl text-white"
             >
-              <span className="text-lg font-bold">+{images.length - 5}</span>
-            </div>
+              <Text className="text-lg font-bold">+{images.length - 5}</Text>
+            </Box>
           )}
           {index <= 5 && (
             <Image
@@ -64,7 +66,7 @@ const ImageSlider: FC<ImageSliderProps> = ({ images, size = 'large' }) => {
               })}
             />
           )}
-        </div>
+        </Box>
       ))}
       <Lightbox
         index={currentIndex}
@@ -73,7 +75,7 @@ const ImageSlider: FC<ImageSliderProps> = ({ images, size = 'large' }) => {
         slides={slides}
         render={{ slide: ImageSlides }}
       />
-    </div>
+    </Box>
   );
 };
 

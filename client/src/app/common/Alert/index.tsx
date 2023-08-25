@@ -6,6 +6,9 @@ import { PiWarningCircleFill } from 'react-icons/pi';
 import React, { FC, useEffect } from 'react';
 import clsx from 'clsx';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
+import Box from '../Box';
+import Text from '../Text';
+import Button from '../Button';
 
 export type ISeverity = 'error' | 'info' | 'success';
 
@@ -36,44 +39,43 @@ const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
   const isMatchSeverity = (given: ISeverity): boolean => severity === given;
 
   return (
-    <div
+    <Box
       className={clsx('rounded-md p-4', show ? 'block' : 'hidden', {
         'bg-green-50': isMatchSeverity('success'),
         'bg-red-50': isMatchSeverity('error'),
         'bg-blue-50': isMatchSeverity('info'),
       })}
     >
-      <div className="flex">
-        <div className="flex-shrink-0">{severityIcon[severity]}</div>
-        <div className="ml-3">
-          <p
-            className={clsx('text-sm font-medium', {
+      <Box className="flex">
+        <Box className="flex-shrink-0">{severityIcon[severity]}</Box>
+        <Box className="ml-3">
+          <Text
+            className={clsx('font-medium', {
               'text-red-800': isMatchSeverity('error'),
               'text-blue-800': isMatchSeverity('info'),
               'text-green-500': isMatchSeverity('success'),
             })}
           >
             {message}
-          </p>
-        </div>
-        <div className="ml-auto pl-3">
-          <div className="-mx-1.5 -my-1.5">
-            <button
-              type="button"
+          </Text>
+        </Box>
+        <Box className="ml-auto pl-3">
+          <Box className="-mx-1.5 -my-1.5">
+            <Button
               onClick={hideNotification}
-              className={clsx('inline-flex rounded-md p-1.5', {
+              className={clsx('inline-flex rounded-md', {
                 'text-blue-500 hover:bg-blue-100 bg-blue-50': isMatchSeverity('info'),
                 'text-red-500 hover:bg-red-100 bg-red-50': isMatchSeverity('error'),
                 'text-green-500 hover:bg-green-100 bg-green-50': isMatchSeverity('success'),
               })}
             >
-              <span className="sr-only">Dismiss</span>
+              <Text className="sr-only">Dismiss</Text>
               <IoClose className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

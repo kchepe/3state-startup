@@ -1,10 +1,10 @@
 /* eslint-disable react/button-has-type */
-import React, { ButtonHTMLAttributes, FC, ReactElement } from 'react';
+import React, { ComponentProps, FC, ReactNode } from 'react';
 import clsx from 'clsx';
 import { Color, Size, IButtonColor } from './types';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactElement | string;
+interface ButtonProps extends ComponentProps<'button'> {
+  children: ReactNode | string;
   color?: Color;
   className?: string;
   size?: Size;
@@ -43,12 +43,12 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <button
-      {...buttonProps}
       className={clsx(className, buttonColor[color], buttonSize[size], 'rounded', {
         'w-full': fullWidth,
         'w-auto': !fullWidth,
         'cursor-pointer': !buttonProps.disabled,
       })}
+      {...buttonProps}
     >
       {loading ? 'Loading...' : children}
     </button>

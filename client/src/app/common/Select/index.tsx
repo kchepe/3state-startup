@@ -2,6 +2,8 @@ import { FC, Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { BiCheck, BiSolidChevronDown } from 'react-icons/bi';
 import clsx from 'clsx';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface IOption {
   label: string;
@@ -31,7 +33,7 @@ const Select: FC<SelectProps> = ({
   name,
   contained,
 }) => (
-  <div className="w-full">
+  <Box className="w-full">
     {label && (
       <label className="block text-sm font-medium leading-6 text-gray-900 mb-1" htmlFor="inputText">
         {label}
@@ -39,7 +41,7 @@ const Select: FC<SelectProps> = ({
     )}
     <Listbox value={value} onChange={onChange} name={name}>
       {({ open }) => (
-        <div className="relative">
+        <Box className="relative">
           <Listbox.Button
             className={clsx(
               className,
@@ -50,16 +52,16 @@ const Select: FC<SelectProps> = ({
               },
             )}
           >
-            <span
+            <Text
               className={clsx('block truncate', {
                 'text-gray-500': !value,
               })}
             >
               {value && value.label ? value.label : 'Select here...'}
-            </span>
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+            </Text>
+            <Text className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <BiSolidChevronDown className="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </span>
+            </Text>
           </Listbox.Button>
 
           <Transition
@@ -87,24 +89,24 @@ const Select: FC<SelectProps> = ({
                 >
                   {({ selected, active }) => (
                     <>
-                      <span
+                      <Text
                         className={classNames(
                           selected ? 'font-semibold' : 'font-normal',
                           'block truncate',
                         )}
                       >
                         {option.label}
-                      </span>
+                      </Text>
 
                       {selected ? (
-                        <span
+                        <Text
                           className={classNames(
                             active ? 'text-white' : 'text-indigo-600',
                             'absolute inset-y-0 right-0 flex items-center pr-4',
                           )}
                         >
                           <BiCheck className="h-5 w-5" aria-hidden="true" />
-                        </span>
+                        </Text>
                       ) : null}
                     </>
                   )}
@@ -112,10 +114,10 @@ const Select: FC<SelectProps> = ({
               ))}
             </Listbox.Options>
           </Transition>
-        </div>
+        </Box>
       )}
     </Listbox>
-  </div>
+  </Box>
 );
 
 export default Select;

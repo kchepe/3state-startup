@@ -5,6 +5,9 @@ import clsx from 'clsx';
 import { propertyTypes } from '@/app/constant';
 import { IPropertyType } from '@/app/types/types';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
+import Button from '@/app/common/Button';
 import FilterContainer from '../FilterContainer';
 
 const PropertyType = () => {
@@ -16,11 +19,10 @@ const PropertyType = () => {
 
   return (
     <FilterContainer header="Property Type">
-      <div className="grid grid-cols-12 gap-2">
+      <Box className="grid grid-cols-12 gap-2">
         {propertyTypes.map((type) => (
-          <div key={type.label} className="col-span-4">
-            <button
-              type="button"
+          <Box key={type.label} className="col-span-4">
+            <Button
               onClick={() => handleSelectProperty(type.label.toLowerCase() as IPropertyType)}
               className={clsx(
                 'flex flex-col gap-1 px-2 py-4 rounded-lg items-center justify-center w-full',
@@ -29,12 +31,12 @@ const PropertyType = () => {
                   : 'border',
               )}
             >
-              <div className="text-lg">{type.icon}</div>
-              <span className="text-xs">{type.label}</span>
-            </button>
-          </div>
+              <Box className="text-lg">{type.icon}</Box>
+              <Text className="text-xs">{type.label}</Text>
+            </Button>
+          </Box>
         ))}
-      </div>
+      </Box>
     </FilterContainer>
   );
 };

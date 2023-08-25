@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import React, { FC, InputHTMLAttributes, ReactElement } from 'react';
+import React, { ComponentProps, FC, ReactElement } from 'react';
 
-export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface TextFieldProps extends ComponentProps<'input'> {
   label?: string;
   className?: string;
   outlined?: boolean;

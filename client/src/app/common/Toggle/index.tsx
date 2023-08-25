@@ -4,6 +4,8 @@
 
 import React, { FC } from 'react';
 import { Switch } from '@headlessui/react';
+import Box from '../Box';
+import Text from '../Text';
 
 interface ToggleProps {
   label?: string;
@@ -16,8 +18,8 @@ function classNames(...classes: string[]) {
 }
 
 const Toggle: FC<ToggleProps> = ({ label, onChange, checked }) => (
-  <div className="flex items-center gap-2">
-    {label && <span>{label}</span>}
+  <Box className="flex items-center gap-2">
+    {label && <Text>{label}</Text>}
     <Switch
       checked={checked}
       onChange={onChange}
@@ -26,8 +28,8 @@ const Toggle: FC<ToggleProps> = ({ label, onChange, checked }) => (
         'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out',
       )}
     >
-      <span className="sr-only">Use setting</span>
-      <span
+      <Text className="sr-only">Use setting</Text>
+      <Text
         aria-hidden="true"
         className={classNames(
           checked ? 'translate-x-5' : 'translate-x-0',
@@ -35,7 +37,7 @@ const Toggle: FC<ToggleProps> = ({ label, onChange, checked }) => (
         )}
       />
     </Switch>
-  </div>
+  </Box>
 );
 
 export default Toggle;

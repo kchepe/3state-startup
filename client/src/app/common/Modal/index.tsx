@@ -1,6 +1,9 @@
 import { FC, Fragment, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { MdClose } from 'react-icons/md';
+import Box from '../Box';
+import Text from '../Text';
+import Button from '../Button';
 
 interface ModalProps {
   showModal: boolean;
@@ -21,11 +24,11 @@ const Modal: FC<ModalProps> = ({ showModal, handleClose, children, title = '' })
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+        <Box className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
       </Transition.Child>
 
-      <div className="fixed inset-0 z-10 overflow-y-auto">
-        <div className="min-h-full p-4 sm:p-0 flex justify-center items-center">
+      <Box className="fixed inset-0 z-10 overflow-y-auto">
+        <Box className="min-h-full p-4 sm:p-0 flex justify-center items-center">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -40,23 +43,19 @@ const Modal: FC<ModalProps> = ({ showModal, handleClose, children, title = '' })
                         bg-white px-4 pb-4 pt-5 text-left shadow-xl w-full
                           transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6"
             >
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold">{title}</span>
-                  <button
-                    type="button"
-                    onClick={handleClose}
-                    className="hover:text-gray-700 font-bold"
-                  >
+              <Box className="flex flex-col gap-4">
+                <Box className="flex items-center justify-between">
+                  <Text className="text-lg font-bold">{title}</Text>
+                  <Button onClick={handleClose} className="hover:text-gray-700 font-bold">
                     <MdClose />
-                  </button>
-                </div>
-                <div>{children}</div>
-              </div>
+                  </Button>
+                </Box>
+                <Box>{children}</Box>
+              </Box>
             </Dialog.Panel>
           </Transition.Child>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Dialog>
   </Transition.Root>
 );

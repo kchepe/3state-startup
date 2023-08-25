@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import Checkbox from '../Checkbox';
+import Box from '../Box';
+import Text from '../Text';
 
 interface CheckboxFormProps {
   name: string;
@@ -13,7 +15,7 @@ const CheckboxForm: FC<CheckboxFormProps> = ({ name, label }) => {
     formState: { errors },
   } = useFormContext();
   return (
-    <div>
+    <Box>
       <Controller
         control={control}
         name={name}
@@ -21,10 +23,8 @@ const CheckboxForm: FC<CheckboxFormProps> = ({ name, label }) => {
           <Checkbox checked={value} handleChange={onChange} label={label} />
         )}
       />
-      {errors[name] && (
-        <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>
-      )}
-    </div>
+      {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
+    </Box>
   );
 };
 

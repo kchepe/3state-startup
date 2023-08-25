@@ -5,6 +5,8 @@ import { BiSearch } from 'react-icons/bi';
 import TextField from '@/app/common/TextField';
 import Toggle from '@/app/common/Toggle';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 import { properties } from '../../mockData';
 
 interface SearchFieldProps {
@@ -19,30 +21,30 @@ const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
   };
 
   return (
-    <div
+    <Box
       className="fixed bg-white flex gap-3 flex-col pb-2"
       style={{
         display: currentWidth === 0 ? 'none' : 'block',
         width: currentWidth,
       }}
     >
-      <div>
+      <Box>
         <TextField
           placeholder="Search property here..."
           className="p-3 bg-gray-100"
           type="search"
           startIcon={<BiSearch className="text-gray-500 text-lg" />}
         />
-      </div>
-      <div className="flex items-center justify-between mt-2">
-        <span className="font-bold">{properties.length} Properties Available</span>
+      </Box>
+      <Box className="flex items-center justify-between mt-2">
+        <Text className="font-bold">{properties.length} Properties Available</Text>
         <Toggle
           label="Show Map"
           onChange={handleShowMap}
           checked={propertiesState.filter.showMap}
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

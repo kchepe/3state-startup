@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import TextField, { TextFieldProps } from '../TextField';
+import Box from '../Box';
+import Text from '../Text';
 
 interface InputFormProps extends TextFieldProps {
   name: string;
@@ -12,7 +14,7 @@ const InputForm: FC<InputFormProps> = ({ name, ...inputProps }) => {
     formState: { errors },
   } = useFormContext();
   return (
-    <div>
+    <Box>
       <Controller
         name={name}
         control={control}
@@ -20,10 +22,8 @@ const InputForm: FC<InputFormProps> = ({ name, ...inputProps }) => {
           <TextField outlined {...inputField} {...inputProps} />
         )}
       />
-      {errors[name] && (
-        <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>
-      )}
-    </div>
+      {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
+    </Box>
   );
 };
 

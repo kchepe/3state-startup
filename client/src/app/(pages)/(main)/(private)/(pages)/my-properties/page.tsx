@@ -2,10 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import Button from '@/app/common/Button';
 import DashboardWrapper from '@/app/common/DashboardWrapper';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 import ProfileInformation from './[id]/components/ProfileInformation';
 
 const MyProperties = () => (
-  <div className="flex flex-col gap-4">
+  <Box className="flex flex-col gap-4">
     <ProfileInformation />
     <DashboardWrapper
       title="My Properties"
@@ -17,11 +19,11 @@ const MyProperties = () => (
         </Link>
       }
     >
-      <div className="text-center">
-        <span>No properties available.</span>
-      </div>
+      <Box className="text-center">
+        <Text>No properties available.</Text>
+      </Box>
     </DashboardWrapper>
-  </div>
+  </Box>
 );
 
 export default MyProperties;

@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Tabs from '@/app/common/Tabs';
 import MortageCalculator from '@/app/common/MortageCalculator';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 import ContactForm from './ContactForm';
 
 const AgentsDetails = () => {
@@ -17,8 +19,8 @@ const AgentsDetails = () => {
     { label: 'Mortage Calculator', child: <MortageCalculator /> },
   ];
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex flex-col justify-center items-center gap-3">
+    <Box className="flex flex-col gap-3">
+      <Box className="flex flex-col justify-center items-center gap-3">
         <Image
           width="0"
           height="0"
@@ -28,19 +30,23 @@ const AgentsDetails = () => {
           // eslint-disable-next-line max-len
           src="https://images.pexels.com/photos/7641998/pexels-photo-7641998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         />
-        <span className="text-lg text-primary font-bold">John Doe</span>
-        <span className="text-gray-500 text-sm -mt-3">john_doe@gmail.com</span>
-        <span className="text-gray-500 text-sm -mt-2">0913 2345 678</span>
-      </div>
-      <div>
+        <Text className="h5">John Doe</Text>
+        <Text className="text-sm -mt-3" variant="subtitle">
+          john_doe@gmail.com
+        </Text>
+        <Text className="text-sm -mt-2" variant="subtitle">
+          0913 2345 678
+        </Text>
+      </Box>
+      <Box>
         <Tabs
           currentIndex={currentIndex}
           menu={tabMenu}
           handleSelectTab={handleSelectTab}
           className="text-xs"
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 export default AgentsDetails;

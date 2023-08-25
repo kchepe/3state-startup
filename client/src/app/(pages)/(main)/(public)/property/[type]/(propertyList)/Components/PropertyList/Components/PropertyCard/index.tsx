@@ -6,16 +6,18 @@ import { PiHouseLineFill } from 'react-icons/pi';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IProperty } from '@/app/types/types';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 
 interface PropertyCardProps {
   property: IProperty;
 }
 
 const PropertyCard: FC<PropertyCardProps> = ({ property }) => (
-  <div className="grid grid-cols-12 gap-1">
-    <div className="col-span-full mb-2">
-      <div className="w-full overflow-hidden rounded-3xl">
-        <div className="w-full h-60 overflow-hidden">
+  <Box className="grid grid-cols-12 gap-1">
+    <Box className="col-span-full mb-2">
+      <Box className="w-full overflow-hidden rounded-3xl">
+        <Box className="w-full h-60 overflow-hidden">
           <Link href={`/property/${property.status}/${property.id}`}>
             <Image
               src={property.imageUrl[0]}
@@ -27,35 +29,35 @@ const PropertyCard: FC<PropertyCardProps> = ({ property }) => (
                 transition-all duration-150 ease-in-out"
             />
           </Link>
-        </div>
-      </div>
-    </div>
-    <div className="col-span-full flex justify-between">
+        </Box>
+      </Box>
+    </Box>
+    <Box className="col-span-full flex justify-between">
       <Link href={`/property/${property.status}/${property.id}`}>
-        <div className="max-w-[250px] max-h-10 line-clamp-2">
+        <Box className="max-w-[250px] max-h-10 line-clamp-2">
           <h4 className="hover:text-gray-500 cursor-pointer font-semibold">{property.title}</h4>
-        </div>
+        </Box>
       </Link>
-      <div className="flex">
+      <Box className="flex">
         <TbCurrencyPeso className="font-extrabold text-lg" />
-        <span className="font-extrabold">{property.price.toLocaleString('en-US')}</span>
-      </div>
-    </div>
-    <div className="col-span-full flex text-gray-500 items-center gap-1">
+        <Text className="font-extrabold">{property.price.toLocaleString('en-US')}</Text>
+      </Box>
+    </Box>
+    <Box className="col-span-full flex text-gray-500 items-center gap-1">
       <TiLocation className="text-lg" />
-      <span>{property.location}</span>
-    </div>
-    <div className="col-span-full flex items-center gap-3">
-      <div className="flex item-center gap-1">
+      <Text>{property.location}</Text>
+    </Box>
+    <Box className="col-span-full flex items-center gap-3">
+      <Box className="flex item-center gap-1">
         <BiBed />
-        <span className="text-xs">{property.bedRoom} Bedroom</span>
-      </div>
-      <div className="flex item-center gap-1">
+        <Text className="text-xs">{property.bedRoom} Bedroom</Text>
+      </Box>
+      <Box className="flex item-center gap-1">
         <PiHouseLineFill />
-        <span className="text-xs">{property.floorArea}</span>
-      </div>
-    </div>
-  </div>
+        <Text className="text-xs">{property.floorArea}</Text>
+      </Box>
+    </Box>
+  </Box>
 );
 
 export default PropertyCard;

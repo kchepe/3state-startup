@@ -1,5 +1,7 @@
 import { FC, ReactElement } from 'react';
 import clsx from 'clsx';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface ITabMenu {
   label: string;
@@ -16,8 +18,8 @@ interface TabsProps {
 const Tabs: FC<TabsProps> = ({ currentIndex, menu, handleSelectTab, className }) => {
   const selectedTab = menu.find((_, index) => index === currentIndex);
   return (
-    <div>
-      <div
+    <Box>
+      <Box
         className={`${className} text-sm font-medium text-center text-gray-500 border-b
         border-gray-300`}
       >
@@ -29,7 +31,7 @@ const Tabs: FC<TabsProps> = ({ currentIndex, menu, handleSelectTab, className })
               aria-hidden
               onClick={() => handleSelectTab(index)}
             >
-              <span
+              <Text
                 className={clsx('inline-block p-4 border-b-2 rounded-t-lg', {
                   'text-primary border-primary': currentIndex === index,
                   'hover:text-gray-500 hover:border-gray-400 border-transparent text-gray-400':
@@ -37,13 +39,13 @@ const Tabs: FC<TabsProps> = ({ currentIndex, menu, handleSelectTab, className })
                 })}
               >
                 {item.label}
-              </span>
+              </Text>
             </li>
           ))}
         </ul>
-      </div>
-      <div className="p-3 py-5">{selectedTab?.child}</div>
-    </div>
+      </Box>
+      <Box className="p-3 py-5">{selectedTab?.child}</Box>
+    </Box>
   );
 };
 

@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import NumberField, { NumberFieldProps } from '../NumberField';
+import Box from '../Box';
+import Text from '../Text';
 
 interface InputNumberProps extends NumberFieldProps {
   name: string;
@@ -12,7 +14,7 @@ const InputNumber: FC<InputNumberProps> = ({ name, ...inputProps }) => {
     formState: { errors },
   } = useFormContext();
   return (
-    <div>
+    <Box>
       <Controller
         name={name}
         control={control}
@@ -20,10 +22,8 @@ const InputNumber: FC<InputNumberProps> = ({ name, ...inputProps }) => {
           <NumberField outlined {...numberField} {...inputProps} />
         )}
       />
-      {errors[name] && (
-        <span className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</span>
-      )}
-    </div>
+      {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
+    </Box>
   );
 };
 

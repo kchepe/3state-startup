@@ -10,6 +10,9 @@ import { BiUser } from 'react-icons/bi';
 import { BsHouseAdd } from 'react-icons/bs';
 import Avatar from '@/app/common/Avatar';
 import { capitalizeFirstString, getFirstLetter } from '@/app/utils/string.util';
+import Box from '@/app/common/Box';
+import Button from '@/app/common/Button';
+import Text from '@/app/common/Text';
 
 const ProfileDropDownButton = () => {
   const { push } = useRouter();
@@ -23,7 +26,7 @@ const ProfileDropDownButton = () => {
 
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div>
+      <Box>
         <Menu.Button
           disabled={status === 'loading'}
           className="inline-flex items-center justify-center gap-x-1.5
@@ -32,7 +35,7 @@ const ProfileDropDownButton = () => {
         >
           {getFirstLetter(data?.user.user.firstName as string)}
         </Menu.Button>
-      </div>
+      </Box>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -46,37 +49,36 @@ const ProfileDropDownButton = () => {
           className="absolute right-0 z-10 mt-2 w-64 origin-top-right rounded-md
               bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
-          <div>
+          <Box>
             <Menu.Item>
               {({ active }) => (
-                <button
-                  type="button"
+                <Button
                   onClick={() => push('/my-properties')}
                   className={clsx(
                     active ? 'bg-primary text-white rounded-t-md' : 'text-primary',
                     'p-4 text-sm w-full text-left flex items-center gap-2 border-b',
                   )}
                 >
-                  <div>
+                  <Box>
                     <Avatar>{getFirstLetter(data?.user.user.firstName as string)}</Avatar>
-                  </div>
-                  <div className="flex flex-col">
-                    <span>
+                  </Box>
+                  <Box className="flex flex-col">
+                    <Text>
                       {capitalizeFirstString(
                         `${data?.user.user.firstName} ${data?.user.user.lastName}` as string,
                       )}
-                    </span>
-                    <span className="text-xs text-gray-400">
+                    </Text>
+                    <Text className="text-xs text-gray-400">
                       {capitalizeFirstString(data?.user.user.userType as string)}
-                    </span>
-                  </div>
-                </button>
+                    </Text>
+                  </Box>
+                </Button>
               )}
             </Menu.Item>
             {menu.map((item, index) => (
               <Menu.Item key={`${item.label}${index + 1}`}>
                 {({ active }) => (
-                  <button
+                  <Button
                     type="button"
                     onClick={item.fn}
                     className={clsx(
@@ -84,13 +86,13 @@ const ProfileDropDownButton = () => {
                       'w-full px-4 py-2 text-left text-sm flex items-center gap-3',
                     )}
                   >
-                    <div className="text-base">{item.icon}</div>
+                    <Box className="text-base">{item.icon}</Box>
                     {item.label}
-                  </button>
+                  </Button>
                 )}
               </Menu.Item>
             ))}
-          </div>
+          </Box>
         </Menu.Items>
       </Transition>
     </Menu>

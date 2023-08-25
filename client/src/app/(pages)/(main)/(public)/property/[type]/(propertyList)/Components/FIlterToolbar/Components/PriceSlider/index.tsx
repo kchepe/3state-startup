@@ -5,6 +5,8 @@ import 'rc-slider/assets/index.css';
 import React, { useState } from 'react';
 import { TbCurrencyPeso } from 'react-icons/tb';
 import TextField from '@/app/common/TextField';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 
 const sliderStype = {
   backgroundColor: 'black',
@@ -20,11 +22,11 @@ const PriceSlider = () => {
     setPriceSliderValue(newValue as number[]);
   };
   return (
-    <div className="flex flex-col gap-5">
-      <div>
-        <span className="font-semibold">Price Range</span>
-      </div>
-      <div className="px-2">
+    <Box className="flex flex-col gap-5">
+      <Box>
+        <Text className="font-semibold">Price Range</Text>
+      </Box>
+      <Box className="px-2">
         <Slider
           range
           value={priceSliderValue}
@@ -35,26 +37,26 @@ const PriceSlider = () => {
           trackStyle={[{ backgroundColor: '#121212' }]}
           handleStyle={[sliderStype, sliderStype]}
         />
-      </div>
-      <div className="flex gap-14">
-        <div>
+      </Box>
+      <Box className="flex gap-14">
+        <Box>
           <TextField
             outlined
             defaultValue={priceSliderValue[0].toLocaleString('en-US')}
             label="Min"
             startIcon={<TbCurrencyPeso />}
           />
-        </div>
-        <div>
+        </Box>
+        <Box>
           <TextField
             outlined
             defaultValue={priceSliderValue[1].toLocaleString('en-US')}
             label="Max"
             startIcon={<TbCurrencyPeso />}
           />
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

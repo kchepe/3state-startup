@@ -4,6 +4,9 @@ import { Transition, Dialog } from '@headlessui/react';
 import { FC, Fragment, ReactNode, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import Menu from './components/Menu';
+import Box from '../Box';
+import Text from '../Text';
+import Button from '../Button';
 
 interface SidebarProps {
   children: ReactNode;
@@ -12,7 +15,7 @@ interface SidebarProps {
 const Sidebar: FC<SidebarProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <div>
+    <Box>
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
           <Transition.Child
@@ -24,10 +27,10 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-900/80" />
+            <Box className="fixed inset-0 bg-gray-900/80" />
           </Transition.Child>
 
-          <div className="fixed inset-0 flex">
+          <Box className="fixed inset-0 flex">
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"
@@ -47,37 +50,33 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                    <button
-                      type="button"
-                      className="-m-2.5 p-2.5"
-                      onClick={() => setSidebarOpen(false)}
-                    >
-                      <span className="sr-only">Close sidebar</span>
+                  <Box className="absolute left-full top-0 flex w-16 justify-center pt-5">
+                    <Button className="-m-2.5" onClick={() => setSidebarOpen(false)}>
+                      <Text className="sr-only">Close sidebar</Text>
                       <MdClose className="h-6 w-6 text-white" aria-hidden="true" />
-                    </button>
-                  </div>
+                    </Button>
+                  </Box>
                 </Transition.Child>
                 <Menu />
               </Dialog.Panel>
             </Transition.Child>
-          </div>
+          </Box>
         </Dialog>
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div
+      <Box
         className="hidden lg:fixed
       top-[3.8rem] lg:z-40 lg:flex lg:w-72 lg:flex-col left-0 h-screen"
       >
         <Menu />
-      </div>
-      <div className="lg:pl-72">
+      </Box>
+      <Box className="lg:pl-72">
         <main className="py-8">
-          <div className="px-4 sm:px-6 lg:px-8">{children}</div>
+          <Box className="px-4 sm:px-6 lg:px-8">{children}</Box>
         </main>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

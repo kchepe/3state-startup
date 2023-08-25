@@ -5,42 +5,44 @@ import { BiBed } from 'react-icons/bi';
 import { PiHouseLineFill } from 'react-icons/pi';
 import { GiPoland } from 'react-icons/gi';
 import { IProperty } from '@/app/types/types';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 
 interface PropertyDetailsProps {
   property: IProperty;
 }
 
 const PropertyDetails: FC<PropertyDetailsProps> = ({ property }) => (
-  <div className="flex flex-col gap-2">
-    <div>
-      <span className="font-bold text-xl">{property.title}</span>
-    </div>
-    <div className="flex items-center gap-2 font-bold text-xl">
+  <Box className="flex flex-col gap-2">
+    <Box>
+      <Text variant="h4">{property.title}</Text>
+    </Box>
+    <Box className="flex items-center gap-2 font-bold text-xl">
       <TbCurrencyPeso />
-      <span>{property.price.toLocaleString('en-US')}</span>
-    </div>
-    <div className="flex items-center gap-2">
+      <Text>{property.price.toLocaleString('en-US')}</Text>
+    </Box>
+    <Box className="flex items-center gap-2">
       <TiLocation />
-      <span className="text-gray-700">{property.location}</span>
-    </div>
-    <div>
-      <p className="text-justify">{property.description}</p>
-    </div>
-    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-      <div className="flex item-center gap-1">
+      <Text variant="subtitle">{property.location}</Text>
+    </Box>
+    <Box>
+      <Text className="text-justify">{property.description}</Text>
+    </Box>
+    <Box className="flex flex-col sm:flex-row sm:items-center gap-3">
+      <Box className="flex item-center gap-1">
         <BiBed className="text-lg" />
-        <span>{property.bedRoom} Bedroom</span>
-      </div>
-      <div className="flex item-center gap-1">
+        <Text>{property.bedRoom} Bedroom</Text>
+      </Box>
+      <Box className="flex item-center gap-1">
         <PiHouseLineFill className="text-lg" />
-        <span>{property.floorArea} Floor Area</span>
-      </div>
-      <div className="flex item-center gap-1">
+        <Text>{property.floorArea} Floor Area</Text>
+      </Box>
+      <Box className="flex item-center gap-1">
         <GiPoland className="text-lg" />
-        <span>{property.landSize} Land Area</span>
-      </div>
-    </div>
-  </div>
+        <Text>{property.landSize} Land Area</Text>
+      </Box>
+    </Box>
+  </Box>
 );
 
 export default PropertyDetails;

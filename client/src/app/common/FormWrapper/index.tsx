@@ -1,4 +1,6 @@
 import { FC, ReactNode } from 'react';
+import Box from '../Box';
+import Text from '../Text';
 
 interface FormWrapperProps {
   children: ReactNode;
@@ -6,12 +8,12 @@ interface FormWrapperProps {
 }
 
 const FormWrapper: FC<FormWrapperProps> = ({ children, title }) => (
-  <div className="grid grid-cols-12 gap-2 py-6 border-b">
-    <div className="col-span-6">
-      <span className="text-base font-bold">{title}</span>
-    </div>
-    <div className="col-span-6">{children}</div>
-  </div>
+  <Box className="grid grid-cols-12 gap-2 py-6 border-b">
+    <Box className="col-span-6">
+      <Text variant="h6">{title}</Text>
+    </Box>
+    <Box className="col-span-6">{children}</Box>
+  </Box>
 );
 
 export default FormWrapper;

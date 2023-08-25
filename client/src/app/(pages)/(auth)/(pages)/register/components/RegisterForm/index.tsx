@@ -14,6 +14,8 @@ import { ADD_USER } from '@/app/gql/mutations/user';
 import Alert from '@/app/common/Alert';
 import InputPhone from '@/app/common/FormBuilder/InputPhone';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 import { userType } from './registerFormValues';
 
 const RegisterForm = () => {
@@ -55,60 +57,60 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="grid grid-cols-12 gap-4">
-      <div className="flex flex-col items-center mb-5 col-span-full">
-        <span className="font-extrabold text-3xl text-primary">Create your account</span>
-        <span className="text-sm text-gray-500">Enter the fields below to get started</span>
-      </div>
-      <div className="col-span-full">
+    <Box className="grid grid-cols-12 gap-4">
+      <Box className="flex flex-col items-center mb-5 col-span-full">
+        <Text className="font-extrabold text-3xl text-primary">Create your account</Text>
+        <Text className="text-sm text-gray-500">Enter the fields below to get started</Text>
+      </Box>
+      <Box className="col-span-full">
         <Alert timeout={10000} />
-      </div>
-      <div className="col-span-full md:col-span-6">
+      </Box>
+      <Box className="col-span-full md:col-span-6">
         <InputForm
           name="firstName"
           label="Firstname"
           placeholder="Enter your firstname"
           startIcon={<BsPerson className="text-primary text-lg" />}
         />
-      </div>
-      <div className="col-span-full md:col-span-6">
+      </Box>
+      <Box className="col-span-full md:col-span-6">
         <InputForm
           name="lastName"
           label="Lastname"
           placeholder="Enter your lastname"
           startIcon={<BsPerson className="text-primary text-lg" />}
         />
-      </div>
-      <div className="col-span-full">
+      </Box>
+      <Box className="col-span-full">
         <SelectForm name="userType" options={userType} label="User Type" />
-      </div>
-      <div className="col-span-full md:col-span-6">
+      </Box>
+      <Box className="col-span-full md:col-span-6">
         <InputForm
           name="email"
           label="Email Address"
           placeholder="Enter your email"
           startIcon={<MdOutlineMail className="text-primary text-lg" />}
         />
-      </div>
-      <div className="col-span-full md:col-span-6">
+      </Box>
+      <Box className="col-span-full md:col-span-6">
         <InputPhone
           name="phoneNumber"
           label="Phone Number"
           placeholder="Enter your Phone number"
           startIcon={<BiPhone className="text-primary text-lg" />}
         />
-      </div>
-      <div className="col-span-full md:col-span-6">
+      </Box>
+      <Box className="col-span-full md:col-span-6">
         <PasswordInput name="password" label="Password" placeholder="Enter your password" />
-      </div>
-      <div className="col-span-full md:col-span-6">
+      </Box>
+      <Box className="col-span-full md:col-span-6">
         <PasswordInput
           name="confirmPassword"
           label="Confirm Password"
           placeholder="Confirm your password"
         />
-      </div>
-      <div className="col-span-full">
+      </Box>
+      <Box className="col-span-full">
         <Button
           color="primary"
           fullWidth
@@ -119,16 +121,16 @@ const RegisterForm = () => {
         >
           Signup
         </Button>
-      </div>
-      <div className="col-span-full text-center">
-        <span>
+      </Box>
+      <Box className="col-span-full text-center">
+        <Text>
           Already have an account?{' '}
           <Link href="/sign-in">
-            <span className="hover:underline font-bold cursor-pointer">Login</span>
+            <Text className="hover:underline font-bold cursor-pointer">Login</Text>
           </Link>
-        </span>
-      </div>
-    </div>
+        </Text>
+      </Box>
+    </Box>
   );
 };
 

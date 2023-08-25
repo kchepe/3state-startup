@@ -2,6 +2,8 @@
 
 import React, { FC, ChangeEventHandler } from 'react';
 import { FiCheck } from 'react-icons/fi';
+import Text from '../Text';
+import Box from '../Box';
 
 interface CheckboxProps {
   handleChange: ChangeEventHandler<HTMLInputElement>;
@@ -10,9 +12,9 @@ interface CheckboxProps {
 }
 
 const Checkbox: FC<CheckboxProps> = ({ handleChange, checked, label }) => (
-  <div>
-    <label className="flex gap-2 items-center" htmlFor="checkbox">
-      <div className="relative h-[15px] w-[15px] border rounded border-gray-300">
+  <Box>
+    <Box className="flex gap-2 items-center">
+      <Box className="relative h-[15px] w-[15px] border rounded border-gray-300">
         <input
           type="checkbox"
           className="opacity-0 focus:ring-transparent cursor-pointer h-[15px] w-[15px]"
@@ -20,17 +22,17 @@ const Checkbox: FC<CheckboxProps> = ({ handleChange, checked, label }) => (
           checked={checked}
         />
         {checked && (
-          <div
+          <Box
             className="pointer-events-none absolute -top-[1px] -left-[1px] bg-primary
             h-[15px] w-[15px] rounded flex items-center justify-center"
           >
             <FiCheck className="text-white h-3 w-3" />
-          </div>
+          </Box>
         )}
-      </div>
-      {label && <span>{label}</span>}
-    </label>
-  </div>
+      </Box>
+      {label && <Text>{label}</Text>}
+    </Box>
+  </Box>
 );
 
 export default Checkbox;

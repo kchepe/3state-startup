@@ -11,6 +11,8 @@ import InputForm from '@/app/common/FormBuilder/InputForm';
 import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
 import Alert from '@/app/common/Alert';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
+import Box from '@/app/common/Box';
+import Text from '@/app/common/Text';
 
 const SignInForm: FC = () => {
   const { handleSubmit } = useFormContext();
@@ -40,29 +42,29 @@ const SignInForm: FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-col items-center mb-5">
-        <span className="font-extrabold text-3xl text-primary">Welcome!</span>
-        <span className="text-sm text-gray-500">Login your account</span>
-      </div>
-      <div>
+    <Box className="flex flex-col gap-4">
+      <Box className="flex flex-col items-center mb-5">
+        <Text className="font-extrabold text-3xl text-primary">Welcome!</Text>
+        <Text className="text-sm text-gray-500">Login your account</Text>
+      </Box>
+      <Box>
         <Alert timeout={10000} />
-      </div>
-      <div>
+      </Box>
+      <Box>
         <InputForm
           name="email"
           label="Email Address"
           placeholder="Enter your email"
           startIcon={<MdOutlineEmail className="text-primary text-lg" />}
         />
-      </div>
-      <div>
+      </Box>
+      <Box>
         <PasswordInput name="password" label="Password" placeholder="Enter your password" />
-      </div>
-      <div className="text-right text-xs">
-        <span className="hover:underline cursor-pointer font-bold">Forgot Password?</span>
-      </div>
-      <div>
+      </Box>
+      <Box className="text-right text-xs">
+        <Text className="hover:underline cursor-pointer font-bold">Forgot Password?</Text>
+      </Box>
+      <Box>
         <Button
           color="primary"
           fullWidth
@@ -73,16 +75,16 @@ const SignInForm: FC = () => {
         >
           Login
         </Button>
-      </div>
-      <div className="text-center">
-        <span>
+      </Box>
+      <Box className="text-center">
+        <Text>
           Don&#39;t have an account?{' '}
           <Link href="/register">
-            <span className="hover:underline font-bold cursor-pointer">Sign up</span>
+            <Text className="hover:underline font-bold cursor-pointer">Sign up</Text>
           </Link>
-        </span>
-      </div>
-    </div>
+        </Text>
+      </Box>
+    </Box>
   );
 };
 
