@@ -11,7 +11,7 @@ import { PropsWithChildren } from 'react';
 import errorLink from './errorLink';
 import httpLink from './httpLink';
 
-const appLink = from([errorLink, httpLink('http://localhost:3000/graphql')]);
+const appLink = from([errorLink, httpLink('http://host.docker.internal:3000/graphql')]);
 
 const makeClient = () =>
   new NextSSRApolloClient({

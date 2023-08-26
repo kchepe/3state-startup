@@ -11,7 +11,7 @@ const { getClient } = registerApolloClient(
   () =>
     new NextSSRApolloClient({
       cache: new NextSSRInMemoryCache(),
-      link: from([errorLink, httpLink('http://server:3000/graphql')]),
+      link: from([errorLink, httpLink('http://host.docker.internal:3000/graphql')]),
     }),
 );
 

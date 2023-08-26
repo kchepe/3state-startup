@@ -11,7 +11,7 @@ const authOptions: NextAuthOptions = {
       credentials: { email: {}, password: {} },
       async authorize(credentials) {
         try {
-          const response = await fetch('http://server:3000/graphql', {
+          const response = await fetch('http://host.docker.internal:3000/graphql', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
