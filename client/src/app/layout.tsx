@@ -5,7 +5,7 @@ import AuthProvider from './AuthProvider';
 import { NotificationProvider, initialNotificationState } from './context/NotificationContext';
 import ApolloWrapper from './lib/apollo-wrapper';
 
-const inter = Montserrat({ subsets: ['latin'], fallback: [] });
+const inter = Montserrat({ subsets: ['latin'] });
 
 export const metadata = {
   title: '3State',

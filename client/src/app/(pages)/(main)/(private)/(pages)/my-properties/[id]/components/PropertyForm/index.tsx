@@ -6,6 +6,7 @@ import PropertyDetailsForm from './components/PropertyDetailsForm';
 import UnitDetailsForm from './components/UnitDetailsForm';
 import AmenitiesForm from './components/AmenitiesForm';
 import TitleForm from './components/TitleForm';
+import UploadPhotosForm from './components/UploadPhotosForm';
 
 const propertyForms = [
   { title: 'Property Details', form: <TitleForm /> },
@@ -26,8 +27,12 @@ const propertyForms = [
     form: <AmenitiesForm />,
   },
   {
-    title: 'Upload Photos',
-    form: <PropertyDetailsForm />,
+    title: 'Upload Property Photos',
+    form: <UploadPhotosForm />,
+  },
+  {
+    title: 'Upload Floor Plan',
+    form: <UploadPhotosForm />,
   },
 ];
 

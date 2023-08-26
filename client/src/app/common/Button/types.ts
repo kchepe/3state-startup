@@ -6,4 +6,4 @@ export interface IButtonColor {
   transparent: string;
 }
 
-export type Size = 'small' | 'medium' | 'large';
+export type Size = 'small' | 'medium' | 'large' | 'normal';

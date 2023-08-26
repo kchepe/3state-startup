@@ -18,11 +18,11 @@ const TextareaForm: FC<TextareaFormProps> = ({ name, ...inputProps }) => {
       <Controller
         name={name}
         control={control}
-        render={({ field }) => <Textarea {...field} {...inputProps} />}
+        render={({ field: { ref, ...textareaField } }) => (
+          <Textarea {...textareaField} {...inputProps} />
+        )}
       />
-      {errors[name] && (
-        <Text className="text-[10px] ml-4 text-red-600">{errors[name]?.message?.toString()}</Text>
-      )}
+      {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
     </Box>
   );
 };

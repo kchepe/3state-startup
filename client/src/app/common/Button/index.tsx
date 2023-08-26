@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Color, Size, IButtonColor } from './types';
 
 interface ButtonProps extends ComponentProps<'button'> {
-  children: ReactNode | string;
+  children: ReactNode;
   color?: Color;
   className?: string;
   size?: Size;
@@ -36,6 +36,7 @@ const Button: FC<ButtonProps> = ({
   };
 
   const buttonSize = {
+    normal: 'p-0',
     small: 'px-3 py-1',
     medium: 'px-4 py-2',
     large: 'px-5 py-3',

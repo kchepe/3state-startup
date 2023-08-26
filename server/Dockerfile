@@ -1,4 +1,6 @@
-FROM node:18-bullseye as server
+FROM node:18-alpine as server
+
+RUN mkdir -p /app
 
 WORKDIR /app
 
@@ -10,4 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD [ "yarn", "start:dev" ]
+ENTRYPOINT ["/bin/sh", "entrypoint.sh"]

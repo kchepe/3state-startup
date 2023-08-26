@@ -47,7 +47,7 @@ const authOptions: NextAuthOptions = {
       return newSession;
     },
   },
-  debug: process.env.ENVIRONMENT === 'development',
+  // debug: process.env.ENVIRONMENT === 'development',
 };
 
 export default authOptions;
