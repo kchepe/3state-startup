@@ -37,7 +37,7 @@ const Dropzone: FC<DropZoneProps> = ({ acceptedFiles, onDrop, maxFiles = 1, chil
 
   return (
     <Box className="cursor-pointer">
-      <div {...getRootProps({ style })}>
+      <Box {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <Box className="bg-primary rounded w-8 h-8 flex items-center justify-center mb-2">
           <FiUploadCloud className="text-white text-lg" />
@@ -45,7 +45,7 @@ const Dropzone: FC<DropZoneProps> = ({ acceptedFiles, onDrop, maxFiles = 1, chil
         <Text className="text-primary text-sm text-center font-medium">
           Click to upload or drag and drop
         </Text>
-      </div>
+      </Box>
       <Box className="flex items-center flex-wrap mt-6 gap-2">{children}</Box>
     </Box>
   );
