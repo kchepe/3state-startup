@@ -3,7 +3,6 @@
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import React, { useState } from 'react';
-import TextField from '@/app/common/TextField';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
 import NumberField from '@/app/common/NumberField';
