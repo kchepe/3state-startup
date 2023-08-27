@@ -1,10 +1,10 @@
 import { FC, Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import clsx from 'clsx';
-import Box from '../Box';
-import Text from '../Text';
 import Check from '@/app/icons/Check';
 import ChevronDown from '@/app/icons/ChevronDown';
+import Box from '../Box';
+import Text from '../Text';
 
 export interface IOption {
   label: string;

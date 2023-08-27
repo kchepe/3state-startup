@@ -3,13 +3,13 @@
 import React, { FC, useEffect } from 'react';
 import clsx from 'clsx';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
-import Box from '../Box';
-import Text from '../Text';
-import Button from '../Button';
 import CheckCircleFill from '@/app/icons/CheckCircleFill';
 import Close from '@/app/icons/Close';
 import CloseCircleFill from '@/app/icons/CloseCircleFill';
 import WarningCircleFill from '@/app/icons/WarningCircleFill';
+import Box from '../Box';
+import Text from '../Text';
+import Button from '../Button';
 
 export type ISeverity = 'error' | 'info' | 'success';
 

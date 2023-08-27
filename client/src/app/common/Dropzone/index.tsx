@@ -1,9 +1,9 @@
 import React, { FC, ReactNode, useMemo } from 'react';
 import { useDropzone, FileRejection, DropEvent, Accept } from 'react-dropzone';
+import CloudArrowUp from '@/app/icons/CloudArrowUp';
 import { baseStyle, focusedStyle, acceptStyle, rejectStyle } from './dropzone.style';
 import Box from '../Box';
 import Text from '../Text';
-import CloudArrowUp from '@/app/icons/CloudArrowUp';
 
 interface DropZoneProps {
   acceptedFiles?: Accept;

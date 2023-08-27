@@ -1,10 +1,10 @@
 'use client';
 
 import React, { FC, useState } from 'react';
-import InputForm from './InputForm';
 import LockClose from '@/app/icons/LockClose';
 import EyeOpen from '@/app/icons/EyeOpen';
 import EyeClose from '@/app/icons/EyeClose';
+import InputForm from './InputForm';
 
 interface PasswordInputProps {
   label?: string;

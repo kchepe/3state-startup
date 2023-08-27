@@ -2,11 +2,11 @@
 
 import { Transition, Dialog } from '@headlessui/react';
 import { FC, Fragment, ReactNode, useState } from 'react';
+import Close from '@/app/icons/Close';
 import Menu from './components/Menu';
 import Box from '../Box';
 import Text from '../Text';
 import Button from '../Button';
-import Close from '@/app/icons/Close';
 
 interface SidebarProps {
   children: ReactNode;

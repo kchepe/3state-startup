@@ -1,9 +1,9 @@
 import { FC, Fragment, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import Close from '@/app/icons/Close';
 import Box from '../Box';
 import Text from '../Text';
 import Button from '../Button';
-import Close from '@/app/icons/Close';
 
 interface ModalProps {
   showModal: boolean;

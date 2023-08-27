@@ -1,9 +1,9 @@
 'use client';
 
 import React, { FC, ChangeEventHandler } from 'react';
+import Check from '@/app/icons/Check';
 import Text from '../Text';
 import Box from '../Box';
-import Check from '@/app/icons/Check';
 
 interface CheckboxProps {
   handleChange: ChangeEventHandler<HTMLInputElement>;
