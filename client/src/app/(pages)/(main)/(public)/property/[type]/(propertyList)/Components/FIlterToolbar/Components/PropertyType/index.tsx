@@ -2,13 +2,27 @@
 
 import React from 'react';
 import clsx from 'clsx';
-import { propertyTypes } from '@/app/constant';
 import { IPropertyType } from '@/app/types/types';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
 import Button from '@/app/common/Button';
+import Square from '@/app/icons/Square';
+import House from '@/app/icons/House';
+import Apartment from '@/app/icons/Apartment';
+import CommercialBuilding from '@/app/icons/CommercialBuilding';
+import Condominium from '@/app/icons/Condominium';
+import HouseSimple from '@/app/icons/HouseSimple';
 import FilterContainer from '../FilterContainer';
+
+const propertyTypes = [
+  { label: 'Any', icon: <HouseSimple className="w-5 h-5" /> },
+  { label: 'House', icon: <House className="w-5 h-5" /> },
+  { label: 'Land', icon: <Square className="w-5 h-5" /> },
+  { label: 'Apartment', icon: <Apartment className="w-5 h-5" /> },
+  { label: 'Commercial', icon: <CommercialBuilding className="w-5 h-5" /> },
+  { label: 'Condominium', icon: <Condominium className="w-5 h-5" /> },
+];
 
 const PropertyType = () => {
   const { propertiesState, searchProperty } = usePropertyManager();
@@ -31,7 +45,7 @@ const PropertyType = () => {
                   : 'border',
               )}
             >
-              <Box className="text-lg">{type.icon}</Box>
+              <Box>{type.icon}</Box>
               <Text className="text-xs">{type.label}</Text>
             </Button>
           </Box>

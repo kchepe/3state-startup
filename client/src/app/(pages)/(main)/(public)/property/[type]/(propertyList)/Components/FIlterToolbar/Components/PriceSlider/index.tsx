@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 import TextField from '@/app/common/TextField';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
+import NumberField from '@/app/common/NumberField';
+import Peso from '@/app/icons/Peso';
 
 const sliderStype = {
   backgroundColor: 'black',
@@ -37,19 +39,21 @@ const PriceSlider = () => {
           handleStyle={[sliderStype, sliderStype]}
         />
       </Box>
-      <Box className="flex gap-14">
+      <Box className="flex gap-10">
         <Box>
-          <TextField
+          <NumberField
             outlined
-            defaultValue={priceSliderValue[0].toLocaleString('en-US')}
+            defaultValue={priceSliderValue[0]}
             label="Min"
+            startIcon={<Peso className="w-5 h-5" />}
           />
         </Box>
         <Box>
-          <TextField
+          <NumberField
             outlined
-            defaultValue={priceSliderValue[1].toLocaleString('en-US')}
+            defaultValue={priceSliderValue[1]}
             label="Max"
+            startIcon={<Peso className="w-5 h-5" />}
           />
         </Box>
       </Box>

@@ -10,16 +10,16 @@ import { capitalizeFirstString, getFirstLetter } from '@/app/utils/string.util';
 import Box from '@/app/common/Box';
 import Button from '@/app/common/Button';
 import Text from '@/app/common/Text';
-import Person from '@/app/icons/Person';
 import HouseAdd from '@/app/icons/HouseAdd';
 import ArrowRightOnRectangle from '@/app/icons/ArrowRightOnRectangle';
+import PersonGear from '@/app/icons/PersonGear';
 
 const ProfileDropDownButton = () => {
   const { push } = useRouter();
   const { data, status } = useSession();
 
   const menu = [
-    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <Person /> },
+    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <PersonGear /> },
     { label: 'Add Property', fn: () => push('/my-properties/add-property'), icon: <HouseAdd /> },
     { label: 'Sign Out', fn: () => signOut({ callbackUrl: '/' }), icon: <ArrowRightOnRectangle /> },
   ];
