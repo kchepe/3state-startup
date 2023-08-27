@@ -1,8 +1,8 @@
 import React from 'react';
-import { TbCurrencyPeso } from 'react-icons/tb';
 import SelectForm from '@/app/common/FormBuilder/SelectForm';
 import InputNumber from '@/app/common/FormBuilder/InputNumber';
 import Box from '@/app/common/Box';
+import Peso from '@/app/icons/Peso';
 
 const UnitDetailsForm = () => (
   <Box className="grid grid-cols-12 gap-4">
@@ -12,7 +12,7 @@ const UnitDetailsForm = () => (
         label="Price"
         placeholder="Enter Price"
         contained
-        startIcon={<TbCurrencyPeso />}
+        startIcon={<Peso />}
       />
     </Box>
     <Box className="col-span-full">

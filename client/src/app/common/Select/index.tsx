@@ -1,9 +1,10 @@
 import { FC, Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import { BiCheck, BiSolidChevronDown } from 'react-icons/bi';
 import clsx from 'clsx';
 import Box from '../Box';
 import Text from '../Text';
+import Check from '@/app/icons/Check';
+import ChevronDown from '@/app/icons/ChevronDown';
 
 export interface IOption {
   label: string;
@@ -60,7 +61,7 @@ const Select: FC<SelectProps> = ({
               {value && value.label ? value.label : 'Select here...'}
             </Text>
             <Text className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <BiSolidChevronDown className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              <ChevronDown />
             </Text>
           </Listbox.Button>
 
@@ -105,7 +106,7 @@ const Select: FC<SelectProps> = ({
                             'absolute inset-y-0 right-0 flex items-center pr-4',
                           )}
                         >
-                          <BiCheck className="h-5 w-5" aria-hidden="true" />
+                          <Check className="w-4 h-4" aria-hidden="true" />
                         </Text>
                       ) : null}
                     </>

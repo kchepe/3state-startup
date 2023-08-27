@@ -1,9 +1,9 @@
 'use client';
 
 import React, { FC, ChangeEventHandler } from 'react';
-import { FiCheck } from 'react-icons/fi';
 import Text from '../Text';
 import Box from '../Box';
+import Check from '@/app/icons/Check';
 
 interface CheckboxProps {
   handleChange: ChangeEventHandler<HTMLInputElement>;
@@ -26,7 +26,7 @@ const Checkbox: FC<CheckboxProps> = ({ handleChange, checked, label }) => (
             className="pointer-events-none absolute -top-[1px] -left-[1px] bg-primary
             h-[15px] w-[15px] rounded flex items-center justify-center"
           >
-            <FiCheck className="text-white h-3 w-3" />
+            <Check className="text-white h-3 w-3" />
           </Box>
         )}
       </Box>

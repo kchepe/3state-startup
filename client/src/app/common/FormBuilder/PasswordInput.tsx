@@ -1,9 +1,10 @@
 'use client';
 
 import React, { FC, useState } from 'react';
-import { BiLockAlt } from 'react-icons/bi';
-import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
 import InputForm from './InputForm';
+import LockClose from '@/app/icons/LockClose';
+import EyeOpen from '@/app/icons/EyeOpen';
+import EyeClose from '@/app/icons/EyeClose';
 
 interface PasswordInputProps {
   label?: string;
@@ -24,16 +25,12 @@ const PasswordInput: FC<PasswordInputProps> = ({ label = '', name, placeholder =
       label={label}
       type={showPassword ? 'text' : 'password'}
       placeholder={placeholder}
-      startIcon={<BiLockAlt className="text-primary text-lg" />}
+      startIcon={<LockClose className="text-primary" />}
       endIcon={
         showPassword ? (
-          <PiEyeBold className="text-lg cursor-pointer" aria-hidden onClick={handleShowPassword} />
+          <EyeOpen className="text-lg cursor-pointer" aria-hidden onClick={handleShowPassword} />
         ) : (
-          <PiEyeClosedBold
-            className="text-lg cursor-pointer"
-            aria-hidden
-            onClick={handleShowPassword}
-          />
+          <EyeClose className="text-lg cursor-pointer" aria-hidden onClick={handleShowPassword} />
         )
       }
     />

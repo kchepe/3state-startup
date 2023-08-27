@@ -1,9 +1,9 @@
 import { FC, Fragment, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { MdClose } from 'react-icons/md';
 import Box from '../Box';
 import Text from '../Text';
 import Button from '../Button';
+import Close from '@/app/icons/Close';
 
 interface ModalProps {
   showModal: boolean;
@@ -47,7 +47,7 @@ const Modal: FC<ModalProps> = ({ showModal, handleClose, children, title = '' })
                 <Box className="flex items-center justify-between">
                   <Text className="text-lg font-bold">{title}</Text>
                   <Button onClick={handleClose} className="hover:text-gray-700 font-bold">
-                    <MdClose />
+                    <Close />
                   </Button>
                 </Box>
                 <Box>{children}</Box>

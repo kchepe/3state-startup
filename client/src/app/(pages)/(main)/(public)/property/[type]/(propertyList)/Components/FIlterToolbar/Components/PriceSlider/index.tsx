@@ -3,7 +3,6 @@
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import React, { useState } from 'react';
-import { TbCurrencyPeso } from 'react-icons/tb';
 import TextField from '@/app/common/TextField';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
@@ -44,7 +43,6 @@ const PriceSlider = () => {
             outlined
             defaultValue={priceSliderValue[0].toLocaleString('en-US')}
             label="Min"
-            startIcon={<TbCurrencyPeso />}
           />
         </Box>
         <Box>
@@ -52,7 +50,6 @@ const PriceSlider = () => {
             outlined
             defaultValue={priceSliderValue[1].toLocaleString('en-US')}
             label="Max"
-            startIcon={<TbCurrencyPeso />}
           />
         </Box>
       </Box>

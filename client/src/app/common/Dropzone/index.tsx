@@ -1,9 +1,9 @@
 import React, { FC, ReactNode, useMemo } from 'react';
-import { FiUploadCloud } from 'react-icons/fi';
 import { useDropzone, FileRejection, DropEvent, Accept } from 'react-dropzone';
 import { baseStyle, focusedStyle, acceptStyle, rejectStyle } from './dropzone.style';
 import Box from '../Box';
 import Text from '../Text';
+import CloudArrowUp from '@/app/icons/CloudArrowUp';
 
 interface DropZoneProps {
   acceptedFiles?: Accept;
@@ -40,7 +40,7 @@ const Dropzone: FC<DropZoneProps> = ({ acceptedFiles, onDrop, maxFiles = 1, chil
       <Box {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <Box className="bg-primary rounded w-8 h-8 flex items-center justify-center mb-2">
-          <FiUploadCloud className="text-white text-lg" />
+          <CloudArrowUp className="text-white" />
         </Box>
         <Text className="text-primary text-sm text-center font-medium">
           Click to upload or drag and drop

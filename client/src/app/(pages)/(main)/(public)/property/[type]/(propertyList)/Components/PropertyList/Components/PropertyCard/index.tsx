@@ -1,8 +1,4 @@
 import { FC } from 'react';
-import { TiLocation } from 'react-icons/ti';
-import { BiBed } from 'react-icons/bi';
-import { TbCurrencyPeso } from 'react-icons/tb';
-import { PiHouseLineFill } from 'react-icons/pi';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IProperty } from '@/app/types/types';
@@ -39,21 +35,21 @@ const PropertyCard: FC<PropertyCardProps> = ({ property }) => (
         </Box>
       </Link>
       <Box className="flex">
-        <TbCurrencyPeso className="font-extrabold text-lg" />
+        {/* <TbCurrencyPeso className="font-extrabold text-lg" /> */}
         <Text className="font-extrabold">{property.price.toLocaleString('en-US')}</Text>
       </Box>
     </Box>
     <Box className="col-span-full flex text-gray-500 items-center gap-1">
-      <TiLocation className="text-lg" />
+      {/* <TiLocation className="text-lg" /> */}
       <Text>{property.location}</Text>
     </Box>
     <Box className="col-span-full flex items-center gap-3">
       <Box className="flex item-center gap-1">
-        <BiBed />
+        {/* <BiBed /> */}
         <Text className="text-xs">{property.bedRoom} Bedroom</Text>
       </Box>
       <Box className="flex item-center gap-1">
-        <PiHouseLineFill />
+        {/* <PiHouseLineFill /> */}
         <Text className="text-xs">{property.floorArea}</Text>
       </Box>
     </Box>

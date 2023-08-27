@@ -2,11 +2,11 @@
 
 import { Transition, Dialog } from '@headlessui/react';
 import { FC, Fragment, ReactNode, useState } from 'react';
-import { MdClose } from 'react-icons/md';
 import Menu from './components/Menu';
 import Box from '../Box';
 import Text from '../Text';
 import Button from '../Button';
+import Close from '@/app/icons/Close';
 
 interface SidebarProps {
   children: ReactNode;
@@ -53,7 +53,7 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
                   <Box className="absolute left-full top-0 flex w-16 justify-center pt-5">
                     <Button className="-m-2.5" onClick={() => setSidebarOpen(false)}>
                       <Text className="sr-only">Close sidebar</Text>
-                      <MdClose className="h-6 w-6 text-white" aria-hidden="true" />
+                      <Close className="h-6 w-6 text-white" aria-hidden="true" />
                     </Button>
                   </Box>
                 </Transition.Child>

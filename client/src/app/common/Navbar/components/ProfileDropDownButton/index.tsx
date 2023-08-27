@@ -5,23 +5,23 @@ import { Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
-import { IoExitOutline } from 'react-icons/io5';
-import { BiUser } from 'react-icons/bi';
-import { BsHouseAdd } from 'react-icons/bs';
 import Avatar from '@/app/common/Avatar';
 import { capitalizeFirstString, getFirstLetter } from '@/app/utils/string.util';
 import Box from '@/app/common/Box';
 import Button from '@/app/common/Button';
 import Text from '@/app/common/Text';
+import Person from '@/app/icons/Person';
+import HouseAdd from '@/app/icons/HouseAdd';
+import ArrowRightOnRectangle from '@/app/icons/ArrowRightOnRectangle';
 
 const ProfileDropDownButton = () => {
   const { push } = useRouter();
   const { data, status } = useSession();
 
   const menu = [
-    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <BiUser /> },
-    { label: 'Add Property', fn: () => push('/my-properties/add-property'), icon: <BsHouseAdd /> },
-    { label: 'Sign Out', fn: () => signOut({ callbackUrl: '/' }), icon: <IoExitOutline /> },
+    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <Person /> },
+    { label: 'Add Property', fn: () => push('/my-properties/add-property'), icon: <HouseAdd /> },
+    { label: 'Sign Out', fn: () => signOut({ callbackUrl: '/' }), icon: <ArrowRightOnRectangle /> },
   ];
 
   return (

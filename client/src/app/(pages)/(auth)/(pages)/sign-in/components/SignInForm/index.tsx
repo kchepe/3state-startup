@@ -1,7 +1,6 @@
 'use client';
 
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
-import { MdOutlineEmail } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
 import Link from 'next/link';
@@ -13,6 +12,7 @@ import Alert from '@/app/common/Alert';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
+import Mail from '@/app/icons/Mail';
 
 const SignInForm: FC = () => {
   const { handleSubmit } = useFormContext();
@@ -55,7 +55,7 @@ const SignInForm: FC = () => {
           name="email"
           label="Email Address"
           placeholder="Enter your email"
-          startIcon={<MdOutlineEmail className="text-primary text-lg" />}
+          startIcon={<Mail className="text-primary" />}
         />
       </Box>
       <Box>

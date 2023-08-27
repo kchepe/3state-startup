@@ -1,14 +1,15 @@
 'use client';
 
-import { IoClose, IoCloseCircleSharp } from 'react-icons/io5';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import { PiWarningCircleFill } from 'react-icons/pi';
 import React, { FC, useEffect } from 'react';
 import clsx from 'clsx';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
 import Box from '../Box';
 import Text from '../Text';
 import Button from '../Button';
+import CheckCircleFill from '@/app/icons/CheckCircleFill';
+import Close from '@/app/icons/Close';
+import CloseCircleFill from '@/app/icons/CloseCircleFill';
+import WarningCircleFill from '@/app/icons/WarningCircleFill';
 
 export type ISeverity = 'error' | 'info' | 'success';
 
@@ -31,9 +32,9 @@ const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
   }, [show, alwaysShow, timeout, hideNotification]);
 
   const severityIcon = {
-    success: <BsCheckCircleFill className="h-5 w-5 text-green-400" aria-hidden="true" />,
-    error: <IoCloseCircleSharp className="h-5 w-5 text-red-400" aria-hidden="true" />,
-    info: <PiWarningCircleFill className="h-5 w-5 text-blue-400" aria-hidden="true" />,
+    success: <CheckCircleFill className="h-5 w-5 text-green-400" aria-hidden="true" />,
+    error: <CloseCircleFill className="h-5 w-5 text-red-400" aria-hidden="true" />,
+    info: <WarningCircleFill className="h-5 w-5 text-blue-400" aria-hidden="true" />,
   };
 
   const isMatchSeverity = (given: ISeverity): boolean => severity === given;
@@ -46,33 +47,33 @@ const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
         'bg-blue-50': isMatchSeverity('info'),
       })}
     >
-      <Box className="flex">
-        <Box className="flex-shrink-0">{severityIcon[severity]}</Box>
-        <Box className="ml-3">
-          <Text
-            className={clsx('font-medium', {
-              'text-red-800': isMatchSeverity('error'),
-              'text-blue-800': isMatchSeverity('info'),
-              'text-green-500': isMatchSeverity('success'),
-            })}
-          >
-            {message}
-          </Text>
-        </Box>
-        <Box className="ml-auto pl-3">
-          <Box className="-mx-1.5 -my-1.5">
-            <Button
-              onClick={hideNotification}
-              className={clsx('inline-flex rounded-md', {
-                'text-blue-500 hover:bg-blue-100 bg-blue-50': isMatchSeverity('info'),
-                'text-red-500 hover:bg-red-100 bg-red-50': isMatchSeverity('error'),
-                'text-green-500 hover:bg-green-100 bg-green-50': isMatchSeverity('success'),
+      <Box className="flex justify-between">
+        <Box className="flex items-center">
+          <Box className="flex-shrink-0">{severityIcon[severity]}</Box>
+          <Box className="ml-3">
+            <Text
+              className={clsx('font-medium', {
+                'text-red-800': isMatchSeverity('error'),
+                'text-blue-800': isMatchSeverity('info'),
+                'text-green-500': isMatchSeverity('success'),
               })}
             >
-              <Text className="sr-only">Dismiss</Text>
-              <IoClose className="h-5 w-5" aria-hidden="true" />
-            </Button>
+              {message}
+            </Text>
           </Box>
+        </Box>
+        <Box>
+          <Button
+            size="normal"
+            onClick={hideNotification}
+            className={clsx('flex rounded-md', {
+              'text-blue-500 hover:bg-blue-100 bg-blue-50': isMatchSeverity('info'),
+              'text-red-500 hover:bg-red-100 bg-red-50': isMatchSeverity('error'),
+              'text-green-500 hover:bg-green-100 bg-green-50': isMatchSeverity('success'),
+            })}
+          >
+            <Close className="h-5 w-5" aria-hidden="true" />
+          </Button>
         </Box>
       </Box>
     </Box>

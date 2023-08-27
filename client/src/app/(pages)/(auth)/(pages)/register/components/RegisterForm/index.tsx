@@ -1,11 +1,8 @@
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
-import { BsPerson } from 'react-icons/bs';
-import { MdOutlineMail } from 'react-icons/md';
 import { useMutation } from '@apollo/client';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { BiPhone } from 'react-icons/bi';
 import Button from '@/app/common/Button';
 import InputForm from '@/app/common/FormBuilder/InputForm';
 import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
@@ -16,6 +13,9 @@ import InputPhone from '@/app/common/FormBuilder/InputPhone';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
+import Person from '@/app/icons/Person';
+import Mail from '@/app/icons/Mail';
+import Phone from '@/app/icons/Phone';
 import { userType } from './registerFormValues';
 
 const RegisterForm = () => {
@@ -70,7 +70,7 @@ const RegisterForm = () => {
           name="firstName"
           label="Firstname"
           placeholder="Enter your firstname"
-          startIcon={<BsPerson className="text-primary text-lg" />}
+          startIcon={<Person className="text-primary" />}
         />
       </Box>
       <Box className="col-span-full md:col-span-6">
@@ -78,7 +78,7 @@ const RegisterForm = () => {
           name="lastName"
           label="Lastname"
           placeholder="Enter your lastname"
-          startIcon={<BsPerson className="text-primary text-lg" />}
+          startIcon={<Person className="text-primary" />}
         />
       </Box>
       <Box className="col-span-full">
@@ -89,7 +89,7 @@ const RegisterForm = () => {
           name="email"
           label="Email Address"
           placeholder="Enter your email"
-          startIcon={<MdOutlineMail className="text-primary text-lg" />}
+          startIcon={<Mail className="text-primary" />}
         />
       </Box>
       <Box className="col-span-full md:col-span-6">
@@ -97,7 +97,7 @@ const RegisterForm = () => {
           name="phoneNumber"
           label="Phone Number"
           placeholder="Enter your Phone number"
-          startIcon={<BiPhone className="text-primary text-lg" />}
+          startIcon={<Phone className="text-primary" />}
         />
       </Box>
       <Box className="col-span-full md:col-span-6">

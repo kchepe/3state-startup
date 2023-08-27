@@ -1,8 +1,9 @@
 'use client';
 
 import React, { FC, ReactNode, useState } from 'react';
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import Box from '@/app/common/Box';
+import ChevronUp from '@/app/icons/ChevronUp';
+import ChevronDown from '@/app/icons/ChevronDown';
 
 interface FilterContainerProps {
   children: ReactNode;
@@ -21,9 +22,9 @@ const FilterContainer: FC<FilterContainerProps> = ({ children, header, showToggl
         <Box className="font-semibold flex-1 text-primary">{header}</Box>
         <Box className={`${showToggle ? 'block' : 'hidden'}`}>
           {toggleExpand ? (
-            <MdKeyboardArrowUp className="text-xl cursor-pointer" onClick={handleToggleExpand} />
+            <ChevronUp className="text-xl cursor-pointer" onClick={handleToggleExpand} />
           ) : (
-            <MdKeyboardArrowDown className="text-xl cursor-pointer" onClick={handleToggleExpand} />
+            <ChevronDown className="text-xl cursor-pointer" onClick={handleToggleExpand} />
           )}
         </Box>
       </Box>

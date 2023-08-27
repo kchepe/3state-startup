@@ -1,7 +1,6 @@
 'use client';
 
 import { FC } from 'react';
-import { BiSearch } from 'react-icons/bi';
 import TextField from '@/app/common/TextField';
 import Toggle from '@/app/common/Toggle';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
@@ -33,7 +32,7 @@ const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
           placeholder="Search property here..."
           className="p-3 bg-gray-100"
           type="search"
-          startIcon={<BiSearch className="text-gray-500 text-lg" />}
+          // startIcon={<BiSearch className="text-gray-500 text-lg" />}
         />
       </Box>
       <Box className="flex items-center justify-between mt-2">

@@ -22,9 +22,7 @@ const TextField: FC<TextFieldProps> = ({
   ...inputProps
 }) => (
   <Box className="w-full">
-    {label && (
-      <Text className="block text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>
-    )}
+    {label && <Text className="text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>}
     <Box className="relative">
       <Box className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         {startIcon}

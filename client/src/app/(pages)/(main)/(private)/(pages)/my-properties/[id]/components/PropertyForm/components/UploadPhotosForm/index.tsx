@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { IoCloseCircle } from 'react-icons/io5';
 import Box from '@/app/common/Box';
 import Dropzone from '@/app/common/Dropzone';
 import NextImage from '@/app/common/NextImage';
 import Button from '@/app/common/Button';
+import CloseCircleFill from '@/app/icons/CloseCircleFill';
 
 interface ExtendedFile extends File {
   preview: string;
@@ -44,10 +44,10 @@ const UploadPhotosForm = () => {
           <Box key={file.preview} className="relative">
             <Button
               size="normal"
-              className="absolute -right-2 -top-3 bg-white rounded-xl"
+              className="absolute -right-1 -top-2 bg-white rounded-xl"
               onClick={() => handleRemovePhoto(file.preview)}
             >
-              <IoCloseCircle className="text-primary text-xl" />
+              <CloseCircleFill className="text-primary" />
             </Button>
             <NextImage
               src={file.preview}
