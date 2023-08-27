@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import Button from '@/app/common/Button';
 import InputForm from '@/app/common/FormBuilder/InputForm';
 import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
@@ -22,6 +23,7 @@ const RegisterForm = () => {
   const { handleSubmit } = useFormContext();
   const { push } = useRouter();
   const { showError, showNotification } = useNotificationManager();
+  const [loginLoading, setLoginLoading] = useState(false);
 
   const [createUser, { loading }] = useMutation(ADD_USER, {
     onError: () => {
@@ -30,6 +32,7 @@ const RegisterForm = () => {
   });
 
   const handleSign = async (signinValue: { email: string; password: string }) => {
+    setLoginLoading(true);
     const response = await signIn('credentials', {
       ...signinValue,
       redirect: false,
@@ -116,8 +119,7 @@ const RegisterForm = () => {
           fullWidth
           size="large"
           onClick={handleSubmit(handleSignup)}
-          loading={loading}
-          disabled={loading}
+          loading={loading || loginLoading}
         >
           Signup
         </Button>

@@ -35,10 +35,10 @@ const SignInForm: FC = () => {
         default:
           showNotification('Invalid username or password.', 'error');
       }
+      setIsLoading(false);
     } else {
       push('/my-properties');
     }
-    setIsLoading(false);
   };
 
   return (
@@ -71,7 +71,6 @@ const SignInForm: FC = () => {
           size="large"
           onClick={handleSubmit(handleLogin)}
           loading={isLoading}
-          disabled={isLoading}
         >
           Login
         </Button>

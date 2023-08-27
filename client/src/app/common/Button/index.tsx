@@ -23,16 +23,16 @@ const Button: FC<ButtonProps> = ({
 }) => {
   const buttonColor: IButtonColor = {
     primary: `${
-      buttonProps.disabled
+      buttonProps.disabled || loading
         ? 'bg-white border-secondary text-gray-500 border'
         : 'text-white bg-primary hover:bg-primary_hover'
     }`,
     secondary: `${
-      buttonProps.disabled
+      buttonProps.disabled || loading
         ? 'bg-white text-gray-500 border-secondary border'
         : 'text-primary bg-secondary hover:bg-gray-200'
     }`,
-    transparent: `${buttonProps.disabled ? 'text-gray-400' : ''}`,
+    transparent: `${buttonProps.disabled || loading ? 'text-gray-400' : ''}`,
   };
 
   const buttonSize = {
@@ -44,6 +44,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <button
+      disabled={buttonProps.disabled || loading}
       className={clsx(className, buttonColor[color], buttonSize[size], 'rounded', {
         'w-full': fullWidth,
         'w-auto': !fullWidth,
