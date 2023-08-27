@@ -4,6 +4,10 @@ import Image from 'next/image';
 import { IProperty } from '@/app/types/types';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
+import Peso from '@/app/icons/Peso';
+import Location from '@/app/icons/Location';
+import Bed from '@/app/icons/Bed';
+import Square from '@/app/icons/Square';
 
 interface PropertyCardProps {
   property: IProperty;
@@ -34,22 +38,22 @@ const PropertyCard: FC<PropertyCardProps> = ({ property }) => (
           <h4 className="hover:text-gray-500 cursor-pointer font-semibold">{property.title}</h4>
         </Box>
       </Link>
-      <Box className="flex">
-        {/* <TbCurrencyPeso className="font-extrabold text-lg" /> */}
+      <Box className="flex items-center">
+        <Peso className="font-extrabold text-lg" />
         <Text className="font-extrabold">{property.price.toLocaleString('en-US')}</Text>
       </Box>
     </Box>
     <Box className="col-span-full flex text-gray-500 items-center gap-1">
-      {/* <TiLocation className="text-lg" /> */}
+      <Location className="w-3 h-3" />
       <Text>{property.location}</Text>
     </Box>
     <Box className="col-span-full flex items-center gap-3">
       <Box className="flex item-center gap-1">
-        {/* <BiBed /> */}
+        <Bed />
         <Text className="text-xs">{property.bedRoom} Bedroom</Text>
       </Box>
       <Box className="flex item-center gap-1">
-        {/* <PiHouseLineFill /> */}
+        <Square className="w-3 h-3 mt-0.5" />
         <Text className="text-xs">{property.floorArea}</Text>
       </Box>
     </Box>
