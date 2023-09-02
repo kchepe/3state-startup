@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/bin/yarn.js add @types/bcrypy --dev
+  /usr/bin/node /mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/bin/yarn.js prisma seed
 
 PATH: 
-  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.16.101-hotspot/bin:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Amazon/AWSCLIV2/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/dotnet/:/Docker/host/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/mongosh-1.10.1-win32-x64/mongosh-1.10.1-win32-x64/bin:/mnt/c/Users/BRYAN/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/BRYAN/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Amazon/AWSCLI/bin/aws.exe:/mnt/c/Users/BRYAN/AppData/Roaming/npm:/mnt/c/Users/BRYAN/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/BRYAN/.dotnet/tools:/home/bryan/.npm-packages/bin
+  /home/bryan/.vscode-server/bin/6c3e3dba23e8fadc360aed75ce363ba185c49794/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.16.101-hotspot/bin:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Amazon/AWSCLIV2/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/dotnet/:/Docker/host/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/mongosh-1.10.1-win32-x64/mongosh-1.10.1-win32-x64/bin:/mnt/c/Users/BRYAN/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/BRYAN/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Amazon/AWSCLI/bin/aws.exe:/mnt/c/Users/BRYAN/AppData/Roaming/npm:/mnt/c/Users/BRYAN/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/BRYAN/.dotnet/tools:/mnt/c/Users/BRYAN/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/home/bryan/.npm-packages/bin:/home/bryan/.npm-packages/bin
 
 Yarn version: 
   1.22.19
@@ -14,17 +14,15 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fbcrypy: Not found
-      at params.callback [as _callback] (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:66145:18)
-      at self.callback (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:140890:22)
-      at Request.emit (node:events:513:28)
-      at Request.<anonymous> (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:141862:10)
-      at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:141784:12)
-      at Object.onceWrapper (node:events:627:28)
-      at IncomingMessage.emit (node:events:525:35)
-      at endReadableNT (node:internal/streams/readable:1359:12)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+  TypeError: Cannot convert object to primitive value
+      at Array.join (<anonymous>)
+      at [format] (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:135834:80)
+      at ShellString.toString (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:135830:30)
+      at sh (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:135923:55)
+      at /mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:61585:52
+      at Generator.next (<anonymous>)
+      at step (/mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:310:30)
+      at /mnt/c/Users/BRYAN/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:321:13
 
 npm manifest: 
   {
@@ -46,7 +44,10 @@ npm manifest:
       "test:watch": "jest --watch",
       "test:cov": "jest --coverage",
       "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-      "test:e2e": "jest --config ./test/jest-e2e.json"
+      "test:e2e": "jest --config ./test/jest-e2e.json",
+      "prisma": {
+        "seed": "ts-node prisma/seed.ts"
+      }
     },
     "dependencies": {
       "@apollo/server": "^4.7.3",
@@ -55,9 +56,12 @@ npm manifest:
       "@nestjs/core": "^9.0.0",
       "@nestjs/graphql": "^11.0.6",
       "@nestjs/graphql-workspace": "nestjs/graphql",
+      "@nestjs/jwt": "^10.1.0",
       "@nestjs/mapped-types": "*",
+      "@nestjs/passport": "^10.0.0",
       "@nestjs/platform-express": "^9.0.0",
       "@prisma/client": "^4.15.0",
+      "@types/bcrypt": "^5.0.0",
       "@types/mongodb": "^4.0.7",
       "bcrypt": "^5.1.0",
       "class-transformer": "^0.5.1",
@@ -65,6 +69,9 @@ npm manifest:
       "graphql": "^16.6.0",
       "graphql-tools": "^9.0.0",
       "mongodb": "^5.6.0",
+      "passport": "^0.6.0",
+      "passport-jwt": "^4.0.1",
+      "passport-local": "^1.0.0",
       "prisma": "^4.15.0",
       "reflect-metadata": "^0.1.13",
       "rxjs": "^7.2.0"
@@ -75,7 +82,9 @@ npm manifest:
       "@nestjs/testing": "^9.0.0",
       "@types/express": "^4.17.13",
       "@types/jest": "29.5.1",
-      "@types/node": "18.16.12",
+      "@types/node": "^20.5.6",
+      "@types/passport-jwt": "^3.0.9",
+      "@types/passport-local": "^1.0.35",
       "@types/supertest": "^2.0.11",
       "@typescript-eslint/eslint-plugin": "^5.0.0",
       "@typescript-eslint/parser": "^5.0.0",
@@ -88,9 +97,9 @@ npm manifest:
       "supertest": "^6.1.3",
       "ts-jest": "29.1.0",
       "ts-loader": "^9.2.3",
-      "ts-node": "^10.0.0",
+      "ts-node": "^10.9.1",
       "tsconfig-paths": "4.2.0",
-      "typescript": "^5.0.0"
+      "typescript": "^5.2.2"
     },
     "jest": {
       "moduleFileExtensions": [
@@ -1132,10 +1141,23 @@ Lockfile:
       uuid "9.0.0"
       ws "8.13.0"
   
+  "@nestjs/jwt@^10.1.0":
+    version "10.1.0"
+    resolved "https://registry.yarnpkg.com/@nestjs/jwt/-/jwt-10.1.0.tgz#7899b68d68b998cc140bc0af392c63fc00755236"
+    integrity sha512-iLwCGS25ybUxGS7i5j/Mwuyzvp/WxJftHlm8aLEBv5GV92apz6L1QVjxLdZrqXbzo++C8gdJauhzil8qitY+6w==
+    dependencies:
+      "@types/jsonwebtoken" "9.0.2"
+      jsonwebtoken "9.0.0"
+  
   "@nestjs/mapped-types@*", "@nestjs/mapped-types@1.2.2":
     version "1.2.2"
     resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-1.2.2.tgz#d9ddb143776e309dbc1a518ac1607fddac1e140e"
     integrity sha512-3dHxLXs3M0GPiriAcCFFJQHoDFUuzTD5w6JDhE7TyfT89YKpe6tcCCIqOZWdXmt9AZjjK30RkHRSFF+QEnWFQg==
+  
+  "@nestjs/passport@^10.0.0":
+    version "10.0.0"
+    resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-10.0.0.tgz#92d36d4b8796b373da3f4d1a055db03cb246b127"
+    integrity sha512-IlKKc6M7JOe+4dBbW6gZsXBSD05ZYgwfGf3GJhgCmUGYVqffpDdALQSS6JftnExrE+12rACoEmHkzYwKAGVK0Q==
   
   "@nestjs/platform-express@^9.0.0":
     version "9.4.2"
@@ -1337,6 +1359,13 @@ Lockfile:
     dependencies:
       "@babel/types" "^7.20.7"
   
+  "@types/bcrypt@^5.0.0":
+    version "5.0.0"
+    resolved "https://registry.yarnpkg.com/@types/bcrypt/-/bcrypt-5.0.0.tgz#a835afa2882d165aff5690893db314eaa98b9f20"
+    integrity sha512-agtcFKaruL8TmcvqbndlqHPSJgsolhf/qPWchFlgnW1gECTN/nKbFcoFnvKAQRFfKbh+BO6A3SWdJu9t+xF3Lw==
+    dependencies:
+      "@types/node" "*"
+  
   "@types/body-parser@*":
     version "1.19.2"
     resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.2.tgz#aea2059e28b7658639081347ac4fab3de166e6f0"
@@ -1388,7 +1417,7 @@ Lockfile:
       "@types/range-parser" "*"
       "@types/send" "*"
   
-  "@types/express@^4.17.13":
+  "@types/express@*", "@types/express@^4.17.13":
     version "4.17.17"
     resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.17.tgz#01d5437f6ef9cfa8668e616e13c2f2ac9a491ae4"
     integrity sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==
@@ -1437,6 +1466,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.12.tgz#d70faba7039d5fca54c83c7dbab41051d2b6f6cb"
     integrity sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==
   
+  "@types/jsonwebtoken@*", "@types/jsonwebtoken@9.0.2":
+    version "9.0.2"
+    resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-9.0.2.tgz#9eeb56c76dd555039be2a3972218de5bd3b8d83e"
+    integrity sha512-drE6uz7QBKq1fYqqoFKTDRdFCPHd5TCub75BM+D+cMx7NU9hUz7SESLfC2fSCXVFMO5Yj8sOWHuGqPgjc+fz0Q==
+    dependencies:
+      "@types/node" "*"
+  
   "@types/long@^4.0.0":
     version "4.0.2"
     resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.2.tgz#b74129719fc8d11c01868010082d483b7545591a"
@@ -1472,15 +1508,48 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/node/-/node-20.2.5.tgz#26d295f3570323b2837d322180dfbf1ba156fefb"
     integrity sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==
   
-  "@types/node@18.16.12":
-    version "18.16.12"
-    resolved "https://registry.yarnpkg.com/@types/node/-/node-18.16.12.tgz#f11e19055c5b3daeb79dc6eb7ccdd3d036313034"
-    integrity sha512-tIRrjbY9C277MOfP8M3zjMIhtMlUJ6YVqkGgLjz+74jVsdf4/UjC6Hku4+1N0BS0qyC0JAS6tJLUk9H6JUKviQ==
+  "@types/node@^20.5.6":
+    version "20.5.6"
+    resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.6.tgz#5e9aaa86be03a09decafd61b128d6cec64a5fe40"
+    integrity sha512-Gi5wRGPbbyOTX+4Y2iULQ27oUPrefaB0PxGQJnfyWN3kvEDGM3mIB5M/gQLmitZf7A9FmLeaqxD3L1CXpm3VKQ==
   
   "@types/parse-json@^4.0.0":
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
     integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+  
+  "@types/passport-jwt@^3.0.9":
+    version "3.0.9"
+    resolved "https://registry.yarnpkg.com/@types/passport-jwt/-/passport-jwt-3.0.9.tgz#6c74c71e133206c697344feaf6e6044e01fe2d1d"
+    integrity sha512-5XJt+79emfgpuBvBQusUPylFIVtW1QVAAkTRwCbRJAmxUjmLtIqUU6V1ovpnHPu6Qut3mR5Juc+s7kd06roNTg==
+    dependencies:
+      "@types/express" "*"
+      "@types/jsonwebtoken" "*"
+      "@types/passport-strategy" "*"
+  
+  "@types/passport-local@^1.0.35":
+    version "1.0.35"
+    resolved "https://registry.yarnpkg.com/@types/passport-local/-/passport-local-1.0.35.tgz#233d370431b3f93bb43cf59154fb7519314156d9"
+    integrity sha512-K4eLTJ8R0yYW8TvCqkjB0pTKoqfUSdl5PfZdidTjV2ETV3604fQxtY6BHKjQWAx50WUS0lqzBvKv3LoI1ZBPeA==
+    dependencies:
+      "@types/express" "*"
+      "@types/passport" "*"
+      "@types/passport-strategy" "*"
+  
+  "@types/passport-strategy@*":
+    version "0.2.35"
+    resolved "https://registry.yarnpkg.com/@types/passport-strategy/-/passport-strategy-0.2.35.tgz#e52f5212279ea73f02d9b06af67efe9cefce2d0c"
+    integrity sha512-o5D19Jy2XPFoX2rKApykY15et3Apgax00RRLf0RUotPDUsYrQa7x4howLYr9El2mlUApHmCMv5CZ1IXqKFQ2+g==
+    dependencies:
+      "@types/express" "*"
+      "@types/passport" "*"
+  
+  "@types/passport@*":
+    version "1.0.12"
+    resolved "https://registry.yarnpkg.com/@types/passport/-/passport-1.0.12.tgz#7dc8ab96a5e895ec13688d9e3a96920a7f42e73e"
+    integrity sha512-QFdJ2TiAEoXfEQSNDISJR1Tm51I78CymqcBa8imbjo6dNNu+l2huDxxbDEIoFIwOSKMkOfHEikyDuZ38WwWsmw==
+    dependencies:
+      "@types/express" "*"
   
   "@types/prettier@^2.1.5":
     version "2.7.3"
@@ -2173,6 +2242,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/bson/-/bson-5.3.0.tgz#37b006df4cd91ed125cb686467c1dd6d4606b514"
     integrity sha512-ukmCZMneMlaC5ebPHXIkP8YJzNl5DC41N5MAIvKDqLggdao342t4McltoJBQfQya/nHBWAcSsYRqlXPoQkTJag==
   
+  buffer-equal-constant-time@1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz#f8e71132f7ffe6e01a5c9697a4c6f3e48d5cc819"
+    integrity sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA==
+  
   buffer-from@^1.0.0:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
@@ -2605,6 +2679,13 @@ Lockfile:
     integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
     dependencies:
       esutils "^2.0.2"
+  
+  ecdsa-sig-formatter@1.0.11:
+    version "1.0.11"
+    resolved "https://registry.yarnpkg.com/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz#ae0f0fa2d85045ef14a817daa3ce9acd0489e5bf"
+    integrity sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==
+    dependencies:
+      safe-buffer "^5.0.1"
   
   ee-first@1.1.1:
     version "1.1.1"
@@ -4023,6 +4104,43 @@ Lockfile:
     optionalDependencies:
       graceful-fs "^4.1.6"
   
+  jsonwebtoken@9.0.0:
+    version "9.0.0"
+    resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-9.0.0.tgz#d0faf9ba1cc3a56255fe49c0961a67e520c1926d"
+    integrity sha512-tuGfYXxkQGDPnLJ7SibiQgVgeDgfbPq2k2ICcbgqW8WxWLBAxKQM/ZCu/IT8SOSwmaYl4dpTFCW5xZv7YbbWUw==
+    dependencies:
+      jws "^3.2.2"
+      lodash "^4.17.21"
+      ms "^2.1.1"
+      semver "^7.3.8"
+  
+  jsonwebtoken@^9.0.0:
+    version "9.0.1"
+    resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-9.0.1.tgz#81d8c901c112c24e497a55daf6b2be1225b40145"
+    integrity sha512-K8wx7eJ5TPvEjuiVSkv167EVboBDv9PZdDoF7BgeQnBLVvZWW9clr2PsQHVJDTKaEIH5JBIwHujGcHp7GgI2eg==
+    dependencies:
+      jws "^3.2.2"
+      lodash "^4.17.21"
+      ms "^2.1.1"
+      semver "^7.3.8"
+  
+  jwa@^1.4.1:
+    version "1.4.1"
+    resolved "https://registry.yarnpkg.com/jwa/-/jwa-1.4.1.tgz#743c32985cb9e98655530d53641b66c8645b039a"
+    integrity sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==
+    dependencies:
+      buffer-equal-constant-time "1.0.1"
+      ecdsa-sig-formatter "1.0.11"
+      safe-buffer "^5.0.1"
+  
+  jws@^3.2.2:
+    version "3.2.2"
+    resolved "https://registry.yarnpkg.com/jws/-/jws-3.2.2.tgz#001099f3639468c9414000e99995fa52fb478304"
+    integrity sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==
+    dependencies:
+      jwa "^1.4.1"
+      safe-buffer "^5.0.1"
+  
   kleur@^3.0.3:
     version "3.0.3"
     resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
@@ -4337,7 +4455,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
     integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
   
-  ms@2.1.3:
+  ms@2.1.3, ms@^2.1.1:
     version "2.1.3"
     resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
     integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
@@ -4577,6 +4695,35 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
     integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
   
+  passport-jwt@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/passport-jwt/-/passport-jwt-4.0.1.tgz#c443795eff322c38d173faa0a3c481479646ec3d"
+    integrity sha512-UCKMDYhNuGOBE9/9Ycuoyh7vP6jpeTp/+sfMJl7nLff/t6dps+iaeE0hhNkKN8/HZHcJ7lCdOyDxHdDoxoSvdQ==
+    dependencies:
+      jsonwebtoken "^9.0.0"
+      passport-strategy "^1.0.0"
+  
+  passport-local@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
+    integrity sha512-9wCE6qKznvf9mQYYbgJ3sVOHmCWoUNMVFoZzNoznmISbhnNNPhN9xfY3sLmScHMetEJeoY7CXwfhCe7argfQow==
+    dependencies:
+      passport-strategy "1.x.x"
+  
+  passport-strategy@1.x.x, passport-strategy@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
+    integrity sha512-CB97UUvDKJde2V0KDWWB3lyf6PC3FaZP7YxZ2G8OAtn9p4HI9j9JLP9qjOGZFvyl8uwNT8qM+hGnz/n16NI7oA==
+  
+  passport@^0.6.0:
+    version "0.6.0"
+    resolved "https://registry.yarnpkg.com/passport/-/passport-0.6.0.tgz#e869579fab465b5c0b291e841e6cc95c005fac9d"
+    integrity sha512-0fe+p3ZnrWRW74fe8+SvCyf4a3Pb2/h7gFkQ8yTJpAO50gDzlfjZUZTO1k5Eg9kUct22OxHLqDZoKUWRHOh9ug==
+    dependencies:
+      passport-strategy "1.x.x"
+      pause "0.0.1"
+      utils-merge "^1.0.1"
+  
   path-exists@^4.0.0:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-4.0.0.tgz#513bdbe2d3b95d7762e8c1137efa195c6c61b5b3"
@@ -4619,6 +4766,11 @@ Lockfile:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
     integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+  
+  pause@0.0.1:
+    version "0.0.1"
+    resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
+    integrity sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==
   
   picocolors@^1.0.0:
     version "1.0.0"
@@ -5400,7 +5552,7 @@ Lockfile:
       micromatch "^4.0.0"
       semver "^7.3.4"
   
-  ts-node@^10.0.0:
+  ts-node@^10.9.1:
     version "10.9.1"
     resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.9.1.tgz#e73de9102958af9e1f0b168a6ff320e25adcff4b"
     integrity sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==
@@ -5499,10 +5651,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
     integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
   
-  typescript@^5.0.0:
-    version "5.1.3"
-    resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.3.tgz#8d84219244a6b40b6fb2b33cc1c062f715b9e826"
-    integrity sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==
+  typescript@^5.2.2:
+    version "5.2.2"
+    resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
+    integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
   
   uid@2.0.2:
     version "2.0.2"
@@ -5541,7 +5693,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
     integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
   
-  utils-merge@1.0.1:
+  utils-merge@1.0.1, utils-merge@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
     integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==

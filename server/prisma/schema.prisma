@@ -19,13 +19,30 @@ model Users {
   password String
   phoneNumber String
   imageUrl String
-  userType UserType
+  userType UserTypeEnum
 }
 
-enum UserType {
+model AmenityCategories {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  categoryName AmenityCategoryEnum
+}
+
+model Amenities {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  categoryId String
+  name String
+}
+
+enum UserTypeEnum {
   broker
   owner
   agent
   developer
   brokerage
+}
+
+enum AmenityCategoryEnum{
+  outdoor
+  indoor
+  security
 }
