@@ -1,13 +1,20 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
+import { useSession } from 'next-auth/react';
 import Button from '@/app/common/Button';
-import getSessionUtil from '@/app/utils/getSession.util';
+import Box from '@/app/common/Box';
 import ProfileDropDownButton from '../ProfileDropDownButton';
 
-const CredentialButtons = async () => {
-  const session = await getSessionUtil();
+const CredentialButtons = () => {
+  const { data: session, status } = useSession();
 
-  if (!session) {
+  if (status === 'loading') {
+    return <Box className="bg-gray-100 h-10 w-10 rounded-full" />;
+  }
+
+  if (!session?.user) {
     return (
       <>
         <Link href="/sign-in">
@@ -21,7 +28,12 @@ const CredentialButtons = async () => {
       </>
     );
   }
-  return <ProfileDropDownButton />;
+  return (
+    <div>
+      <ProfileDropDownButton />
+
+    </div>
+  );
 };
 
 export default CredentialButtons;
