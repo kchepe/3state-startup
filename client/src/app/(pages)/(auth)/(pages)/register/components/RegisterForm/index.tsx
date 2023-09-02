@@ -17,6 +17,7 @@ import Text from '@/app/common/Text';
 import Person from '@/app/icons/Person';
 import Mail from '@/app/icons/Mail';
 import Phone from '@/app/icons/Phone';
+import { graphqlClient } from '@/app/lib/apolloClient';
 import { userType } from './registerFormValues';
 
 const RegisterForm = () => {
@@ -29,6 +30,7 @@ const RegisterForm = () => {
     onError: () => {
       showError();
     },
+    client: graphqlClient,
   });
 
   const handleSign = async (signinValue: { email: string; password: string }) => {

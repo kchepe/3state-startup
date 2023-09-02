@@ -1,9 +1,9 @@
 import Box from '@/app/common/Box';
 import GET_CURRENT_USER from '@/app/gql/queries/user';
-import getAuthClient from '@/app/lib/authClient';
+import { getAuthApolloServer } from '@/app/lib/apolloServer';
 
 const AccountSettings = async () => {
-  const { data } = await getAuthClient().query({ query: GET_CURRENT_USER });
+  const { data } = await getAuthApolloServer().query({ query: GET_CURRENT_USER });
   return <Box>{data.currentUser.firstName}</Box>;
 };
 

@@ -29,3 +29,18 @@ export interface IUser {
   phoneNumber: string;
   imageUrl: string;
 }
+
+export interface IAmenityCategories {
+  id: string
+  categoryName: string
+}
+
+export interface IAmenities {
+  id: string
+  categoryId?: string
+  name: string
+}
+
+export interface IAmenitiesWithCategory extends IAmenityCategories {
+  amenities: IAmenities[]
+}
