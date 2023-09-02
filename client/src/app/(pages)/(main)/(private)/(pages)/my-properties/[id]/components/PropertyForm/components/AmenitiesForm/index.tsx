@@ -14,10 +14,10 @@ const { data } = useQuery(GET_AMENITIES, {
 });
 
   return (
-    <Box className="flex flex-col gap-4">
+    <Box className="flex flex-col gap-6">
       {data?.amenities.map((category: IAmenitiesWithCategory) => (
         <Box key={category.id}>
-          <Box className="font-semibold border-b py-4 mb-6">
+          <Box className="font-semibold border-b pb-4 mb-6">
             <Text>{capitalizeFirstString(category.categoryName)}</Text>
           </Box>
           <Box className="flex flex-wrap gap-8">
