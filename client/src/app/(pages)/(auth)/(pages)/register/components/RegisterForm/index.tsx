@@ -1,5 +1,4 @@
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
-import { useMutation } from '@apollo/client';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
@@ -17,7 +16,7 @@ import Text from '@/app/common/Text';
 import Person from '@/app/icons/Person';
 import Mail from '@/app/icons/Mail';
 import Phone from '@/app/icons/Phone';
-import { graphqlClient } from '@/app/lib/apolloClient';
+import useMutationAuthClient from '@/app/hooks/Apollo/useMutationAuthClient';
 import { userType } from './registerFormValues';
 
 const RegisterForm = () => {
@@ -26,11 +25,10 @@ const RegisterForm = () => {
   const { showError, showNotification } = useNotificationManager();
   const [loginLoading, setLoginLoading] = useState(false);
 
-  const [createUser, { loading }] = useMutation(ADD_USER, {
+  const { mutation: createUser, loading } = useMutationAuthClient(ADD_USER, {
     onError: () => {
       showError();
     },
-    client: graphqlClient,
   });
 
   const handleSign = async (signinValue: { email: string; password: string }) => {

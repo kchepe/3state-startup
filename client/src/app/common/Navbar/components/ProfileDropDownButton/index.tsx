@@ -19,8 +19,8 @@ const ProfileDropDownButton = () => {
   const { data, status } = useSession();
 
   const menu = [
-    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <PersonGear /> },
     { label: 'Add Property', fn: () => push('/my-properties/add-property'), icon: <HouseAdd /> },
+    { label: 'Account Settings', fn: () => push('/account-settings'), icon: <PersonGear /> },
     { label: 'Sign Out', fn: () => signOut({ callbackUrl: '/' }), icon: <ArrowRightOnRectangle /> },
   ];
 
