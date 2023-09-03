@@ -1,9 +1,9 @@
 /* eslint-disable react/button-has-type */
-import React, { ComponentProps, FC, ReactNode } from 'react';
+import React, { ComponentPropsWithRef, FC, ReactNode, forwardRef } from 'react';
 import clsx from 'clsx';
 import { Color, Size, IButtonColor } from './types';
 
-interface ButtonProps extends ComponentProps<'button'> {
+interface ButtonProps extends ComponentPropsWithRef<'button'> {
   children: ReactNode;
   color?: Color;
   className?: string;
@@ -12,7 +12,7 @@ interface ButtonProps extends ComponentProps<'button'> {
   loading?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
   color = 'transparent',
   className = '',
@@ -20,7 +20,7 @@ const Button: FC<ButtonProps> = ({
   fullWidth = false,
   loading = false,
   ...buttonProps
-}) => {
+}, ref) => {
   const buttonColor: IButtonColor = {
     primary: `${
       buttonProps.disabled || loading
@@ -44,6 +44,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <button
+      ref={ref}
       disabled={buttonProps.disabled || loading}
       className={clsx(className, buttonColor[color], buttonSize[size], 'rounded', {
         'w-full': fullWidth,
@@ -55,6 +56,6 @@ const Button: FC<ButtonProps> = ({
       {loading ? 'Loading...' : children}
     </button>
   );
-};
+});
 
 export default Button;

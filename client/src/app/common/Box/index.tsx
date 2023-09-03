@@ -1,6 +1,6 @@
-import React, { FC, forwardRef } from 'react';
+import React, { FC, forwardRef, ComponentPropsWithRef } from 'react';
 
-interface BoxProps extends React.ComponentPropsWithRef<'div'> {}
+interface BoxProps extends ComponentPropsWithRef<'div'> {}
 
 const Box: FC<BoxProps> = forwardRef<HTMLDivElement, BoxProps>(({ children, ...divProps }, ref) => (
   <div ref={ref} {...divProps}>
