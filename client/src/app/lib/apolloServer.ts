@@ -4,22 +4,17 @@ import {
 } from '@apollo/experimental-nextjs-app-support/ssr';
 import { registerApolloClient } from '@apollo/experimental-nextjs-app-support/rsc';
 import { from } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
 import errorLink from './errorLink';
 import httpLink from './httpLink';
 import getSessionUtil from '../utils/getSession.util';
+import authLink from './authLink';
 
 const url = 'http://host.docker.internal:3000/graphql';
 
-const authLinkServer = setContext(async (_, { headers }) => {
-  const session = await getSessionUtil();
-  return {
-    headers: {
-      ...headers,
-      authorization: `Bearer ${session?.token}`,
-    },
-  };
-});
+const session = async (): Promise<string> => {
+  const userSession = await getSessionUtil();
+  return userSession?.token ?? '';
+};
 
 const { getClient: getAuthApolloServer } = registerApolloClient(
   () =>
@@ -27,7 +22,7 @@ const { getClient: getAuthApolloServer } = registerApolloClient(
       cache: new NextSSRInMemoryCache(),
       link: from([
         errorLink,
-        authLinkServer.concat(httpLink(url)),
+        authLink(session()).concat(httpLink(url)),
       ]),
     }),
 );
