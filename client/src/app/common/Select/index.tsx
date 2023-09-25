@@ -8,12 +8,12 @@ import Text from '../Text';
 
 export interface IOption {
   label: string;
-  value: string | number;
+  value: string;
 }
 
 export interface SelectProps {
   options: IOption[];
-  value: IOption;
+  value?: IOption;
   onChange?: (value: IOption) => void;
   className?: string;
   label?: string;
@@ -26,8 +26,8 @@ function classNames(...classes: string[]) {
 }
 
 const Select: FC<SelectProps> = ({
-  options,
-  value,
+  options = [],
+  value = { label: '', value: '' },
   onChange,
   className,
   label = '',
@@ -77,9 +77,9 @@ const Select: FC<SelectProps> = ({
             overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black
             ring-opacity-5 focus:outline-none sm:text-sm"
             >
-              {options.map((option) => (
+              {options.map((option, index) => (
                 <Listbox.Option
-                  key={option.value}
+                  key={`${option.value}${index + 1}`}
                   className={({ active }) =>
                     classNames(
                       active ? 'bg-primary text-white' : 'text-gray-900',
@@ -102,7 +102,7 @@ const Select: FC<SelectProps> = ({
                       {selected ? (
                         <Text
                           className={classNames(
-                            active ? 'text-white' : 'text-indigo-600',
+                            active ? 'text-white' : 'text-primary',
                             'absolute inset-y-0 right-0 flex items-center pr-4',
                           )}
                         >

@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-1.1.x", "linux-musl-openssl-3.0.x"]
 }
 
@@ -12,25 +12,50 @@ datasource db {
 }
 
 model Users {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  email String @unique
-  firstName String
-  lastName String
-  password String
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  email       String       @unique
+  firstName   String
+  lastName    String
+  password    String
   phoneNumber String
-  imageUrl String
-  userType UserTypeEnum
+  imageUrl    String
+  userType    UserTypeEnum
 }
 
 model AmenityCategories {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id           String              @id @default(auto()) @map("_id") @db.ObjectId
   categoryName AmenityCategoryEnum
 }
 
 model Amenities {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
   categoryId String
-  name String
+  name       String
+}
+
+model Provinces {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  provinceCode String   @unique
+  provinceName String
+  cities       Cities[]
+}
+
+model Cities {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  cityCode     String      @unique
+  cityName     String
+  provinceCode String
+  Provinces    Provinces   @relation(fields: [provinceCode], references: [provinceCode])
+  barangays    Barangays[]
+}
+
+model Barangays {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  brgyCode String
+  brgyName String
+  cityCode String
+  provinceCode String
+  Cities   Cities @relation(fields: [cityCode], references: [cityCode])
 }
 
 enum UserTypeEnum {
@@ -41,7 +66,7 @@ enum UserTypeEnum {
   brokerage
 }
 
-enum AmenityCategoryEnum{
+enum AmenityCategoryEnum {
   outdoor
   indoor
   security

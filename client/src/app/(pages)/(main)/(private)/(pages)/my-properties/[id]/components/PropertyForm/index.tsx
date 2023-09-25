@@ -45,7 +45,9 @@ const propertyForms = [
 const PropertyForm = () => {
   const { handleSubmit } = useFormContext();
 
-  const handleAddProperty: SubmitHandler<FieldValues> = (property) => property;
+  const handleAddProperty: SubmitHandler<FieldValues> = (property) => {
+    console.log(property);
+  };
   return (
     <Box>
       {propertyForms.map((form) => (

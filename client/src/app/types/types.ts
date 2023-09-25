@@ -31,16 +31,33 @@ export interface IUser {
 }
 
 export interface IAmenityCategories {
-  id: string
-  categoryName: string
+  id: string;
+  categoryName: string;
 }
 
 export interface IAmenities {
-  id: string
-  categoryId?: string
-  name: string
+  id: string;
+  categoryId?: string;
+  name: string;
 }
 
 export interface IAmenitiesWithCategory extends IAmenityCategories {
-  amenities: IAmenities[]
+  amenities: IAmenities[];
+}
+
+export interface IBarangay {
+  brgyCode: string;
+  brgyName: string;
+}
+
+export interface ICity {
+  cityCode: string;
+  cityName: string;
+  barangays?: IBarangay[];
+}
+
+export interface IProvince {
+  provinceName: string;
+  provinceCode: string;
+  cities?: ICity[];
 }

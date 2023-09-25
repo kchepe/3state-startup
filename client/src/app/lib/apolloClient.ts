@@ -12,7 +12,7 @@ const session = async () => {
 };
 
 const graphqlClient = new ApolloClient({
-    link: from([errorLink, httpLink(url)]),
+  link: from([errorLink, httpLink(url)]),
   cache: new InMemoryCache(),
 });
 

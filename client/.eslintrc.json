@@ -18,6 +18,7 @@
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/indent": "off",
     "react/jsx-wrap-multilines": "off",
-    "import/no-cycle": "off"
+    "import/no-cycle": "off",
+    "operator-linebreak": "off"
   }
 }
