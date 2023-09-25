@@ -38,14 +38,12 @@ const AddressForm = () => {
   const provincesOptions = generateOptions(
     provinces?.provinces ?? [],
     'provinceName',
-    'provinceCode',
+    'provinceName',
   );
 
-  const cityOptions = generateOptions(selectedProvince?.cities ?? [], 'cityName', 'cityCode');
+  const cityOptions = generateOptions(selectedProvince?.cities ?? [], 'cityName', 'cityName');
 
-  const barangayOptions = generateOptions(selectedCity?.barangays ?? [], 'brgyName', 'brgyCode');
-
-  console.log(barangayOptions, 'barangay');
+  const barangayOptions = generateOptions(selectedCity?.barangays ?? [], 'brgyName', 'brgyName');
 
   return (
     <div className="grid grid-cols-12 gap-4">

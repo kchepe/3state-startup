@@ -48,10 +48,28 @@ const UnitDetailsForm = () => (
       />
     </Box>
     <Box className="col-span-full">
-      <SelectForm name="furnishing" options={[]} label="Furnishing" contained />
+      <SelectForm
+        name="furnishing"
+        options={[
+          { label: 'Bare Unit', value: 'bare unit' },
+          { label: 'Bare Shell', value: 'bare shell' },
+          { label: 'Fully Furnished', value: 'fully furnished' },
+          { label: 'Semi Furnished', value: 'semi furnished' },
+        ]}
+        label="Furnishing"
+        contained
+      />
     </Box>
     <Box className="col-span-full">
-      <SelectForm name="balcony" options={[]} label="Balcony" contained />
+      <SelectForm
+        name="balcony"
+        options={[
+          { label: 'Yes', value: 'yes' },
+          { label: 'No', value: 'no' },
+        ]}
+        label="Balcony"
+        contained
+      />
     </Box>
   </Box>
 );

@@ -11,9 +11,9 @@ import MapLocationForm from './components/MapLocationForm';
 import AddressForm from './components/AddressForm';
 
 const propertyForms = [
-  { title: 'Property Details', form: <TitleForm /> },
+  { title: 'Property Title', form: <TitleForm /> },
   {
-    title: 'Category',
+    title: 'Property Details',
     form: <PropertyDetailsForm />,
   },
   {
