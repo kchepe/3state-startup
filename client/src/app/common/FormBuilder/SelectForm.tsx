@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, get, useFormContext } from 'react-hook-form';
 import Select, { SelectProps } from '../Select';
 import Text from '../Text';
 import Box from '../Box';
@@ -13,6 +13,9 @@ const SelectForm: FC<SelectFormProps> = ({ name, ...selectProps }) => {
     control,
     formState: { errors },
   } = useFormContext();
+
+  const error = get(errors, name);
+
   return (
     <Box>
       <Controller
@@ -22,7 +25,7 @@ const SelectForm: FC<SelectFormProps> = ({ name, ...selectProps }) => {
           <Select {...selectField} {...selectProps} />
         )}
       />
-      {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
+      {errors[name] && <Text variant="error">{error?.value.message.toString()}</Text>}
     </Box>
   );
 };

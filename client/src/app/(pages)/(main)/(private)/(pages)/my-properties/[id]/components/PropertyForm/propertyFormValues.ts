@@ -23,17 +23,17 @@ export const addPropertyInitialValues = {
 };
 
 export const addPropertySchema = yup.object().shape({
-  title: yup.string(),
+  title: yup.string().required('Title is required.'),
   description: yup.string(),
   housingMethod: yup.object().shape({
-    label: yup.string(),
-    value: yup.string(),
+    label: yup.string().required('Housing Method is required'),
+    value: yup.string().required('Housing Method is required'),
   }),
   type: yup.object().shape({
-    label: yup.string(),
-    value: yup.string(),
+    label: yup.string().required('Type is required'),
+    value: yup.string().required('Type is required'),
   }),
-  price: yup.string(),
+  price: yup.string().required('Price is required'),
   lotAreaInSqm: yup
     .number()
     .typeError('Lot Area must be a number')
@@ -50,29 +50,32 @@ export const addPropertySchema = yup.object().shape({
     .number()
     .typeError('Parking space must be a number')
     .min(0, 'Parking space cannot be less than zero.'),
-  furnishing: yup.object().shape({
-    label: yup.string(),
-    value: yup.string(),
-  }),
+  furnishing: yup
+    .object()
+    .shape({
+      label: yup.string().required('Furnishing is required'),
+      value: yup.string().required('Furnishing is required'),
+    })
+    .required('Furnishing is required.'),
   balcony: yup.object().shape({
     label: yup.string(),
     value: yup.string(),
   }),
   longitude: yup.string(),
   latitude: yup.string(),
-  address: yup.string(),
+  address: yup.string().required('Address is required.'),
   province: yup.object().shape({
-    label: yup.string(),
-    value: yup.string(),
+    label: yup.string().required('Province is required'),
+    value: yup.string().required('Province is required'),
   }),
   city: yup.object().shape({
-    label: yup.string(),
-    value: yup.string(),
+    label: yup.string().required('City is required'),
+    value: yup.string().required('City is required'),
   }),
   barangay: yup.object().shape({
-    label: yup.string(),
-    value: yup.string(),
+    label: yup.string().required('Barangay is required'),
+    value: yup.string().required('Barangay is required'),
   }),
-  zipCode: yup.string(),
+  zipCode: yup.string().required('Zipcode is required.'),
   amenities: yup.array().of(yup.string()),
 });

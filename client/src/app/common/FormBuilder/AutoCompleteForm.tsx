@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, get, useFormContext } from 'react-hook-form';
 import Text from '../Text';
 import Box from '../Box';
 import AutoComplete, { AutoCompleteProps } from '../AutoComplete';
@@ -13,6 +13,8 @@ const AutoCompleteForm: FC<AutoCompleteFormProps> = ({ name, ...selectProps }) =
     control,
     formState: { errors },
   } = useFormContext();
+
+  const error = get(errors, name);
   return (
     <Box>
       <Controller
@@ -22,7 +24,7 @@ const AutoCompleteForm: FC<AutoCompleteFormProps> = ({ name, ...selectProps }) =
           <AutoComplete {...selectField} {...selectProps} />
         )}
       />
-      {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
+      {errors[name] && <Text variant="error">{error?.value.message.toString()}</Text>}
     </Box>
   );
 };
