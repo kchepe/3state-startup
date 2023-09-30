@@ -8,7 +8,7 @@ import { signIn } from 'next-auth/react';
 import Button from '@/app/common/Button';
 import InputForm from '@/app/common/FormBuilder/InputForm';
 import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
-import Alert from '@/app/common/Alert';
+import Alert from '@/app/common/Notifications/Alert';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';

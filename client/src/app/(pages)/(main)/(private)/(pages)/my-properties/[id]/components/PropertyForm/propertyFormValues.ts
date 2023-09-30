@@ -6,12 +6,12 @@ export const addPropertyInitialValues = {
   housingMethod: { label: '', value: '' },
   type: { label: '', value: '' },
   price: '',
-  lotArea: '',
-  floorArea: '',
-  bathroom: '',
-  parking: '',
-  furnishing: '',
-  balcony: '',
+  lotAreaInSqm: 0,
+  floorAreaInSqm: 0,
+  bathroom: 0,
+  parkingSpace: 0,
+  furnishing: { label: '', value: '' },
+  balcony: { label: '', value: '' },
   longitude: '',
   latitude: '',
   address: '',
@@ -34,12 +34,30 @@ export const addPropertySchema = yup.object().shape({
     value: yup.string(),
   }),
   price: yup.string(),
-  lotArea: yup.string(),
-  floorArea: yup.string(),
-  bathroom: yup.string(),
-  parking: yup.string(),
-  furnishing: yup.string(),
-  balcony: yup.string(),
+  lotAreaInSqm: yup
+    .number()
+    .typeError('Lot Area must be a number')
+    .min(0, 'Lot Area cannot be less than zero.'),
+  floorAreaInSqm: yup
+    .number()
+    .typeError('Floor Area must be a number')
+    .min(0, 'Floor Area cannot be less than zero.'),
+  bathroom: yup
+    .number()
+    .typeError('Number of bathroom must be a number')
+    .min(0, 'Number of bathroom cannot be less than zero.'),
+  parkingSpace: yup
+    .number()
+    .typeError('Parking space must be a number')
+    .min(0, 'Parking space cannot be less than zero.'),
+  furnishing: yup.object().shape({
+    label: yup.string(),
+    value: yup.string(),
+  }),
+  balcony: yup.object().shape({
+    label: yup.string(),
+    value: yup.string(),
+  }),
   longitude: yup.string(),
   latitude: yup.string(),
   address: yup.string(),

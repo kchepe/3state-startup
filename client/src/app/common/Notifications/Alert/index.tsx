@@ -3,15 +3,11 @@
 import React, { FC, useEffect } from 'react';
 import clsx from 'clsx';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
-import CheckCircleFill from '@/app/icons/CheckCircleFill';
 import Close from '@/app/icons/Close';
-import CloseCircleFill from '@/app/icons/CloseCircleFill';
-import WarningCircleFill from '@/app/icons/WarningCircleFill';
-import Box from '../Box';
-import Text from '../Text';
-import Button from '../Button';
-
-export type ISeverity = 'error' | 'info' | 'success';
+import Box from '../../Box';
+import Text from '../../Text';
+import Button from '../../Button';
+import { severityIcon } from '../contant';
 
 interface AlertProps {
   alwaysShow?: boolean;
@@ -31,20 +27,12 @@ const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
     return undefined;
   }, [show, alwaysShow, timeout, hideNotification]);
 
-  const severityIcon = {
-    success: <CheckCircleFill className="h-5 w-5 text-green-400" aria-hidden="true" />,
-    error: <CloseCircleFill className="h-5 w-5 text-red-400" aria-hidden="true" />,
-    info: <WarningCircleFill className="h-5 w-5 text-blue-400" aria-hidden="true" />,
-  };
-
-  const isMatchSeverity = (given: ISeverity): boolean => severity === given;
-
   return (
     <Box
       className={clsx('rounded-md p-4', show ? 'block' : 'hidden', {
-        'bg-green-50': isMatchSeverity('success'),
-        'bg-red-50': isMatchSeverity('error'),
-        'bg-blue-50': isMatchSeverity('info'),
+        'bg-green-50': severity === 'success',
+        'bg-red-50': severity === 'error',
+        'bg-blue-50': severity === 'info',
       })}
     >
       <Box className="flex justify-between">
@@ -53,9 +41,9 @@ const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
           <Box className="ml-3">
             <Text
               className={clsx('font-medium', {
-                'text-red-800': isMatchSeverity('error'),
-                'text-blue-800': isMatchSeverity('info'),
-                'text-green-500': isMatchSeverity('success'),
+                'text-red-800': severity === 'error',
+                'text-blue-800': severity === 'info',
+                'text-green-500': severity === 'success',
               })}
             >
               {message}
@@ -67,9 +55,9 @@ const Alert: FC<AlertProps> = ({ alwaysShow = false, timeout = 2500 }) => {
             size="normal"
             onClick={hideNotification}
             className={clsx('flex rounded-md', {
-              'text-blue-500 hover:bg-blue-100 bg-blue-50': isMatchSeverity('info'),
-              'text-red-500 hover:bg-red-100 bg-red-50': isMatchSeverity('error'),
-              'text-green-500 hover:bg-green-100 bg-green-50': isMatchSeverity('success'),
+              'text-blue-500 hover:bg-blue-100 bg-blue-50': severity === 'info',
+              'text-red-500 hover:bg-red-100 bg-red-50': severity === 'error',
+              'text-green-500 hover:bg-green-100 bg-green-50': severity === 'success',
             })}
           >
             <Close className="h-5 w-5" aria-hidden="true" />

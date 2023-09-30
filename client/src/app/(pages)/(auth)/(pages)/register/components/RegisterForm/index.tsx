@@ -8,7 +8,7 @@ import InputForm from '@/app/common/FormBuilder/InputForm';
 import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
 import SelectForm from '@/app/common/FormBuilder/SelectForm';
 import { ADD_USER } from '@/app/gql/mutations/user';
-import Alert from '@/app/common/Alert';
+import Alert from '@/app/common/Notifications/Alert';
 import InputPhone from '@/app/common/FormBuilder/InputPhone';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
 import Box from '@/app/common/Box';

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { NotificationContext } from '../context/NotificationContext';
-import { ISeverity } from '../common/Alert';
+import { ISeverity } from '../common/Notifications/contant';
 
 const useNotificationManager = () => {
   const { state: notificationState, dispatch } = useContext(NotificationContext);

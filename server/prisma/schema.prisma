@@ -20,6 +20,7 @@ model Users {
   phoneNumber String
   imageUrl    String
   userType    UserTypeEnum
+  properties  Properties[]
 }
 
 model AmenityCategories {
@@ -50,12 +51,37 @@ model Cities {
 }
 
 model Barangays {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  brgyCode String
-  brgyName String
-  cityCode String
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  brgyCode     String
+  brgyName     String
   provinceCode String
-  Cities   Cities @relation(fields: [cityCode], references: [cityCode])
+  cityCode     String
+  Cities       Cities @relation(fields: [cityCode], references: [cityCode])
+}
+
+model Properties {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String   @db.ObjectId
+  user           Users?   @relation(fields: [userId], references: [id])
+  address        String
+  amenities      String[]
+  balcony        Boolean
+  barangay       String
+  bathroom       Int
+  city           String
+  description    String
+  floorAreaInSqm Int
+  furnishing     String
+  housingMethod  String
+  latitude       String
+  longitude      String
+  lotAreaInSqm   Int
+  parkingSpace   Int
+  price          String
+  province       String
+  title          String
+  type           String
+  zipCode        String
 }
 
 enum UserTypeEnum {
