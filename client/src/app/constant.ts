@@ -17,6 +17,11 @@ export const propertyCategory = [
   { label: 'For Rent', value: 'for rent' },
 ];
 
+export const selectDefaultValue = {
+  label: '',
+  value: '',
+};
+
 export const amenities = [
   'Alarm System',
   'Broadband Internet',

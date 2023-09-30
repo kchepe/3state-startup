@@ -1,23 +1,24 @@
 import * as yup from 'yup';
+import { selectDefaultValue } from '@/app/constant';
 
 export const addPropertyInitialValues = {
   title: '',
   description: '',
-  housingMethod: { label: '', value: '' },
-  type: { label: '', value: '' },
+  housingMethod: selectDefaultValue,
+  type: selectDefaultValue,
   price: '',
   lotAreaInSqm: 0,
   floorAreaInSqm: 0,
   bathroom: 0,
   parkingSpace: 0,
-  furnishing: { label: '', value: '' },
-  balcony: { label: '', value: '' },
+  furnishing: selectDefaultValue,
+  balcony: selectDefaultValue,
   longitude: '',
   latitude: '',
   address: '',
-  province: { label: '', value: '' },
-  city: { label: '', value: '' },
-  barangay: { label: '', value: '' },
+  province: selectDefaultValue,
+  city: selectDefaultValue,
+  barangay: selectDefaultValue,
   zipCode: '',
   amenities: [],
 };
