@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { AmenitiesModule } from './amenities/amenities.module';
 import { ProvincesModule } from './provinces/provinces.module';
 import { PropertiesModule } from './properties/properties.module';
+import { S3Module } from './s3/s3.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { PropertiesModule } from './properties/properties.module';
     AmenitiesModule,
     ProvincesModule,
     PropertiesModule,
+    S3Module,
   ],
 })
 export class AppModule {}
