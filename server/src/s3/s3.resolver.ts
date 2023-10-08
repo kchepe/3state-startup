@@ -12,19 +12,17 @@ export class S3Resolver {
 
   @Mutation(() => String)
   async uploadImageToS3(
-    @Args({ name: 'images', type: () => [GraphQLUpload] })
-    images: Upload[],
+    @Args({ name: 'files', type: () => [GraphQLUpload] })
+    files: Upload[],
   ) {
     // transfer this to service
-    // add validation that checks the upload file is image
-    const files = await images.map(async (file: Upload) => {
-      const { filename } = await file;
-      return {
-        filename,
-      };
+    // add validation that checks the upload file is an image
+    const resolveFiles = await files.map(async (file: Upload) => {
+      const returnFile = await file;
+      return returnFile;
     });
 
-    const uploadedFiles = await Promise.all(files);
+    const uploadedFiles = await Promise.all(resolveFiles);
     console.log(uploadedFiles);
 
     return 'uploaded';

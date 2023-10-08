@@ -21,6 +21,7 @@ export const addPropertyInitialValues = {
   barangay: selectDefaultValue,
   zipCode: '',
   amenities: [],
+  images: [],
 };
 
 export const addPropertySchema = yup.object().shape({

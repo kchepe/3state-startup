@@ -1,11 +1,14 @@
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
+import { useMutation } from '@apollo/client';
 import FormWrapper from '@/app/common/FormWrapper';
 import Button from '@/app/common/Button';
 import Box from '@/app/common/Box';
 import useMutationAuthClient from '@/app/hooks/Apollo/useMutationAuthClient';
 import ADD_PROPERTY from '@/app/gql/mutations/properties';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
+import UPLOAD_FILES from '@/app/gql/mutations/uploadFile';
+import { uploadClient } from '@/app/lib/apolloClient';
 import PropertyDetailsForm from './components/PropertyDetailsForm';
 import UnitDetailsForm from './components/UnitDetailsForm';
 import AmenitiesForm from './components/AmenitiesForm';
@@ -40,10 +43,6 @@ const propertyForms = [
     title: 'Upload Property Photos',
     form: <UploadPhotosForm />,
   },
-  {
-    title: 'Upload Floor Plan',
-    form: <UploadPhotosForm />,
-  },
 ];
 
 const PropertyForm = () => {
@@ -55,28 +54,53 @@ const PropertyForm = () => {
     onError: () => {
       showError();
     },
+    onCompleted: () => {
+      reset();
+      showNotification('Property successfully added to your list.', 'success');
+    },
+  });
+
+  const [uploadFiles] = useMutation(UPLOAD_FILES, {
+    client: uploadClient,
   });
 
   const handleAddProperty: SubmitHandler<FieldValues> = async (property) => {
-    const { housingMethod, type, balcony, province, city, barangay, furnishing, ...newProperty } =
-      property;
-    await addProperty({
+    const {
+      housingMethod,
+      type,
+      balcony,
+      province,
+      city,
+      barangay,
+      furnishing,
+      images,
+      ...newProperty
+    } = property;
+    await uploadFiles({
       variables: {
-        newProperty: {
-          housingMethod: housingMethod.value,
-          type: type.value,
-          balcony: balcony.value === 'yes',
-          furnishing: furnishing.value,
-          province: province.label,
-          city: city.label,
-          barangay: barangay.label,
-          userId: data?.user.user.id,
-          ...newProperty,
-        },
+        files: images,
+      },
+      onError: () => {
+        showError();
+      },
+      onCompleted: async () => {
+        await addProperty({
+          variables: {
+            newProperty: {
+              housingMethod: housingMethod.value,
+              type: type.value,
+              balcony: balcony.value === 'yes',
+              furnishing: furnishing.value,
+              province: province.label,
+              city: city.label,
+              barangay: barangay.label,
+              userId: data?.user.user.id,
+              ...newProperty,
+            },
+          },
+        });
       },
     });
-    reset();
-    showNotification('Property successfully added to your list.', 'success');
   };
   return (
     <Box>

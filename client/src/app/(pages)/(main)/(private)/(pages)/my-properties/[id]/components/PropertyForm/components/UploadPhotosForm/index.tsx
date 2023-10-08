@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import React, { useEffect } from 'react';
+import { useFormContext, useWatch } from 'react-hook-form';
 import Box from '@/app/common/Box';
 import Dropzone from '@/app/common/Dropzone';
 import NextImage from '@/app/common/NextImage';
@@ -10,25 +13,29 @@ interface ExtendedFile extends File {
 }
 
 const UploadPhotosForm = () => {
-  const [files, setFiles] = useState<ExtendedFile[]>([]);
+  const { setValue } = useFormContext();
+  const propertyImages = useWatch({ name: 'images' });
 
-  useEffect(() => () => files.forEach((file) => URL.revokeObjectURL(file.preview)), [files]);
+  useEffect(
+    () => () => propertyImages.forEach((image: ExtendedFile) => URL.revokeObjectURL(image.preview)),
+    [propertyImages],
+  );
 
-  const handleUploadPhoto = (acceptedFiles: File[]) => {
-    setFiles((prevState) => {
-      const newAcceptedFile = acceptedFiles.map((file) => {
-        const newFile = Object.assign(file, {
-          preview: URL.createObjectURL(file),
-        });
-        return newFile;
+  const handleUploadPhoto = async (acceptedFiles: File[]) => {
+    const newAcceptedFile = acceptedFiles.map((file) => {
+      const newFile = Object.assign(file, {
+        preview: URL.createObjectURL(file),
       });
-
-      return [...prevState, ...newAcceptedFile];
+      return newFile;
     });
+    setValue('images', [...propertyImages, ...newAcceptedFile]);
   };
 
   const handleRemovePhoto = (preview: string) => {
-    setFiles((prevState) => prevState.filter((item) => item.preview !== preview));
+    setValue(
+      'images',
+      propertyImages.filter((image: ExtendedFile) => image.preview !== preview),
+    );
   };
 
   return (
@@ -40,17 +47,17 @@ const UploadPhotosForm = () => {
           'image/*': [],
         }}
       >
-        {files.map((file) => (
-          <Box key={file.preview} className="relative">
+        {propertyImages.map((image: ExtendedFile) => (
+          <Box key={image.preview} className="relative">
             <Button
               size="normal"
               className="absolute -right-1 -top-2 bg-white rounded-xl"
-              onClick={() => handleRemovePhoto(file.preview)}
+              onClick={() => handleRemovePhoto(image.preview)}
             >
               <CloseCircleFill className="text-primary" />
             </Button>
             <NextImage
-              src={file.preview}
+              src={image.preview}
               alt="3state-thumbnail"
               className="w-48 h-28 object-cover"
             />

@@ -1,5 +1,6 @@
-import { ApolloClient, InMemoryCache, from } from '@apollo/client';
+import { ApolloClient, ApolloLink, InMemoryCache, RequestHandler, from } from '@apollo/client';
 import { getSession } from 'next-auth/react';
+import { createUploadLink } from 'apollo-upload-client';
 import httpLink from './httpLink';
 import errorLink from './errorLink';
 import authLink from './authLink';
@@ -21,4 +22,15 @@ const authClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export { graphqlClient, authClient };
+const uploadClient = new ApolloClient({
+  link: from([
+    authLink(session()).concat(
+      createUploadLink({
+        uri: url,
+      }) as unknown as RequestHandler | ApolloLink,
+    ),
+  ]),
+  cache: new InMemoryCache(),
+});
+
+export { graphqlClient, authClient, uploadClient };
