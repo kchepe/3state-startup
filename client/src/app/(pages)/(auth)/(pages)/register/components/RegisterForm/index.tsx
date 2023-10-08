@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useMutation } from '@apollo/client';
 import Button from '@/app/common/Button';
 import InputForm from '@/app/common/FormBuilder/InputForm';
 import PasswordInput from '@/app/common/FormBuilder/PasswordInput';
@@ -16,7 +17,7 @@ import Text from '@/app/common/Text';
 import Person from '@/app/icons/Person';
 import Mail from '@/app/icons/Mail';
 import Phone from '@/app/icons/Phone';
-import useMutationAuthClient from '@/app/hooks/Apollo/useMutationAuthClient';
+import { graphqlClient } from '@/app/lib/apolloClient';
 import { userType } from './registerFormValues';
 
 const RegisterForm = () => {
@@ -25,7 +26,8 @@ const RegisterForm = () => {
   const { showError, showNotification } = useNotificationManager();
   const [loginLoading, setLoginLoading] = useState(false);
 
-  const { mutation: createUser, loading } = useMutationAuthClient(ADD_USER, {
+  const [createUser, { loading }] = useMutation(ADD_USER, {
+    client: graphqlClient,
     onError: () => {
       showError();
     },
