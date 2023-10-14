@@ -1,6 +1,7 @@
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useMutation } from '@apollo/client';
+import { useEffect } from 'react';
 import FormWrapper from '@/app/common/FormWrapper';
 import Button from '@/app/common/Button';
 import Box from '@/app/common/Box';
@@ -9,58 +10,40 @@ import ADD_PROPERTY from '@/app/gql/mutations/properties';
 import useNotificationManager from '@/app/hooks/useNotificationManager';
 import UPLOAD_FILES from '@/app/gql/mutations/uploadFile';
 import { uploadClient } from '@/app/lib/apolloClient';
-import PropertyDetailsForm from './components/PropertyDetailsForm';
-import UnitDetailsForm from './components/UnitDetailsForm';
-import AmenitiesForm from './components/AmenitiesForm';
-import TitleForm from './components/TitleForm';
-import UploadPhotosForm from './components/UploadPhotosForm';
-import MapLocationForm from './components/MapLocationForm';
-import AddressForm from './components/AddressForm';
-
-const propertyForms = [
-  { title: 'Property Title', form: <TitleForm /> },
-  {
-    title: 'Property Details',
-    form: <PropertyDetailsForm />,
-  },
-  {
-    title: 'Unit Details',
-    form: <UnitDetailsForm />,
-  },
-  {
-    title: 'Map Location',
-    form: <MapLocationForm />,
-  },
-  {
-    title: 'Address',
-    form: <AddressForm />,
-  },
-  {
-    title: 'Amenities',
-    form: <AmenitiesForm />,
-  },
-  {
-    title: 'Upload Property Photos',
-    form: <UploadPhotosForm />,
-  },
-];
+import scrollToTop from '@/app/utils/scrollToTop.util';
+import propertyForms from './propertyForms';
 
 const PropertyForm = () => {
-  const { handleSubmit, reset } = useFormContext();
+  const {
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useFormContext();
   const { showError, showNotification } = useNotificationManager();
   const { data } = useSession();
 
-  const { mutation: addProperty } = useMutationAuthClient(ADD_PROPERTY, {
-    onError: () => {
-      showError();
+  const { mutation: addProperty, loading: addPropertyLoading } = useMutationAuthClient(
+    ADD_PROPERTY,
+    {
+      onError: () => {
+        showError();
+      },
+      onCompleted: () => {
+        reset();
+        showNotification('Property successfully added to your list.', 'success');
+      },
     },
-    onCompleted: () => {
-      reset();
-      showNotification('Property successfully added to your list.', 'success');
-    },
-  });
+  );
 
-  const [uploadFiles] = useMutation(UPLOAD_FILES, {
+  useEffect(() => {
+    if (Object.keys(errors).length) {
+      scrollToTop();
+      showNotification('Please fill up the required fields', 'error');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [errors]);
+
+  const [uploadFiles, { loading: uploadFileLoading }] = useMutation(UPLOAD_FILES, {
     client: uploadClient,
   });
 
@@ -99,6 +82,7 @@ const PropertyForm = () => {
             },
           },
         });
+        scrollToTop();
       },
     });
   };
@@ -110,7 +94,11 @@ const PropertyForm = () => {
         </FormWrapper>
       ))}
       <Box className="text-right mt-6">
-        <Button color="primary" onClick={handleSubmit(handleAddProperty)}>
+        <Button
+          color="primary"
+          onClick={handleSubmit(handleAddProperty)}
+          loading={addPropertyLoading || uploadFileLoading}
+        >
           Submit
         </Button>
       </Box>

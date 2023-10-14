@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Controller, get, useFormContext } from 'react-hook-form';
+import { clsx } from 'clsx';
 import Text from '../Text';
 import Box from '../Box';
 import AutoComplete, { AutoCompleteProps } from '../AutoComplete';
@@ -21,7 +22,13 @@ const AutoCompleteForm: FC<AutoCompleteFormProps> = ({ name, ...selectProps }) =
         name={name}
         control={control}
         render={({ field: { ref, ...selectField } }) => (
-          <AutoComplete {...selectField} {...selectProps} />
+          <AutoComplete
+            className={clsx({
+              'border-red-500 bg-red-500 bg-opacity-20': errors[name],
+            })}
+            {...selectField}
+            {...selectProps}
+          />
         )}
       />
       {errors[name] && <Text variant="error">{error?.value.message.toString()}</Text>}
