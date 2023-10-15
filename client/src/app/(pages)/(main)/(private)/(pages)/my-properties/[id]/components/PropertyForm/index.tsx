@@ -66,7 +66,7 @@ const PropertyForm = () => {
       onError: () => {
         showError();
       },
-      onCompleted: async () => {
+      onCompleted: async (result) => {
         await addProperty({
           variables: {
             newProperty: {
@@ -75,6 +75,7 @@ const PropertyForm = () => {
               balcony: balcony.value === 'yes',
               furnishing: furnishing.value,
               province: province.label,
+              images: result.uploadImageToS3,
               city: city.label,
               barangay: barangay.label,
               userId: data?.user.user.id,

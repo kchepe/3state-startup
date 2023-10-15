@@ -8,6 +8,8 @@ export class CreatePropertyDTO {
   address: string;
   @Field(() => [String])
   amenities: string[];
+  @Field(() => [String])
+  images: string[];
   @Field()
   balcony: boolean;
   @Field()

@@ -8,6 +8,7 @@ import { AmenitiesModule } from './amenities/amenities.module';
 import { ProvincesModule } from './provinces/provinces.module';
 import { PropertiesModule } from './properties/properties.module';
 import { S3Module } from './s3/s3.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { S3Module } from './s3/s3.module';
       playground: true,
       autoSchemaFile: true,
     }),
+    ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule,
     UsersModule,
     AuthModule,

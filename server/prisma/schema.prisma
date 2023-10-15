@@ -82,6 +82,7 @@ model Properties {
   title          String
   type           String
   zipCode        String
+  images         String[]
 }
 
 enum UserTypeEnum {
