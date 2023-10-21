@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Box from '@/app/common/Box';
 import GET_CURRENT_USER from '@/app/gql/queries/user';
 import { getAuthApolloServer } from '@/app/lib/apolloServer';

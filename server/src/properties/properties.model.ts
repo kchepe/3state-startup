@@ -1,7 +1,8 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { AllowedUserType, IUserType } from 'src/users/users.model';
 
 @ObjectType()
-export class Properties {
+export class Property {
   @Field(() => ID)
   id: string;
   @Field()
@@ -44,6 +45,26 @@ export class Properties {
   type: string;
   @Field()
   zipCode: string;
+}
+
+@ObjectType()
+export class UserWithProperties {
+  @Field(() => ID)
+  id: string;
+  @Field()
+  firstName: string;
+  @Field()
+  lastName: string;
+  @Field()
+  email: string;
+  @Field()
+  imageUrl: string;
+  @Field()
+  phoneNumber: string;
+  @Field(() => AllowedUserType)
+  userType: IUserType;
+  @Field(() => [Property])
+  properties: Property[];
 }
 
 @ObjectType()
