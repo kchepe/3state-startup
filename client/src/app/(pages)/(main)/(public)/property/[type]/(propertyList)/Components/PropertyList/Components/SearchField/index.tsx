@@ -5,9 +5,8 @@ import TextField from '@/app/common/TextField';
 import Toggle from '@/app/common/Toggle';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
 import Box from '@/app/common/Box';
-import Text from '@/app/common/Text';
+// import Text from '@/app/common/Text';
 import Search from '@/app/icons/Search';
-import { properties } from '../../mockData';
 
 interface SearchFieldProps {
   currentWidth: number;
@@ -37,7 +36,7 @@ const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
         />
       </Box>
       <Box className="flex items-center justify-between mt-2">
-        <Text className="font-bold">{properties.length} Properties Available</Text>
+        {/* <Text className="font-bold">{properties.length} Properties Available</Text> */}
         <Toggle
           label="Show Map"
           onChange={handleShowMap}

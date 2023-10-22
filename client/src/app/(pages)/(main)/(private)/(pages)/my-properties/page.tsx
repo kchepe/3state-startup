@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Button from '@/app/common/Button';
 import DashboardWrapper from '@/app/common/DashboardWrapper';
 import Box from '@/app/common/Box';
-import Text from '@/app/common/Text';
-import ProfileInformation from './[id]/components/ProfileInformation';
+import ProfileInformation from './components/ProfileInformation';
+import MyPropertyCards from './components/MyPropertyCards';
 
-const MyProperties = () => (
+const MyProperties = async () => (
   <Box className="flex flex-col gap-4">
     <ProfileInformation />
     <DashboardWrapper
@@ -19,9 +19,7 @@ const MyProperties = () => (
         </Link>
       }
     >
-      <Box className="text-center">
-        <Text>No properties available.</Text>
-      </Box>
+      <MyPropertyCards />
     </DashboardWrapper>
   </Box>
 );

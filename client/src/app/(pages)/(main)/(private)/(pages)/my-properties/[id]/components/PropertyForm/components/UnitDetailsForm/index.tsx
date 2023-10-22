@@ -19,7 +19,7 @@ const UnitDetailsForm = () => (
     <Box className="col-span-full">
       <InputForm
         name="lotAreaInSqm"
-        label="Lot Area"
+        label="Lot Area (sqm)"
         type="number"
         min={0}
         placeholder="Enter Lot Area in square meters"
@@ -32,7 +32,7 @@ const UnitDetailsForm = () => (
         contained
         type="number"
         min={0}
-        label="Floor Area"
+        label="Floor Area (sqm)"
         placeholder="Enter Floor Area in square meters"
       />
     </Box>

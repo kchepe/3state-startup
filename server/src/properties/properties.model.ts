@@ -34,7 +34,7 @@ export class Property {
   @Field()
   lotAreaInSqm: string;
   @Field()
-  parkingSpaces: number;
+  parkingSpace: number;
   @Field()
   price: string;
   @Field()

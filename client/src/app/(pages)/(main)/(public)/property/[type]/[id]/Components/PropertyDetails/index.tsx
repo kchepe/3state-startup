@@ -18,11 +18,11 @@ const PropertyDetails: FC<PropertyDetailsProps> = ({ property }) => (
     </Box>
     <Box className="flex items-center gap-1 font-bold text-xl">
       <Peso className="w-6 h-6" />
-      <Text>{property.price.toLocaleString('en-US')}</Text>
+      <Text>{property.price}</Text>
     </Box>
     <Box className="flex items-center gap-2">
       <Location className="text-gray-400" />
-      <Text variant="subtitle">{property.location}</Text>
+      <Text variant="subtitle">{property.address}</Text>
     </Box>
     <Box>
       <Text className="text-justify">{property.description}</Text>
@@ -30,15 +30,15 @@ const PropertyDetails: FC<PropertyDetailsProps> = ({ property }) => (
     <Box className="flex flex-col sm:flex-row sm:items-center gap-3">
       <Box className="flex item-center gap-2">
         <Bed className="w-5 h-5" />
-        <Text>{property.bedRoom} Bedroom</Text>
+        <Text>{property.bathroom} Bedroom</Text>
       </Box>
       <Box className="flex item-center gap-2">
         <Square className="mt-0.5" />
-        <Text>{property.floorArea} Floor Area</Text>
+        <Text>{property.floorAreaInSqm} Floor Area</Text>
       </Box>
       <Box className="flex item-center gap-2">
         <Square className="mt-0.5" />
-        <Text>{property.landSize} Land Area</Text>
+        <Text>{property.lotAreaInSqm} Land Area</Text>
       </Box>
     </Box>
   </Box>

@@ -4,8 +4,7 @@ import React, { FC, useLayoutEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
 import Box from '@/app/common/Box';
-import PropertyCard from './Components/PropertyCard';
-import { properties } from './mockData';
+// import PropertyCard from './Components/PropertyCard';
 import SearchField from './Components/SearchField';
 
 interface PropertyListProps {}
@@ -42,11 +41,11 @@ const PropertyList: FC<PropertyListProps> = () => {
           'mt-28': currentWidth !== 0,
         })}
       >
-        {properties.map((property) => (
+        {/* {properties.map((property) => (
           <Box key={property.id} className="col-span-1">
             <PropertyCard property={property} />
           </Box>
-        ))}
+        ))} */}
       </Box>
     </Box>
   );

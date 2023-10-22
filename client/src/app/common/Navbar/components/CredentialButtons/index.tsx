@@ -31,7 +31,6 @@ const CredentialButtons = () => {
   return (
     <div>
       <ProfileDropDownButton />
-
     </div>
   );
 };

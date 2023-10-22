@@ -17,14 +17,10 @@ export class PropertiesService {
     };
   }
 
-  public async getPropertyByUserId(id: string) {
-    const user = await this.prisma.users.findFirst({
+  public async getPropertiesByCurrentUser(id: string) {
+    const properties = await this.prisma.properties.findMany({
       where: { id },
-      include: {
-        properties: true,
-      },
     });
-    const { properties, ...userDetails } = user;
 
     const newPropertiesResult = await Promise.all(
       properties.map(async (property) => {
@@ -40,6 +36,6 @@ export class PropertiesService {
       }),
     );
 
-    return { ...userDetails, properties: newPropertiesResult };
+    return newPropertiesResult;
   }
 }

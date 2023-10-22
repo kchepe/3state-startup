@@ -1,21 +1,30 @@
 export type IOfferType = 'rent' | 'buy';
 
+export type IPropertyType = 'land' | 'condominium' | 'house' | 'any' | 'apartment' | 'commercial';
+
 export interface IProperty {
   id: string;
-  title: string;
-  location: string;
-  description: string;
-  price: number;
-  bedRoom: number;
-  status: IOfferType;
-  landSize: string;
-  floorArea: string;
-  imageUrl: string[];
-  layoutUrl: string[];
+  address: string;
   amenities: string[];
+  images: string[];
+  balcony: boolean;
+  barangay: string;
+  bathroom: number;
+  city: string;
+  description: string;
+  floorAreaInSqm: string;
+  furnishing: string;
+  housingMethod: string;
+  latitude: string;
+  longitude: string;
+  lotAreaInSqm: string;
+  parkingSpace: number;
+  price: string;
+  province: string;
+  title: string;
+  type: IPropertyType;
+  zipCode: number;
 }
-
-export type IPropertyType = 'land' | 'condominium' | 'house' | 'any' | 'apartment' | 'commercial';
 
 export type IUserType = 'broker' | 'owner' | 'agent' | 'brokerage';
 
