@@ -8,15 +8,15 @@ import TabMenu from './Components/TabMenu';
 
 interface PropertyInformationProps {
   params: {
-    id: string;
+    propertyId: string;
   };
 }
 
 const PropertyInformation = async ({ params }: PropertyInformationProps) => {
-  const { id } = params;
+  const { propertyId } = params;
   const { data } = await getApolloServer().query({
     query: GET_PROPERTY_BY_ID,
-    variables: { propertyId: id },
+    variables: { propertyId },
   });
 
   if (!data.getPropertyById) {

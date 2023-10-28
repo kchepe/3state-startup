@@ -16,7 +16,7 @@ const InputForm: FC<InputFormProps> = ({ name, ...inputProps }) => {
     formState: { errors },
   } = useFormContext();
 
-  const { endIcon, type, ...rest } = inputProps;
+  const { endIcon, ...rest } = inputProps;
 
   return (
     <Box>

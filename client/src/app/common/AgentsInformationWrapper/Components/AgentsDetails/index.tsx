@@ -32,8 +32,9 @@ const AgentsDetails = ({ user }: IAgetDetailsProps) => {
           sizes="100vw"
           className="object-cover rounded-full w-36 h-36 border"
           alt="3state-agent"
+          // src={user.imageUrl}
           // eslint-disable-next-line max-len
-          src={user.imageUrl}
+          src="https://images.pexels.com/photos/7641998/pexels-photo-7641998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         />
         <Text variant="h5">
           {user.firstName} {user.lastName}
