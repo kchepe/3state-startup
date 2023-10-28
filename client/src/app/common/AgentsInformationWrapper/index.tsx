@@ -1,12 +1,14 @@
 import { FC, ReactElement } from 'react';
+import { IUser } from '@/app/types/types';
 import AgentsDetails from './Components/AgentsDetails';
 import Box from '../Box';
 
 interface AgentsInformationWrapperProps {
+  user: Omit<IUser, 'password' | 'userType'>;
   children: ReactElement;
 }
 
-const AgentsInformationWrapper: FC<AgentsInformationWrapperProps> = ({ children }) => (
+const AgentsInformationWrapper: FC<AgentsInformationWrapperProps> = ({ children, user }) => (
   <Box>
     <Box className="p-1 lg:mr-[26rem] w-full lg:w-auto">{children}</Box>
     <Box
@@ -16,7 +18,7 @@ const AgentsInformationWrapper: FC<AgentsInformationWrapperProps> = ({ children 
       aria-label="Sidebar"
     >
       <Box className="bg-white border rounded-xl p-4 shadow">
-        <AgentsDetails />
+        <AgentsDetails user={user} />
       </Box>
     </Box>
   </Box>

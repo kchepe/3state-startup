@@ -6,6 +6,7 @@ import Peso from '@/app/icons/Peso';
 import Location from '@/app/icons/Location';
 import Bed from '@/app/icons/Bed';
 import Square from '@/app/icons/Square';
+import getPropertyFullAddress from '@/app/utils/fullAddress.util';
 
 interface PropertyDetailsProps {
   property: IProperty;
@@ -22,7 +23,7 @@ const PropertyDetails: FC<PropertyDetailsProps> = ({ property }) => (
     </Box>
     <Box className="flex items-center gap-2">
       <Location className="text-gray-400" />
-      <Text variant="subtitle">{property.address}</Text>
+      <Text variant="subtitle">{getPropertyFullAddress(property)}</Text>
     </Box>
     <Box>
       <Text className="text-justify">{property.description}</Text>

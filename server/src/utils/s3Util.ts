@@ -18,4 +18,7 @@ const getS3SignedUrl = async (bucket: string, key: string) => {
   return url;
 };
 
-export { s3Client, getS3SignedUrl };
+const getImageUrl = async (image: string) =>
+  await getS3SignedUrl('3state-development', image);
+
+export { s3Client, getS3SignedUrl, getImageUrl };

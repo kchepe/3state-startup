@@ -21,15 +21,13 @@ export type IUserType =
   | 'brokerage';
 
 @ObjectType()
-export class UserTypes implements Users {
+export class User {
   @Field(() => ID)
   id: string;
   @Field()
   firstName: string;
   @Field()
   lastName: string;
-  @Field()
-  password: string;
   @Field()
   email: string;
   @Field()
@@ -38,4 +36,10 @@ export class UserTypes implements Users {
   phoneNumber: string;
   @Field(() => AllowedUserType)
   userType: IUserType;
+}
+
+@ObjectType()
+export class UserTypes extends User implements Users {
+  @Field()
+  password: string;
 }

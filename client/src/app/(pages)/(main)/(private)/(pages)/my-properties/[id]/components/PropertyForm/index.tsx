@@ -37,7 +37,6 @@ const PropertyForm = () => {
 
   useEffect(() => {
     if (Object.keys(errors).length) {
-      scrollToTop();
       showNotification('Please fill up the required fields', 'error');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -59,6 +58,7 @@ const PropertyForm = () => {
       images,
       ...newProperty
     } = property;
+
     await uploadFiles({
       variables: {
         files: images,

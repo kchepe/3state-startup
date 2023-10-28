@@ -9,7 +9,6 @@ const Location = dynamic(() => import('./Components/Location'), {
 });
 
 const tabMenu = (property: IProperty): ITabMenu[] => [
-  { label: 'Amenities', child: <Amenities amenities={property.amenities} /> },
   {
     label: 'Location',
     child: (
@@ -18,6 +17,7 @@ const tabMenu = (property: IProperty): ITabMenu[] => [
       </Box>
     ),
   },
+  { label: 'Amenities', child: <Amenities amenities={property.amenities} /> },
 ];
 
 export default tabMenu;

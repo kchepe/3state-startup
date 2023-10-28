@@ -21,7 +21,7 @@ const { getClient: getAuthApolloServer } = registerApolloClient(
     new NextSSRApolloClient({
       cache: new NextSSRInMemoryCache(),
       link: from([errorLink, authLink(session()).concat(httpLink(url))]),
-      ssrForceFetchDelay: 500,
+      ssrForceFetchDelay: 100,
     }),
 );
 
@@ -30,7 +30,7 @@ const { getClient: getApolloServer } = registerApolloClient(
     new NextSSRApolloClient({
       cache: new NextSSRInMemoryCache(),
       link: from([errorLink, httpLink(url)]),
-      ssrForceFetchDelay: 500,
+      ssrForceFetchDelay: 100,
     }),
 );
 

@@ -6,7 +6,7 @@ import Box from '../Box';
 const Navbar = () => (
   <Box
     className="bg-white flex items-center shadow
-                    px-2 sm:px-6 lg:px-8 h-[7vh] fixed left-0 w-full top-0 z-50"
+                    px-2 sm:px-6 lg:px-8 h-16 fixed left-0 w-full top-0 z-50"
   >
     <Box className="grid grid-cols-12 w-full items-center">
       <Box className="col-span-4">

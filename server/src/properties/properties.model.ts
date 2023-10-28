@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { AllowedUserType, IUserType } from 'src/users/users.model';
+import { User } from 'src/users/users.model';
 
 @ObjectType()
 export class Property {
@@ -50,23 +50,17 @@ export class Property {
 }
 
 @ObjectType()
-export class UserWithProperties {
-  @Field(() => ID)
-  id: string;
-  @Field()
-  firstName: string;
-  @Field()
-  lastName: string;
-  @Field()
-  email: string;
-  @Field()
-  imageUrl: string;
-  @Field()
-  phoneNumber: string;
-  @Field(() => AllowedUserType)
-  userType: IUserType;
+export class PropertiesWithTotalCountResponse {
   @Field(() => [Property])
   properties: Property[];
+  @Field()
+  totalCount: number;
+}
+
+@ObjectType()
+export class PropertyWithUserResponse extends Property {
+  @Field(() => User)
+  user: User;
 }
 
 @ObjectType()

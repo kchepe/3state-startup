@@ -8,6 +8,7 @@ import Peso from '@/app/icons/Peso';
 import Location from '@/app/icons/Location';
 import Bed from '@/app/icons/Bed';
 import Square from '@/app/icons/Square';
+import getPropertyFullAddress from '@/app/utils/fullAddress.util';
 
 interface PropertyCardProps {
   property: IProperty;
@@ -51,12 +52,12 @@ const PropertyCard: FC<PropertyCardProps> = ({ property }) => (
     </Box>
     <Box className="col-span-full flex text-gray-500 items-center gap-1">
       <Location className="w-3 h-3" />
-      <Text>{property.address}</Text>
+      <Text>{getPropertyFullAddress(property)}</Text>
     </Box>
     <Box className="col-span-full flex items-center gap-3">
       <Box className="flex item-center gap-1">
         <Bed />
-        <Text className="text-xs">{property.bathroom} Bathroom</Text>
+        <Text className="text-xs">{property.bedroom} bedroom</Text>
       </Box>
       <Box className="flex item-center gap-1">
         <Square className="w-3 h-3 mt-0.5" />

@@ -5,14 +5,14 @@ import TextField from '@/app/common/TextField';
 import Toggle from '@/app/common/Toggle';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
 import Box from '@/app/common/Box';
-// import Text from '@/app/common/Text';
+import Text from '@/app/common/Text';
 import Search from '@/app/icons/Search';
 
 interface SearchFieldProps {
-  currentWidth: number;
+  totalPropertyCount: number;
 }
 
-const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
+const SearchField: FC<SearchFieldProps> = ({ totalPropertyCount }) => {
   const { propertiesState, searchProperty } = usePropertyManager();
 
   const handleShowMap = () => {
@@ -20,13 +20,7 @@ const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
   };
 
   return (
-    <Box
-      className="fixed bg-white flex gap-3 flex-col pb-2"
-      style={{
-        display: currentWidth === 0 ? 'none' : 'block',
-        width: currentWidth,
-      }}
-    >
+    <Box className="bg-white flex gap-3 flex-col pb-2 w-full">
       <Box>
         <TextField
           placeholder="Search property here..."
@@ -36,7 +30,7 @@ const SearchField: FC<SearchFieldProps> = ({ currentWidth }) => {
         />
       </Box>
       <Box className="flex items-center justify-between mt-2">
-        {/* <Text className="font-bold">{properties.length} Properties Available</Text> */}
+        <Text className="font-bold">{totalPropertyCount} Properties Available</Text>
         <Toggle
           label="Show Map"
           onChange={handleShowMap}
