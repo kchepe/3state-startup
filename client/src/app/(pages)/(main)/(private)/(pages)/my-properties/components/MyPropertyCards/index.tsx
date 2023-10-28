@@ -1,17 +1,20 @@
 import React from 'react';
-import { GET_PROPERTIES_BY_CURRENT_USER } from '@/app/gql/queries/properties';
+import { GET_PROPERTIES_BY_USER_ID } from '@/app/gql/queries/properties';
 import { getApolloServer } from '@/app/lib/apolloServer';
 import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
 import { IProperty } from '@/app/types/types';
 import NextImage from '@/app/common/NextImage';
+import getSessionUtil from '@/app/utils/getSession.util';
 
 const MyPropertyCards = async () => {
+  const session = await getSessionUtil();
   const { data } = await getApolloServer().query({
-    query: GET_PROPERTIES_BY_CURRENT_USER,
+    query: GET_PROPERTIES_BY_USER_ID,
+    variables: { userId: session?.user.id },
   });
 
-  if (!data.getPropertiesByCurrentUser.length) {
+  if (!data.getPropertiesByUserId.length) {
     return (
       <Box className="text-center">
         <Text>No properties available.</Text>
@@ -21,7 +24,7 @@ const MyPropertyCards = async () => {
 
   return (
     <Box className="grid grid-cols-card-list gap-4">
-      {data.getPropertiesByCurrentUser.map((property: IProperty) => (
+      {data.getPropertiesByUserId.map((property: IProperty) => (
         <Box
           className="max-w-xl rounded-2xl col-span-1
             flex flex-col gap-2 border hover:shadow-glow"

@@ -10,6 +10,7 @@ export const addPropertyInitialValues = {
   lotAreaInSqm: 0,
   floorAreaInSqm: 0,
   bathroom: 0,
+  bedroom: 0,
   parkingSpace: 0,
   furnishing: selectDefaultValue,
   balcony: selectDefaultValue,
@@ -45,6 +46,10 @@ export const addPropertySchema = yup.object().shape({
     .typeError('Floor Area must be a number')
     .min(0, 'Floor Area cannot be less than zero.'),
   bathroom: yup
+    .number()
+    .typeError('Number of bathroom must be a number')
+    .min(0, 'Number of bathroom cannot be less than zero.'),
+  bedroom: yup
     .number()
     .typeError('Number of bathroom must be a number')
     .min(0, 'Number of bathroom cannot be less than zero.'),

@@ -48,6 +48,16 @@ const UnitDetailsForm = () => (
     </Box>
     <Box className="col-span-full">
       <InputForm
+        name="bedroom"
+        min={0}
+        label="Bedroom"
+        type="number"
+        placeholder="Enter Number of Bathroom"
+        contained
+      />
+    </Box>
+    <Box className="col-span-full">
+      <InputForm
         type="number"
         min={0}
         name="parkingSpace"

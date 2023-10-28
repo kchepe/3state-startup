@@ -17,9 +17,9 @@ export class PropertiesService {
     };
   }
 
-  public async getPropertiesByCurrentUser(id: string) {
+  public async getPropertiesByUserId(userId: string) {
     const properties = await this.prisma.properties.findMany({
-      where: { id },
+      where: { userId },
     });
 
     const newPropertiesResult = await Promise.all(
@@ -37,5 +37,9 @@ export class PropertiesService {
     );
 
     return newPropertiesResult;
+  }
+  public async getAllProperties() {
+    const properties = await this.prisma.properties.findMany();
+    return properties;
   }
 }

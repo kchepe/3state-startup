@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-const GET_PROPERTIES_BY_CURRENT_USER = gql`
-  query GetPropertiesByCurrentUser {
-    getPropertiesByCurrentUser {
+const GET_PROPERTIES_BY_USER_ID = gql`
+  query GetPropertiesByUserId($userId: String!) {
+    getPropertiesByUserId(userId: $userId) {
       id
       address
       amenities
@@ -10,6 +10,7 @@ const GET_PROPERTIES_BY_CURRENT_USER = gql`
       balcony
       barangay
       bathroom
+      bedroom
       city
       description
       floorAreaInSqm
@@ -29,4 +30,4 @@ const GET_PROPERTIES_BY_CURRENT_USER = gql`
 `;
 
 // eslint-disable-next-line import/prefer-default-export
-export { GET_PROPERTIES_BY_CURRENT_USER };
+export { GET_PROPERTIES_BY_USER_ID };

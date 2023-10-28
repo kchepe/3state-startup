@@ -1,4 +1,4 @@
-import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { PropertiesService } from './properties.service';
 import { CreatePropertiesResponse, Property } from './properties.model';
 import { CreatePropertyDTO } from './dto/add-properties-dto';
@@ -16,7 +16,11 @@ export class PropertiesResolver {
   }
 
   @Query(() => [Property])
-  async getPropertiesByCurrentUser(@Context() context) {
-    return this.propertiesService.getPropertiesByCurrentUser(context.id);
+  async getPropertiesByUserId(@Args('userId') userId: string) {
+    return this.propertiesService.getPropertiesByUserId(userId);
+  }
+  @Query(() => [Property])
+  async getAllProperties() {
+    return this.propertiesService.getAllProperties();
   }
 }

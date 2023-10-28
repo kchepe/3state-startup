@@ -10,6 +10,7 @@ export interface IProperty {
   balcony: boolean;
   barangay: string;
   bathroom: number;
+  bedroom: number;
   city: string;
   description: string;
   floorAreaInSqm: string;

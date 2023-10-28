@@ -68,6 +68,7 @@ model Properties {
   balcony        Boolean
   barangay       String
   bathroom       Int
+  bedroom        Int
   city           String
   description    String
   floorAreaInSqm Int
@@ -83,6 +84,8 @@ model Properties {
   type           String
   zipCode        String
   images         String[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 enum UserTypeEnum {

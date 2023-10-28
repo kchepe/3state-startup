@@ -18,6 +18,8 @@ export class Property {
   @Field()
   bathroom: number;
   @Field()
+  bedroom: number;
+  @Field()
   city: string;
   @Field()
   description: string;

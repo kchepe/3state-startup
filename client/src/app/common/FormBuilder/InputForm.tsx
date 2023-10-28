@@ -15,6 +15,9 @@ const InputForm: FC<InputFormProps> = ({ name, ...inputProps }) => {
     control,
     formState: { errors },
   } = useFormContext();
+
+  const { endIcon, type, ...rest } = inputProps;
+
   return (
     <Box>
       <Controller
@@ -23,12 +26,14 @@ const InputForm: FC<InputFormProps> = ({ name, ...inputProps }) => {
         render={({ field: { ref, ...inputField } }) => (
           <TextField
             outlined
+            endIcon={
+              !endIcon && errors[name] ? <CloseCircleFill className="text-red-500" /> : endIcon
+            }
             {...inputField}
-            {...inputProps}
+            {...rest}
             className={clsx({
               'border-red-500 bg-red-500 bg-opacity-20': errors[name],
             })}
-            endIcon={errors[name] && <CloseCircleFill className="text-red-500" />}
           />
         )}
       />
