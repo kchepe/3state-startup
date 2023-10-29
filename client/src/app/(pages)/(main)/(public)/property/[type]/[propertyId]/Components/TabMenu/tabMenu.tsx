@@ -4,8 +4,9 @@ import { IProperty } from '@/app/types/types';
 import Box from '@/app/common/Box';
 import Amenities from './Components/Amenities';
 
-const Location = dynamic(() => import('./Components/Location'), {
+const Map = dynamic(() => import('@/app/common/Map'), {
   ssr: false,
+  loading: () => <Box className="text-center p-4">Loading Map...</Box>,
 });
 
 const tabMenu = (property: IProperty): ITabMenu[] => [
@@ -13,7 +14,7 @@ const tabMenu = (property: IProperty): ITabMenu[] => [
     label: 'Location',
     child: (
       <Box className="w-full h-[500px]">
-        <Location />
+        <Map properties={[property]} />
       </Box>
     ),
   },

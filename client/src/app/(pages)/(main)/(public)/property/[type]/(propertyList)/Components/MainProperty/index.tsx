@@ -3,13 +3,15 @@
 import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import clsx from 'clsx';
-import { IOfferType } from '@/app/types/types';
+import { IOfferType, IProperty } from '@/app/types/types';
 import usePropertyManager from '@/app/hooks/usePropertyManager';
 import Box from '@/app/common/Box';
+import useQueryClient from '@/app/hooks/Apollo/useQueryClient';
+import { GET_ALL_PROPERTIES } from '@/app/gql/queries/properties';
 import FilterToolBar from '../FIlterToolbar';
 import PropertyList from '../PropertyList';
 
-const LeafletMap = dynamic(() => import('../LeafletMap'), {
+const Map = dynamic(() => import('@/app/common/Map'), {
   ssr: false,
 });
 
@@ -19,6 +21,7 @@ interface MainPropertyProps {
 
 const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
   const { propertiesState } = usePropertyManager();
+  const { data, loading: propertyLoading } = useQueryClient(GET_ALL_PROPERTIES);
 
   return (
     <Box className="flex gap-3 h-full">
@@ -37,12 +40,15 @@ const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
           },
         )}
       >
-        <PropertyList />
+        <PropertyList properties={data?.getAllProperties} propertyLoading={propertyLoading} />
       </Box>
 
       {propertiesState.filter.showMap && (
         <Box className="hidden xl:block -mr-8 -my-4 flex-1">
-          <LeafletMap />
+          <Map
+            properties={data?.getAllProperties.properties as IProperty[]}
+            showViewPropertyButton
+          />
         </Box>
       )}
     </Box>
