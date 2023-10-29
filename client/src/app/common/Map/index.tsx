@@ -18,15 +18,16 @@ import NextImage from '../NextImage';
 interface MapProps {
   properties: IProperty[];
   showViewPropertyButton?: boolean;
+  zoom?: number;
 }
 
-const Map = ({ properties, showViewPropertyButton = false }: MapProps) => {
+const Map = ({ properties, showViewPropertyButton = false, zoom = 13 }: MapProps) => {
   const { push } = useRouter();
 
   return (
     <MapContainer
       center={[+properties[0].longitude, +properties[0].latitude]}
-      zoom={15}
+      zoom={zoom}
       scrollWheelZoom={false}
       className="h-full z-0"
     >
