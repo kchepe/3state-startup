@@ -9,12 +9,18 @@ const Map = dynamic(() => import('@/app/common/Map'), {
   loading: () => <Box className="text-center p-4">Loading Map...</Box>,
 });
 
+const PropertyCardPopup = dynamic(() => import('@/app/common/PropertyCardPopup'), {
+  ssr: false,
+});
+
 const tabMenu = (property: IProperty): ITabMenu[] => [
   {
     label: 'Location',
     child: (
       <Box className="w-full h-[500px]">
-        <Map properties={[property]} zoom={15} />
+        <Map center={[+property.longitude, +property.latitude]} zoom={15}>
+          <PropertyCardPopup property={property} />
+        </Map>
       </Box>
     ),
   },

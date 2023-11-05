@@ -15,6 +15,10 @@ const Map = dynamic(() => import('@/app/common/Map'), {
   ssr: false,
 });
 
+const PropertyCardPopup = dynamic(() => import('@/app/common/PropertyCardPopup'), {
+  ssr: false,
+});
+
 interface MainPropertyProps {
   offerType: IOfferType;
 }
@@ -46,9 +50,16 @@ const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
       {propertiesState.filter.showMap && (
         <Box className="hidden xl:block -mr-8 -my-4 flex-1">
           <Map
-            properties={data?.getAllProperties.properties as IProperty[]}
-            showViewPropertyButton
-          />
+            center={[
+              +data.getAllProperties.properties[0].longitude,
+              +data.getAllProperties.properties[0].latitude,
+            ]}
+            zoom={7}
+          >
+            {data.getAllProperties.properties.map((property: IProperty) => (
+              <PropertyCardPopup property={property} showViewButton />
+            ))}
+          </Map>
         </Box>
       )}
     </Box>
