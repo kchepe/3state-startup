@@ -27,7 +27,7 @@ export class CreatePropertyDTO {
   @Field()
   furnishing: string;
   @Field()
-  housingMethod: string;
+  status: 'forSale' | 'forRent' | 'occupied' | 'sold';
   @Field()
   latitude: string;
   @Field()

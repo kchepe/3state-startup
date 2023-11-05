@@ -19,11 +19,7 @@ const PropertyCard: FC<PropertyCardProps> = ({ property }) => (
     <Box className="col-span-full mb-2">
       <Box className="w-full overflow-hidden rounded-3xl">
         <Box className="w-full h-60 overflow-hidden">
-          <Link
-            href={`/property/${property.housingMethod === 'for rent' ? 'rent' : 'buy'}/${
-              property.id
-            }`}
-          >
+          <Link href={`/property/${property.status === 'forRent' ? 'rent' : 'buy'}/${property.id}`}>
             <Image
               src={property.images[0]}
               alt="3state_property"
@@ -38,9 +34,7 @@ const PropertyCard: FC<PropertyCardProps> = ({ property }) => (
       </Box>
     </Box>
     <Box className="col-span-full flex justify-between">
-      <Link
-        href={`/property/${property.housingMethod === 'for rent' ? 'rent' : 'buy'}/${property.id}`}
-      >
+      <Link href={`/property/${property.status === 'forRent' ? 'rent' : 'buy'}/${property.id}`}>
         <Box className="max-w-[250px] max-h-10 line-clamp-2">
           <h4 className="hover:text-gray-500 cursor-pointer font-semibold">{property.title}</h4>
         </Box>

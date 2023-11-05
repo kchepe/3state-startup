@@ -12,7 +12,7 @@ const propertyDetails = `
       description
       floorAreaInSqm
       furnishing
-      housingMethod
+      status
       latitude
       longitude
       lotAreaInSqm

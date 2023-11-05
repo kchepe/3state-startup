@@ -1,6 +1,8 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { User } from 'src/users/users.model';
 
+export type PropertyStatusType = 'forSale' | 'forRent' | 'occupied' | 'sold';
+
 @ObjectType()
 export class Property {
   @Field(() => ID)
@@ -28,7 +30,7 @@ export class Property {
   @Field()
   furnishing: string;
   @Field()
-  housingMethod: string;
+  status: PropertyStatusType;
   @Field()
   latitude: string;
   @Field()

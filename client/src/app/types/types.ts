@@ -15,7 +15,7 @@ export interface IProperty {
   description: string;
   floorAreaInSqm: string;
   furnishing: string;
-  housingMethod: string;
+  status: string;
   latitude: string;
   longitude: string;
   lotAreaInSqm: string;

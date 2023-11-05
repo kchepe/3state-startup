@@ -33,11 +33,7 @@ const PropertyCardPopup = ({ property, showViewButton }: IPropertyCardPopup) => 
             <Button
               color="primary"
               onClick={() =>
-                push(
-                  `/property/${property.housingMethod === 'for rent' ? 'rent' : 'buy'}/${
-                    property.id
-                  }`,
-                )
+                push(`/property/${property.status === 'for rent' ? 'rent' : 'buy'}/${property.id}`)
               }
             >
               View Property

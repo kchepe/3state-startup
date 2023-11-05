@@ -4,7 +4,7 @@ import { selectDefaultValue } from '@/app/constant';
 export const addPropertyInitialValues = {
   title: '',
   description: '',
-  housingMethod: selectDefaultValue,
+  status: selectDefaultValue,
   type: selectDefaultValue,
   price: '',
   lotAreaInSqm: 0,
@@ -28,7 +28,7 @@ export const addPropertyInitialValues = {
 export const addPropertySchema = yup.object().shape({
   title: yup.string().required('Title is required.'),
   description: yup.string(),
-  housingMethod: yup.object().shape({
+  status: yup.object().shape({
     label: yup.string().required('Housing Method is required'),
     value: yup.string().required('Housing Method is required'),
   }),

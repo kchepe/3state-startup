@@ -34,7 +34,7 @@ export class User {
   imageUrl: string;
   @Field()
   phoneNumber: string;
-  @Field(() => AllowedUserType)
+  @Field()
   userType: IUserType;
 }
 

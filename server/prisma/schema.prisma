@@ -73,7 +73,7 @@ model Properties {
   description    String
   floorAreaInSqm Int
   furnishing     String
-  housingMethod  String
+  status         PropertyStatus
   latitude       String
   longitude      String
   lotAreaInSqm   Int
@@ -100,4 +100,11 @@ enum AmenityCategoryEnum {
   outdoor
   indoor
   security
+}
+
+enum PropertyStatus {
+  forSale
+  forRent
+  occupied
+  sold
 }

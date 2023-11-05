@@ -47,17 +47,8 @@ const PropertyForm = () => {
   });
 
   const handleAddProperty: SubmitHandler<FieldValues> = async (property) => {
-    const {
-      housingMethod,
-      type,
-      balcony,
-      province,
-      city,
-      barangay,
-      furnishing,
-      images,
-      ...newProperty
-    } = property;
+    const { status, type, balcony, province, city, barangay, furnishing, images, ...newProperty } =
+      property;
 
     await uploadFiles({
       variables: {
@@ -70,7 +61,7 @@ const PropertyForm = () => {
         await addProperty({
           variables: {
             newProperty: {
-              housingMethod: housingMethod.value,
+              status: status.value,
               type: type.value,
               balcony: balcony.value === 'yes',
               furnishing: furnishing.value,

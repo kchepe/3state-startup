@@ -12,9 +12,9 @@ export const propertyTypeOptions = [
   { label: 'Condominium', value: 'condominium' },
 ];
 
-export const propertyCategory = [
-  { label: 'For Sale', value: 'for sale' },
-  { label: 'For Rent', value: 'for rent' },
+export const propertyStatus = [
+  { label: 'For Sale', value: 'forSale' },
+  { label: 'For Rent', value: 'forRent' },
 ];
 
 export const selectDefaultValue = {
