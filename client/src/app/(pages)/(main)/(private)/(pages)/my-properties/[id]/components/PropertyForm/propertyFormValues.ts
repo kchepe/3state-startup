@@ -68,8 +68,8 @@ export const addPropertySchema = yup.object().shape({
     label: yup.string(),
     value: yup.string(),
   }),
-  longitude: yup.string().required('Longitude is required'),
-  latitude: yup.string().required('Latitude is required'),
+  longitude: yup.string().required("Please click the property's location to get the longitude"),
+  latitude: yup.string().required("Please click the property's location to get the latitude"),
   address: yup.string().required('Address is required.'),
   province: yup.object().shape({
     label: yup.string().required('Province is required'),
