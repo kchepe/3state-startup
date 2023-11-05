@@ -51,8 +51,8 @@ const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
         <Box className="hidden xl:block -mr-8 -my-4 flex-1">
           <Map
             center={[
-              +data.getAllProperties.properties[0].longitude,
               +data.getAllProperties.properties[0].latitude,
+              +data.getAllProperties.properties[0].longitude,
             ]}
             zoom={7}
           >

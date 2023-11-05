@@ -18,7 +18,7 @@ const tabMenu = (property: IProperty): ITabMenu[] => [
     label: 'Location',
     child: (
       <Box className="w-full h-[500px]">
-        <Map center={[+property.longitude, +property.latitude]} zoom={15}>
+        <Map center={[+property.latitude, +property.longitude]} zoom={15}>
           <PropertyCardPopup property={property} />
         </Map>
       </Box>

@@ -10,7 +10,7 @@ import { LatLngTuple } from 'leaflet';
 interface MapProps {
   center: LatLngTuple;
   zoom?: number;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const Map = ({ zoom = 13, center, children }: MapProps) => (

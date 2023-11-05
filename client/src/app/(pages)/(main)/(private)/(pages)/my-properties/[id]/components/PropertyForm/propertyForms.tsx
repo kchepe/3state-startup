@@ -1,10 +1,14 @@
+import dynamic from 'next/dynamic';
 import AddressForm from './components/AddressForm';
 import AmenitiesForm from './components/AmenitiesForm';
-import MapLocationForm from './components/MapLocationForm';
 import PropertyDetailsForm from './components/PropertyDetailsForm';
 import TitleForm from './components/TitleForm';
 import UnitDetailsForm from './components/UnitDetailsForm';
 import UploadPhotosForm from './components/UploadPhotosForm';
+
+const MapLocationForm = dynamic(() => import('./components/MapLocationForm'), {
+  ssr: false,
+});
 
 const propertyForms = [
   { title: 'Property Title', form: <TitleForm /> },

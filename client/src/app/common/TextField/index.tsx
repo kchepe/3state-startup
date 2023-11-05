@@ -41,6 +41,7 @@ const TextField: FC<TextFieldProps> = ({
             'border focus:ring-1 focus:ring-inset focus:ring-primary': outlined,
             'border-none focus:outline-none': !outlined,
             'bg-gray-100': contained,
+            'bg-gray-50 border-0': inputProps.disabled,
           },
         )}
         {...inputProps}
