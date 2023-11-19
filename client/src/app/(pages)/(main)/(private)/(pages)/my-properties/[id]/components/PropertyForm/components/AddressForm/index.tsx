@@ -48,9 +48,6 @@ const AddressForm = () => {
   return (
     <div className="grid grid-cols-12 gap-4">
       <div className="col-span-full">
-        <InputForm name="address" label="Address" contained placeholder="Enter Address" />
-      </div>
-      <div className="col-span-full">
         <AutoCompleteForm name="province" options={provincesOptions} label="Province" contained />
       </div>
       <div className="col-span-full">
@@ -70,6 +67,9 @@ const AddressForm = () => {
           contained
           disabled={!cityValue.value}
         />
+      </div>
+      <div className="col-span-full">
+        <InputForm name="address" label="Address" contained placeholder="Enter Address" />
       </div>
       <div className="col-span-full">
         <InputForm label="Zipcode" contained placeholder="Enter zipcode" name="zipCode" />

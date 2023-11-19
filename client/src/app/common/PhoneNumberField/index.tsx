@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { FC, ReactElement } from 'react';
+import React, { ForwardRefRenderFunction, ReactElement, forwardRef } from 'react';
 import { PatternFormat, NumericFormatProps } from 'react-number-format';
 import Box from '../Box';
 import Text from '../Text';
@@ -13,15 +13,10 @@ export interface PhoneNumberFieldProps extends NumericFormatProps {
   contained?: boolean;
 }
 
-const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
-  label,
-  className,
-  outlined = false,
-  startIcon,
-  endIcon,
-  contained,
-  ...inputProps
-}) => (
+const PhoneNumberField: ForwardRefRenderFunction<NumericFormatProps, PhoneNumberFieldProps> = (
+  { label, className, outlined = false, startIcon, endIcon, contained, ...inputProps },
+  ref,
+) => (
   <Box className="w-full">
     {label && <Text className="text-sm font-medium leading-6 text-gray-900 mb-2">{label}</Text>}
     <Box className="relative">
@@ -31,6 +26,7 @@ const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
       <PatternFormat
         format="(####) ### ####"
         allowEmptyFormatting
+        getInputRef={ref}
         autoComplete="off"
         className={clsx(
           className,
@@ -55,4 +51,4 @@ const PhoneNumberField: FC<PhoneNumberFieldProps> = ({
   </Box>
 );
 
-export default PhoneNumberField;
+export default forwardRef(PhoneNumberField);

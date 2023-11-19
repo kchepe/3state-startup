@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 import { clsx } from 'clsx';
 import Textarea, { TextareaProps } from '../Textarea';
 import Box from '../Box';
@@ -14,20 +14,16 @@ const TextareaForm: FC<TextareaFormProps> = ({ name, ...inputProps }) => {
     control,
     formState: { errors },
   } = useFormContext();
+
+  const { field } = useController({ name, control });
   return (
     <Box>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field: { ref, ...textareaField } }) => (
-          <Textarea
-            className={clsx({
-              'border-red-500 bg-red-500 bg-opacity-20': errors[name],
-            })}
-            {...textareaField}
-            {...inputProps}
-          />
-        )}
+      <Textarea
+        className={clsx({
+          'border-red-500 bg-red-500 bg-opacity-20': errors[name],
+        })}
+        {...field}
+        {...inputProps}
       />
       {errors[name] && <Text variant="error">{errors[name]?.message?.toString()}</Text>}
     </Box>

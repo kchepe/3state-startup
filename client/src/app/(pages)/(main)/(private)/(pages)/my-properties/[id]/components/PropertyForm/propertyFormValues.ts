@@ -29,8 +29,8 @@ export const addPropertySchema = yup.object().shape({
   title: yup.string().required('Title is required.'),
   description: yup.string(),
   status: yup.object().shape({
-    label: yup.string().required('Housing Method is required'),
-    value: yup.string().required('Housing Method is required'),
+    label: yup.string().required('Status is required'),
+    value: yup.string().required('Status is required'),
   }),
   type: yup.object().shape({
     label: yup.string().required('Type is required'),

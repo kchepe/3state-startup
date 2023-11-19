@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { ForwardRefRenderFunction, Fragment, forwardRef } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import Check from '@/app/icons/Check';
@@ -25,22 +25,25 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Select: FC<SelectProps> = ({
-  options = [],
-  value = { label: '', value: '' },
-  onChange,
-  className,
-  label = '',
-  name,
-  contained,
-}) => (
+const Select: ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
+  {
+    options = [],
+    value = { label: '', value: '' },
+    onChange,
+    className,
+    label = '',
+    name,
+    contained,
+  },
+  ref,
+) => (
   <Box className="w-full">
     {label && (
       <label className="block text-sm font-medium leading-6 text-gray-900 mb-1" htmlFor="inputText">
         {label}
       </label>
     )}
-    <Listbox value={value} onChange={onChange} name={name}>
+    <Listbox value={value} onChange={onChange} name={name} ref={ref}>
       {({ open }) => (
         <Box className="relative">
           <Listbox.Button
@@ -121,4 +124,4 @@ const Select: FC<SelectProps> = ({
   </Box>
 );
 
-export default Select;
+export default forwardRef(Select);

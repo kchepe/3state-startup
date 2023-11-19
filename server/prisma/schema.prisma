@@ -65,14 +65,14 @@ model Properties {
   user           Users?   @relation(fields: [userId], references: [id])
   address        String
   amenities      String[]
-  balcony        Boolean
+  balcony        Boolean?
   barangay       String
-  bathroom       Int
-  bedroom        Int
+  bathroom       Int?
+  bedroom        Int?
   city           String
   description    String
   floorAreaInSqm Int
-  furnishing     String
+  furnishing     String?
   status         PropertyStatus
   latitude       String
   longitude      String

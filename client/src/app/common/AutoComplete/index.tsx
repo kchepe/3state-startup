@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { ForwardRefRenderFunction, forwardRef, useEffect, useState } from 'react';
 import { Combobox } from '@headlessui/react';
 import clsx from 'clsx';
 import Check from '@/app/icons/Check';
@@ -17,18 +17,21 @@ export interface AutoCompleteProps extends SelectProps {
   disabled?: boolean;
 }
 
-const AutoComplete: FC<AutoCompleteProps> = ({
-  options = [],
-  value = { label: '', value: '' },
-  onChange,
-  name = '',
-  label = '',
-  contained,
-  outlined,
-  className,
-  placeholder = 'Search here',
-  disabled,
-}) => {
+const AutoComplete: ForwardRefRenderFunction<HTMLSelectElement, AutoCompleteProps> = (
+  {
+    options = [],
+    value = { label: '', value: '' },
+    onChange,
+    name = '',
+    label = '',
+    contained,
+    outlined,
+    className,
+    placeholder = 'Search here',
+    disabled,
+  },
+  ref,
+) => {
   const [query, setQuery] = useState('');
 
   const filteredOptions =
@@ -41,7 +44,7 @@ const AutoComplete: FC<AutoCompleteProps> = ({
   }, [options]);
 
   return (
-    <Combobox as="div" value={value} onChange={onChange} name={name} disabled={disabled}>
+    <Combobox as="div" value={value} onChange={onChange} name={name} disabled={disabled} ref={ref}>
       {label && (
         <Combobox.Label className="block text-sm font-medium leading-6 text-gray-900 mb-1">
           {label}
@@ -115,4 +118,4 @@ const AutoComplete: FC<AutoCompleteProps> = ({
   );
 };
 
-export default AutoComplete;
+export default forwardRef(AutoComplete);

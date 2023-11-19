@@ -10,13 +10,13 @@ export class CreatePropertyDTO {
   amenities: string[];
   @Field(() => [String])
   images: string[];
-  @Field()
+  @Field({ nullable: true })
   balcony: boolean;
   @Field()
   barangay: string;
-  @Field()
+  @Field({ nullable: true })
   bathroom: number;
-  @Field()
+  @Field({ nullable: true })
   bedroom: number;
   @Field()
   city: string;
@@ -24,7 +24,7 @@ export class CreatePropertyDTO {
   description: string;
   @Field()
   floorAreaInSqm: number;
-  @Field()
+  @Field({ nullable: true })
   furnishing: string;
   @Field()
   status: 'forSale' | 'forRent' | 'occupied' | 'sold';
@@ -34,7 +34,7 @@ export class CreatePropertyDTO {
   longitude: string;
   @Field()
   lotAreaInSqm: number;
-  @Field()
+  @Field({ nullable: true })
   parkingSpace: number;
   @Field()
   price: string;

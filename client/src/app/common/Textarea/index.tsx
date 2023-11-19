@@ -1,20 +1,24 @@
 import clsx from 'clsx';
-import React, { FC, InputHTMLAttributes } from 'react';
+import React, { ComponentProps, ForwardRefRenderFunction, forwardRef } from 'react';
 import Box from '../Box';
 import Text from '../Text';
 
-export interface TextareaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends Omit<ComponentProps<'textarea'>, 'ref'> {
   label?: string;
   className?: string;
   contained?: boolean;
   rows?: number;
 }
 
-const Textarea: FC<TextareaProps> = ({ label, className, contained, rows = 5, ...inputProps }) => (
+const Textarea: ForwardRefRenderFunction<HTMLTextAreaElement, TextareaProps> = (
+  { label, className, contained, rows = 5, ...inputProps },
+  ref,
+) => (
   <Box className="w-full">
     {label && <Text className="text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>}
     <textarea
       rows={rows}
+      ref={ref}
       autoComplete="off"
       className={clsx(
         className,
@@ -30,4 +34,4 @@ const Textarea: FC<TextareaProps> = ({ label, className, contained, rows = 5, ..
   </Box>
 );
 
-export default Textarea;
+export default forwardRef(Textarea);

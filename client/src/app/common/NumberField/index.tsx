@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { FC, ReactElement } from 'react';
+import React, { ForwardRefRenderFunction, ReactElement, forwardRef } from 'react';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 import Box from '../Box';
 import Text from '../Text';
@@ -13,15 +13,10 @@ export interface NumberFieldProps extends NumericFormatProps {
   contained?: boolean;
 }
 
-const NumberField: FC<NumberFieldProps> = ({
-  label,
-  className,
-  outlined = false,
-  startIcon,
-  endIcon,
-  contained,
-  ...inputProps
-}) => (
+const NumberField: ForwardRefRenderFunction<NumericFormatProps, NumberFieldProps> = (
+  { label, className, outlined = false, startIcon, endIcon, contained, ...inputProps },
+  ref,
+) => (
   <Box className="w-full">
     {label && (
       <Text className="block text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>
@@ -32,6 +27,7 @@ const NumberField: FC<NumberFieldProps> = ({
       </Box>
       <NumericFormat
         thousandSeparator=","
+        getInputRef={ref}
         autoComplete="off"
         className={clsx(
           className,
@@ -56,4 +52,4 @@ const NumberField: FC<NumberFieldProps> = ({
   </Box>
 );
 
-export default NumberField;
+export default forwardRef(NumberField);

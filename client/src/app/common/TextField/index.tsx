@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import React, { ComponentProps, FC, ReactElement } from 'react';
+import React, { ComponentProps, ForwardRefRenderFunction, ReactElement, forwardRef } from 'react';
 import Box from '../Box';
 import Text from '../Text';
 
-export interface TextFieldProps extends ComponentProps<'input'> {
+export interface TextFieldProps extends Omit<ComponentProps<'input'>, 'ref'> {
   label?: string;
   className?: string;
   outlined?: boolean;
@@ -12,15 +12,10 @@ export interface TextFieldProps extends ComponentProps<'input'> {
   contained?: boolean;
 }
 
-const TextField: FC<TextFieldProps> = ({
-  label,
-  className,
-  outlined = false,
-  startIcon,
-  endIcon,
-  contained,
-  ...inputProps
-}) => (
+const TextField: ForwardRefRenderFunction<HTMLInputElement, TextFieldProps> = (
+  { label, className, outlined = false, startIcon, endIcon, contained, ...inputProps },
+  ref,
+) => (
   <Box className="w-full">
     {label && <Text className="text-sm font-medium leading-6 text-gray-900 mb-1">{label}</Text>}
     <Box className="relative">
@@ -29,6 +24,7 @@ const TextField: FC<TextFieldProps> = ({
       </Box>
       <input
         autoComplete="off"
+        ref={ref}
         className={clsx(
           className,
           'w-full p-4 rounded text-gray-800',
@@ -53,4 +49,4 @@ const TextField: FC<TextFieldProps> = ({
   </Box>
 );
 
-export default TextField;
+export default forwardRef(TextField);

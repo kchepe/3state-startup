@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Controller, get, useFormContext } from 'react-hook-form';
+import { get, useController, useFormContext } from 'react-hook-form';
 import { clsx } from 'clsx';
 import Text from '../Text';
 import Box from '../Box';
@@ -15,22 +15,22 @@ const AutoCompleteForm: FC<AutoCompleteFormProps> = ({ name, ...selectProps }) =
     formState: { errors },
   } = useFormContext();
 
+  const { field } = useController({
+    name,
+    control,
+  });
+
   const error = get(errors, name);
   return (
     <Box>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field: { ref, ...selectField } }) => (
-          <AutoComplete
-            className={clsx({
-              'border-red-500 bg-red-500 bg-opacity-20': errors[name],
-            })}
-            {...selectField}
-            {...selectProps}
-          />
-        )}
+      <AutoComplete
+        className={clsx({
+          'border-red-500 bg-red-500 bg-opacity-20': errors[name],
+        })}
+        {...field}
+        {...selectProps}
       />
+
       {errors[name] && <Text variant="error">{error?.value.message.toString()}</Text>}
     </Box>
   );

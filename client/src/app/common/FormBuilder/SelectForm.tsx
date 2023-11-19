@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Controller, get, useFormContext } from 'react-hook-form';
+import { get, useController, useFormContext } from 'react-hook-form';
 import clsx from 'clsx';
 import Select, { SelectProps } from '../Select';
 import Text from '../Text';
@@ -17,20 +17,16 @@ const SelectForm: FC<SelectFormProps> = ({ name, ...selectProps }) => {
 
   const error = get(errors, name);
 
+  const { field } = useController({ name, control });
+
   return (
     <Box>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field: { ref, ...selectField } }) => (
-          <Select
-            className={clsx({
-              'border-red-500 bg-red-500 bg-opacity-20': errors[name],
-            })}
-            {...selectField}
-            {...selectProps}
-          />
-        )}
+      <Select
+        className={clsx({
+          'border-red-500 bg-red-500 bg-opacity-20': errors[name],
+        })}
+        {...field}
+        {...selectProps}
       />
       {errors[name] && <Text variant="error">{error?.value.message.toString()}</Text>}
     </Box>
