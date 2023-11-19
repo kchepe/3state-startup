@@ -4,7 +4,6 @@ import Box from '@/app/common/Box';
 import Text from '@/app/common/Text';
 import Peso from '@/app/icons/Peso';
 import Location from '@/app/icons/Location';
-import Bed from '@/app/icons/Bed';
 import Square from '@/app/icons/Square';
 import getPropertyFullAddress from '@/app/utils/fullAddress.util';
 
@@ -29,10 +28,6 @@ const PropertyDetails: FC<PropertyDetailsProps> = ({ property }) => (
       <Text className="text-justify">{property.description}</Text>
     </Box>
     <Box className="flex flex-col sm:flex-row sm:items-center gap-3">
-      <Box className="flex item-center gap-2">
-        <Bed className="w-5 h-5" />
-        <Text>{property.bathroom} Bedroom</Text>
-      </Box>
       <Box className="flex item-center gap-2">
         <Square className="mt-0.5" />
         <Text>{property.floorAreaInSqm} Floor Area</Text>

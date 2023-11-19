@@ -11,15 +11,15 @@ import Checkbox from '@/app/common/Checkbox';
 const AmenitiesForm = () => {
   const { data } = useQueryAuthClient(GET_AMENITIES);
   const { setValue } = useFormContext();
-  const amenities = useWatch({ name: 'amenities' });
+  const fields = useWatch({ name: ['amenities', 'type'] });
 
   const handleCheckboxChange = (isChecked: boolean, newAmenity: string) => {
     if (isChecked) {
-      setValue('amenities', [...amenities, newAmenity]);
+      setValue('amenities', [...fields[0], newAmenity]);
     } else {
       setValue(
         'amenities',
-        amenities.filter((amenity: string) => amenity !== newAmenity),
+        fields[0].filter((amenity: string) => amenity !== newAmenity),
       );
     }
   };
@@ -28,20 +28,26 @@ const AmenitiesForm = () => {
     <Box className="flex flex-col gap-6">
       {data?.amenities.map((category: IAmenitiesWithCategory) => (
         <Box key={category.id}>
-          <Box className="font-semibold border-b pb-4 mb-6">
-            <Text>{capitalizeFirstString(category.categoryName)}</Text>
-          </Box>
-          <Box className="flex flex-wrap gap-8">
-            {category.amenities.map((amenity: IAmenities) => (
-              <Checkbox
-                id={amenity.id}
-                key={amenity.id}
-                label={amenity.name}
-                checked={amenities.includes(amenity.name)}
-                handleChange={(event) => handleCheckboxChange(event.target.checked, amenity.name)}
-              />
-            ))}
-          </Box>
+          {(fields[1].value !== 'land' || category.categoryName !== 'indoor') && (
+            <>
+              <Box className="font-semibold border-b pb-4 mb-6">
+                <Text>{capitalizeFirstString(category.categoryName)}</Text>
+              </Box>
+              <Box className="flex flex-wrap gap-8">
+                {category.amenities.map((amenity: IAmenities) => (
+                  <Checkbox
+                    id={amenity.id}
+                    key={amenity.id}
+                    label={amenity.name}
+                    checked={fields[0].includes(amenity.name)}
+                    handleChange={(event) =>
+                      handleCheckboxChange(event.target.checked, amenity.name)
+                    }
+                  />
+                ))}
+              </Box>
+            </>
+          )}
         </Box>
       ))}
     </Box>

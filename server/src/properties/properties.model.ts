@@ -13,13 +13,13 @@ export class Property {
   amenities: string[];
   @Field(() => [String])
   images: string[];
-  @Field()
+  @Field({ nullable: true })
   balcony: boolean;
   @Field()
   barangay: string;
-  @Field()
+  @Field({ nullable: true })
   bathroom: number;
-  @Field()
+  @Field({ nullable: true })
   bedroom: number;
   @Field()
   city: string;
@@ -27,7 +27,7 @@ export class Property {
   description: string;
   @Field()
   floorAreaInSqm: number;
-  @Field()
+  @Field({ nullable: true })
   furnishing: string;
   @Field()
   status: PropertyStatusType;
@@ -37,7 +37,7 @@ export class Property {
   longitude: string;
   @Field()
   lotAreaInSqm: string;
-  @Field()
+  @Field({ nullable: true })
   parkingSpace: number;
   @Field()
   price: string;

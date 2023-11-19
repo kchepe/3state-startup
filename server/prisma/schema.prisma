@@ -77,7 +77,7 @@ model Properties {
   latitude       String
   longitude      String
   lotAreaInSqm   Int
-  parkingSpace   Int
+  parkingSpace   Int?
   price          String
   province       String
   title          String

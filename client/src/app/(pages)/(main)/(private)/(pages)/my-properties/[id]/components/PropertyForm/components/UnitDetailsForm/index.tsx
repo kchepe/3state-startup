@@ -1,5 +1,6 @@
-import React from 'react';
-import { useWatch } from 'react-hook-form';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
+import { useFormContext, useWatch } from 'react-hook-form';
 import SelectForm from '@/app/common/FormBuilder/SelectForm';
 import InputNumber from '@/app/common/FormBuilder/InputNumber';
 import Box from '@/app/common/Box';
@@ -8,6 +9,22 @@ import InputForm from '@/app/common/FormBuilder/InputForm';
 
 const UnitDetailsForm = () => {
   const propertyType = useWatch({ name: 'type' });
+  const { unregister, register } = useFormContext();
+  useEffect(() => {
+    if (propertyType.value === 'land') {
+      unregister('bathroom');
+      unregister('bedroom');
+      unregister('parkingSpace');
+      unregister('balcony');
+      unregister('furnishing');
+    } else {
+      register('bathroom');
+      register('bedroom');
+      register('parkingSpace');
+      register('balcony');
+      register('furnishing');
+    }
+  }, [propertyType]);
 
   return (
     <Box className="grid grid-cols-12 gap-4">

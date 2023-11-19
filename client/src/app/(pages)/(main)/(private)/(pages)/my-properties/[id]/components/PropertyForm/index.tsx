@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FieldValues, SubmitHandler, useFormContext } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useMutation } from '@apollo/client';
@@ -22,6 +23,12 @@ const PropertyForm = () => {
   const { showError, showNotification } = useNotificationManager();
   const { data } = useSession();
 
+  useEffect(() => {
+    if (Object.keys(errors).length) {
+      showNotification('Please fill up the required fields', 'error');
+    }
+  }, [errors]);
+
   const { mutation: addProperty, loading: addPropertyLoading } = useMutationAuthClient(
     ADD_PROPERTY,
     {
@@ -34,13 +41,6 @@ const PropertyForm = () => {
       },
     },
   );
-
-  useEffect(() => {
-    if (Object.keys(errors).length) {
-      showNotification('Please fill up the required fields', 'error');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [errors]);
 
   const [uploadFiles, { loading: uploadFileLoading }] = useMutation(UPLOAD_FILES, {
     client: uploadClient,
@@ -63,8 +63,8 @@ const PropertyForm = () => {
             newProperty: {
               status: status.value,
               type: type.value,
-              balcony: balcony.value === 'yes',
-              furnishing: furnishing.value,
+              balcony: balcony && balcony.value === 'yes',
+              furnishing: furnishing && furnishing.value,
               province: province.label,
               images: result.uploadImageToS3,
               city: city.label,

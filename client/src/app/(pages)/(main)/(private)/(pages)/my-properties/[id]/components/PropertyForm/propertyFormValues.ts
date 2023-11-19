@@ -57,13 +57,10 @@ export const addPropertySchema = yup.object().shape({
     .number()
     .typeError('Parking space must be a number')
     .min(0, 'Parking space cannot be less than zero.'),
-  furnishing: yup
-    .object()
-    .shape({
-      label: yup.string().required('Furnishing is required'),
-      value: yup.string().required('Furnishing is required'),
-    })
-    .required('Furnishing is required.'),
+  furnishing: yup.object().shape({
+    label: yup.string(),
+    value: yup.string(),
+  }),
   balcony: yup.object().shape({
     label: yup.string(),
     value: yup.string(),
