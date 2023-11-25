@@ -17,12 +17,14 @@ const UnitDetailsForm = () => {
       unregister('parkingSpace');
       unregister('balcony');
       unregister('furnishing');
+      unregister('floorAreaInSqm');
     } else {
       register('bathroom');
       register('bedroom');
       register('parkingSpace');
       register('balcony');
       register('furnishing');
+      register('floorAreaInSqm');
     }
   }, [propertyType]);
 
@@ -47,18 +49,19 @@ const UnitDetailsForm = () => {
           contained
         />
       </Box>
-      <Box className="col-span-full">
-        <InputForm
-          name="floorAreaInSqm"
-          contained
-          type="number"
-          min={0}
-          label="Floor Area (sqm)"
-          placeholder="Enter Floor Area in square meters"
-        />
-      </Box>
+
       {propertyType.value !== 'land' && (
         <>
+          <Box className="col-span-full">
+            <InputForm
+              name="floorAreaInSqm"
+              contained
+              type="number"
+              min={0}
+              label="Floor Area (sqm)"
+              placeholder="Enter Floor Area in square meters"
+            />
+          </Box>
           <Box className="col-span-full">
             <InputForm
               name="bathroom"

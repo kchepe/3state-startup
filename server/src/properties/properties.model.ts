@@ -25,7 +25,7 @@ export class Property {
   city: string;
   @Field()
   description: string;
-  @Field()
+  @Field({ nullable: true })
   floorAreaInSqm: number;
   @Field({ nullable: true })
   furnishing: string;

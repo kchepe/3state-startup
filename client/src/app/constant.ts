@@ -1,3 +1,5 @@
+import { LatLngTuple } from 'leaflet';
+
 export const SERVER_URL = process.env.GRAPHQL_ENDPOINT_SERVER as string;
 export const CLIENT_URL = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT_CLIENT as string;
 
@@ -30,3 +32,5 @@ export const amenities = [
   'Fire Alarm',
 ];
 export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+export const defaultCenterMapLocation = [10.3338, 123.8941] as LatLngTuple;

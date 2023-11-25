@@ -53,6 +53,7 @@ const PropertyForm = () => {
     await uploadFiles({
       variables: {
         files: images,
+        propertyTitle: property.title,
       },
       onError: () => {
         showError();

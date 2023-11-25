@@ -15,6 +15,7 @@ export class S3Resolver {
     @Context() context,
     @Args({ name: 'files', type: () => [GraphQLUpload] })
     files: Upload[],
+    @Args('propertyTitle') propertyTitle: string,
   ) {
     const resolveFiles = files.map(async (file: Upload) => {
       const returnFile = await file;
@@ -46,6 +47,7 @@ export class S3Resolver {
     const result = await this.s3Service.uploadImage(
       bufferData,
       context.req.user.id,
+      propertyTitle,
     );
     return result;
   }

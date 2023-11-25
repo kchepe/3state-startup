@@ -4,6 +4,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import InputForm from '@/app/common/FormBuilder/InputForm';
 import Box from '@/app/common/Box';
+import { defaultCenterMapLocation } from '@/app/constant';
 
 const Map = dynamic(() => import('@/app/common/Map'), {
   ssr: false,
@@ -25,7 +26,7 @@ const MapLocationForm = () => (
       </Box>
     </Box>
     <Box className="h-[500px]">
-      <Map center={[10.3338, 123.8941]} zoom={6}>
+      <Map center={defaultCenterMapLocation} zoom={6}>
         <LocationMarker />
       </Map>
     </Box>

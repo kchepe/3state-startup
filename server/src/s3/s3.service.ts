@@ -7,11 +7,12 @@ export class S3Service {
   public async uploadImage(
     files: { filename: string; buffer: Buffer }[],
     userId: string,
+    propertyTitle: string,
   ) {
     try {
       const result = await Promise.all(
         files.map(async (file) => {
-          const key = `property_images/${userId}/${file.filename}`;
+          const key = `property_images/user-${userId}/${propertyTitle}/${file.filename}`;
           await s3Client.send(
             new PutObjectCommand({
               // change this in prod

@@ -1,6 +1,6 @@
 'use client';
 
-import { ForwardRefRenderFunction, forwardRef, useEffect, useState } from 'react';
+import { ForwardRefRenderFunction, forwardRef, useState } from 'react';
 import { Combobox } from '@headlessui/react';
 import clsx from 'clsx';
 import Check from '@/app/icons/Check';
@@ -38,10 +38,6 @@ const AutoComplete: ForwardRefRenderFunction<HTMLSelectElement, AutoCompleteProp
     query === ''
       ? options
       : options.filter((option) => option.label.toLowerCase().includes(query.toLowerCase()));
-
-  useEffect(() => {
-    setQuery('');
-  }, [options]);
 
   return (
     <Combobox as="div" value={value} onChange={onChange} name={name} disabled={disabled} ref={ref}>

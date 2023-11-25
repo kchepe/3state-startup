@@ -8,6 +8,7 @@ import usePropertyManager from '@/app/hooks/usePropertyManager';
 import Box from '@/app/common/Box';
 import useQueryClient from '@/app/hooks/Apollo/useQueryClient';
 import { GET_ALL_PROPERTIES } from '@/app/gql/queries/properties';
+import { defaultCenterMapLocation } from '@/app/constant';
 import FilterToolBar from '../FIlterToolbar';
 import PropertyList from '../PropertyList';
 
@@ -50,10 +51,14 @@ const MainProperty: FC<MainPropertyProps> = ({ offerType }) => {
       {propertiesState.filter.showMap && (
         <Box className="hidden xl:block -mr-8 -my-4 flex-1">
           <Map
-            center={[
-              +data.getAllProperties.properties[0].latitude,
-              +data.getAllProperties.properties[0].longitude,
-            ]}
+            center={
+              data?.getAllProperties.properties.length
+                ? [
+                    +data.getAllProperties.properties[0].latitude,
+                    +data.getAllProperties.properties[0].longitude,
+                  ]
+                : defaultCenterMapLocation
+            }
             zoom={7}
           >
             {data.getAllProperties.properties.map((property: IProperty) => (

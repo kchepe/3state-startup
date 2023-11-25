@@ -71,7 +71,7 @@ model Properties {
   bedroom        Int?
   city           String
   description    String
-  floorAreaInSqm Int
+  floorAreaInSqm Int?
   furnishing     String?
   status         PropertyStatus
   latitude       String
