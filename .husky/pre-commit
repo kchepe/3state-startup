@@ -2,4 +2,4 @@
 
 . "$(dirname "$0")/_/husky.sh"
 
-cd ./client && yarn ts-lint-commit-hook && yarn eslint
+cd ./client && npm run ts-lint-commit-hook && npm run eslint

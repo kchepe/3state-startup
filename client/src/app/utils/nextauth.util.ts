@@ -11,7 +11,7 @@ const authOptions: NextAuthOptions = {
       credentials: { email: {}, password: {} },
       async authorize(credentials) {
         try {
-          const response = await fetch('http://host.docker.internal:3000/graphql', {
+          const response = await fetch('http://server:3000/graphql', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
@@ -27,6 +27,7 @@ const authOptions: NextAuthOptions = {
             }),
           });
           const data = await response.json();
+
           if (!data) {
             return null;
           }
@@ -47,7 +48,7 @@ const authOptions: NextAuthOptions = {
       return newSession;
     },
   },
-  // debug: process.env.ENVIRONMENT === 'development',
+  debug: process.env.ENVIRONMENT === 'development',
 };
 
 export default authOptions;
